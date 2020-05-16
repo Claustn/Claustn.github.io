@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Everyday :: XenoBlog — Random rants</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="/categories/everyday/" />
+
+
+
+
+<link rel="stylesheet" href="/assets/style.css">
+
+  <link rel="stylesheet" href="/assets/green.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="/img/favicon/green.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+  <meta name="twitter:site" content="" />
+
+<meta name="twitter:creator" content="" />
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Everyday :: XenoBlog">
+<meta property="og:description" content="" />
+<meta property="og:url" content="/categories/everyday/" />
+<meta property="og:site_name" content="Everyday" />
+
+  
+    <meta property="og:image" content="/img/favicon/green.png">
+  
+
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+
+
+
+
+  <link href="/categories/everyday/index.xml" rel="alternate" type="application/rss+xml" title="XenoBlog" />
+
+
+
+
+
+
+
+
+
+</head>
+<body class="">
+
+
+<div class="container center headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    XenoBlog
+  </div>
+</a>
+
+    </div>
+    <div class="menu-trigger">menu</div>
+  </div>
+  
+    <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="https://github.com/claustn">github</a></li>
+        
+      
+      
+    
+
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="https://github.com/claustn">github</a></li>
+      
+    
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="posts">
+  
+  
+
+  
+  
+  
+
+  
+  <div class="post on-list">
+    <h1 class="post-title">
+      <a href="/posts/2010-05-11-quest-ad-cmdlet-examples-from-my-presentation/">Quest AD Cmdlet examples from my Presentation</a></h1>
+    <div class="post-meta">
+      <span class="post-date">
+        2010-05-11
+      </span>
+      
+    </div>
+
+    
+    <span class="post-tags">
+      
+      #<a href="/tags/powershell/">PowerShell</a>&nbsp;
+      
+    </span>
+    
+
+    
+
+    <div class="post-content">
+      
+      
+      Example #1
+List users that expires within X days
+[ps]
+$DaysToExpire = 14
+$MaxPassAge = (Get-QADObject (Get-QADRootDSE).defaultNamingContextDN).MaximumPasswordAge.days
+[array]$a = Get-QADUser -Enabled -PasswordNeverExpires:$false -SizeLimit 0 -Email * |Select-Object Name,Email,@{Name=&quot;Expires”;Expression={ $MaxPassAge - $_.PasswordAge.days }} | where {$_.Expires -lt 0} | Sort-Object expires
+[/ps]
+Example #2
+Locate that Hyper-V Host
+[ps]
+Get-QADComputer | Where {$_.OSname -match “2008”} | % { Get-Service -ComputerName $_.Name} | where {$_.Displayname -match “hyper”} | select Machinename, Displayname
+#Kirk Munroe pointed out that Hyper-V actually registers ans SCP (Service Connection Point)
+      
+      
+    </div>
+
+    
+    <div>
+      <a class="read-more button"
+        href="/posts/2010-05-11-quest-ad-cmdlet-examples-from-my-presentation/">Read more →</a>
+    </div>
+    
+  </div>
+  
+  <div class="post on-list">
+    <h1 class="post-title">
+      <a href="/posts/2010-05-11-net-examples-from-presentation/">.Net Examples from Presentation</a></h1>
+    <div class="post-meta">
+      <span class="post-date">
+        2010-05-11
+      </span>
+      
+    </div>
+
+    
+    <span class="post-tags">
+      
+      #<a href="/tags/powershell/">PowerShell</a>&nbsp;
+      
+    </span>
+    
+
+    
+
+    <div class="post-content">
+      
+      
+      Example #1 (From Lee Holmes’ Powershell cookbook)
+“Compile C# code on the fly”
+[ps]
+$code =@’
+using System.Management.Automation;
+[Cmdlet(“Write”, “InputObject”)]
+public class MyWriteInputObjectCmdlet : Cmdlet
+{
+[Parameter]
+public string Parameter1;
+[Parameter(Mandatory = true, ValueFromPipeline=true)]
+public string InputObject;
+protected override void ProcessRecord()
+{
+if (Parameter1 != null)
+WriteObject(Parameter1 + “:” + InputObject);
+else
+WriteObject(InputObject);
+}
+}
+‘@
+Add-Type -TypeDefinition $code -OutputAssembly .\ExampleModule.dll
+Import-Module .\ExampleModule.dll
+[/ps]
+Example #2 (From Lee Holmes’ Powershell cookbook)
+      
+      
+    </div>
+
+    
+    <div>
+      <a class="read-more button"
+        href="/posts/2010-05-11-net-examples-from-presentation/">Read more →</a>
+    </div>
+    
+  </div>
+  
+  <div class="post on-list">
+    <h1 class="post-title">
+      <a href="/posts/2010-05-11-profile-examples-from-presentation/">Profile Examples from Presentation</a></h1>
+    <div class="post-meta">
+      <span class="post-date">
+        2010-05-11
+      </span>
+      
+    </div>
+
+    
+    <span class="post-tags">
+      
+      #<a href="/tags/pofiles/">Pofiles</a>&nbsp;
+      
+      #<a href="/tags/powershell/">PowerShell</a>&nbsp;
+      
+    </span>
+    
+
+    
+
+    <div class="post-content">
+      
+      
+      Here are some of the scripts that I used during the demonstration in VA Beach.
+Profiles:
+Example #1
+[ps]
+function prompt
+{
+“Xenophane &quot; + $(get-location) + “&gt;”
+}
+[/ps]
+Example #2
+[ps]
+function prompt
+{
+“Processes &quot; + (Get-Process).Count+ &quot; &quot; + $(get-location) + “&gt; &quot;
+}
+[/ps]
+Example #3 (Example taken from website)
+[ps]
+function Prompt
+{
+$id = 1
+$historyItem = Get-History -Count 1
+if($historyItem)
+{
+$id = $historyItem.
+      
+      
+    </div>
+
+    
+    <div>
+      <a class="read-more button"
+        href="/posts/2010-05-11-profile-examples-from-presentation/">Read more →</a>
+    </div>
+    
+  </div>
+  
+  <div class="post on-list">
+    <h1 class="post-title">
+      <a href="/posts/2009-12-14-mstsc-util-update/">MSTSC Util update</a></h1>
+    <div class="post-meta">
+      <span class="post-date">
+        2009-12-14
+      </span>
+      
+    </div>
+
+    
+
+    
+
+    <div class="post-content">
+      
+      
+      I was asked to update my MSTSC util, so here goes.. It will now check for the configuration file and display a message if it is not there, instead of just erroring out.
+I have tested it to work on Windows 7
+Here is the source code:
+[sourcecode lang=&quot;bash”]
+#Include &lt;constants .au3&gt;Opt(“TrayOnEventMode”,1)
+Opt(“TrayAutoPause”,0)
+Opt(“TrayMenuMode”,1) ; Default tray menu items (Script Paused/Exit) will not be shown.
+Global $server[100][3]
+$Console = TrayCreateMenu(“Console Connect”)
+      
+      
+    </div>
+
+    
+    <div>
+      <a class="read-more button"
+        href="/posts/2009-12-14-mstsc-util-update/">Read more →</a>
+    </div>
+    
+  </div>
+  
+  <div class="post on-list">
+    <h1 class="post-title">
+      <a href="/posts/2009-10-28-windows-management-framework-has-arrived/">Windows Management Framework has arrived</a></h1>
+    <div class="post-meta">
+      <span class="post-date">
+        2009-10-28
+      </span>
+      
+    </div>
+
+    
+
+    
+
+    <div class="post-content">
+      
+      
+      
+    </div>
+
+    
+    <div>
+      <a class="read-more button"
+        href="/posts/2009-10-28-windows-management-framework-has-arrived/">Read more →</a>
+    </div>
+    
+  </div>
+  
+  <div class="post on-list">
+    <h1 class="post-title">
+      <a href="/posts/2009-09-25-finding-out-how-many-active-sessions-are-on-a-server-2008-ts/">Finding out how many active sessions are on a Server 2008 TS</a></h1>
+    <div class="post-meta">
+      <span class="post-date">
+        2009-09-25
+      </span>
+      
+    </div>
+
+    
+
+    
+
+    <div class="post-content">
+      
+      
+      
+    </div>
+
+    
+    <div>
+      <a class="read-more button"
+        href="/posts/2009-09-25-finding-out-how-many-active-sessions-are-on-a-server-2008-ts/">Read more →</a>
+    </div>
+    
+  </div>
+  
+  <div class="post on-list">
+    <h1 class="post-title">
+      <a href="/posts/2009-09-23-set-executionpolicy/">Set-ExecutionPolicy</a></h1>
+    <div class="post-meta">
+      <span class="post-date">
+        2009-09-23
+      </span>
+      
+    </div>
+
+    
+
+    
+
+    <div class="post-content">
+      
+      
+      I was just playing with the Set-ExecutionPolicy cmdlet today, when I noticed that in V2, it is possible to change the execution policy for different scopes, even though you are not running your session using the “Run as administrator”.
+Lets say you want to set the executionpolicy to unrestricted for a single powershell process, you can do that using the -scope option like this
+Set-ExecutionPolicy -Scope Process Unrestricted
+This will prompt you if you want to change the execution policy for your “current” process.
+      
+      
+    </div>
+
+    
+    <div>
+      <a class="read-more button"
+        href="/posts/2009-09-23-set-executionpolicy/">Read more →</a>
+    </div>
+    
+  </div>
+  
+  <div class="post on-list">
+    <h1 class="post-title">
+      <a href="/posts/2009-09-04-windows-7-rsat/">Windows 7 &amp; RSAT</a></h1>
+    <div class="post-meta">
+      <span class="post-date">
+        2009-09-04
+      </span>
+      
+    </div>
+
+    
+    <span class="post-tags">
+      
+      #<a href="/tags/dism/">Dism</a>&nbsp;
+      
+      #<a href="/tags/posh/">PoSH</a>&nbsp;
+      
+      #<a href="/tags/ps/">PS</a>&nbsp;
+      
+    </span>
+    
+
+    
+
+    <div class="post-content">
+      
+      
+      I finally found some time today to upgrade my primary work machine to Windows 7 RTM (Yeah). Since I do a lot of system administration one of the first things I put on there was my Powershell tools and RSAT. I went and got the RSAT tools from the MS website, I install it, go into “turn on/off Windows features” menu and click the to level check for RemoteAdministrationTools, in the hope that it would select all the admin tools, but no!
+      
+      
+    </div>
+
+    
+    <div>
+      <a class="read-more button"
+        href="/posts/2009-09-04-windows-7-rsat/">Read more →</a>
+    </div>
+    
+  </div>
+  
+  <div class="post on-list">
+    <h1 class="post-title">
+      <a href="/posts/2009-08-15-the-scripting-guys-have-done-it-again/">&ldquo;The Scripting Guy(s)) have done it again.</a></h1>
+    <div class="post-meta">
+      <span class="post-date">
+        2009-08-15
+      </span>
+      
+    </div>
+
+    
+
+    
+
+    <div class="post-content">
+      
+      
+      They have gone back and tagged all the scripts they have made during the last many years, and put up an easily searchable repository on their site on Technet.
+They are calling it the Script Gallery
+You can sort scripts now by:
+o Category
+o Affiliation (Microsoft or community)
+o Script language
+o Supported platforms
+o Tags
+o Recently added
+o Highest ranked
+o Most active
+o Most active (last seven days)
+      
+      
+    </div>
+
+    
+    <div>
+      <a class="read-more button"
+        href="/posts/2009-08-15-the-scripting-guys-have-done-it-again/">Read more →</a>
+    </div>
+    
+  </div>
+  
+  <div class="post on-list">
+    <h1 class="post-title">
+      <a href="/posts/2009-07-23-installing-exchange-2007-mgmt-tools-with-powershell-ctps/">Installing Exchange 2007 Mgmt tools with PowerShell CTP&rsquo;s</a></h1>
+    <div class="post-meta">
+      <span class="post-date">
+        2009-07-23
+      </span>
+      
+    </div>
+
+    
+
+    
+
+    <div class="post-content">
+      
+      
+      
+    </div>
+
+    
+    <div>
+      <a class="read-more button"
+        href="/posts/2009-07-23-installing-exchange-2007-mgmt-tools-with-powershell-ctps/">Read more →</a>
+    </div>
+    
+  </div>
+  
+  <div class="pagination">
+  <div class="pagination__buttons">
+    
+      <span class="button previous">
+        <a href="/categories/everyday/page/4/">
+          <span class="button__icon">←</span>
+          <span class="button__text">Newer posts</span>
+        </a>
+      </span>
+    
+    
+      <span class="button next">
+        <a href="/categories/everyday/page/6/">
+          <span class="button__text">Older posts</span>
+          <span class="button__icon">→</span>
+        </a>
+      </span>
+    
+  </div>
+</div>
+
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2020 Powered by <a href="http://gohugo.io">Hugo</a></span>
+    
+        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

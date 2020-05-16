@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Playing around with profiles. :: XenoBlog — Random rants</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="In PowerShell you have the option create custom profiles that you can use, in the profiles you can create different aliases, change the prompt and a lot of other things, today we will look at adding some info to prompt. First we need to open profiles.ps1 , this file can be put in the WindowsPowershell folder under System32, or in the users \My Documents\WindowsPowerShell. If you are running vista, and want to play around with your profiles." />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="/posts/2007-07-10-playing-around-with-profiles/" />
+
+
+
+
+<link rel="stylesheet" href="/assets/style.css">
+
+  <link rel="stylesheet" href="/assets/green.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="/img/favicon/green.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+  <meta name="twitter:site" content="" />
+
+<meta name="twitter:creator" content="" />
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Playing around with profiles. :: XenoBlog">
+<meta property="og:description" content="In PowerShell you have the option create custom profiles that you can use, in the profiles you can create different aliases, change the prompt and a lot of other things, today we will look at adding some info to prompt. First we need to open profiles.ps1 , this file can be put in the WindowsPowershell folder under System32, or in the users \My Documents\WindowsPowerShell. If you are running vista, and want to play around with your profiles." />
+<meta property="og:url" content="/posts/2007-07-10-playing-around-with-profiles/" />
+<meta property="og:site_name" content="Playing around with profiles." />
+
+  
+    <meta property="og:image" content="/img/favicon/green.png">
+  
+
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+  <meta property="article:section" content="Tech Stuff" />
+
+
+  <meta property="article:published_time" content="2007-07-10 11:08:02 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body class="">
+
+
+<div class="container center headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    XenoBlog
+  </div>
+</a>
+
+    </div>
+    <div class="menu-trigger">menu</div>
+  </div>
+  
+    <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="https://github.com/claustn">github</a></li>
+        
+      
+      
+    
+
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="https://github.com/claustn">github</a></li>
+      
+    
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="/posts/2007-07-10-playing-around-with-profiles/">Playing around with profiles.</a></h1>
+  <div class="post-meta">
+      
+    <span class="post-date">
+      2007-07-10
+    </span>
+    
+    
+  </div>
+
+  
+  <span class="post-tags">
+    
+    #<a href="/tags/code/">code</a>&nbsp;
+    
+    #<a href="/tags/link/">link</a>&nbsp;
+    
+    #<a href="/tags/playing/">playing</a>&nbsp;
+    
+    #<a href="/tags/posh/">PoSH</a>&nbsp;
+    
+    #<a href="/tags/powershell/">PowerShell</a>&nbsp;
+    
+    #<a href="/tags/profile/">Profile</a>&nbsp;
+    
+    #<a href="/tags/prompt/">prompt</a>&nbsp;
+    
+    #<a href="/tags/ps/">PS</a>&nbsp;
+    
+    #<a href="/tags/scripting/">Scripting</a>&nbsp;
+    
+    #<a href="/tags/xenophane/">Xenophane</a>&nbsp;
+    
+  </span>
+  
+
+  
+
+  <div class="post-content"><div>
+        <p>In PowerShell you have the option create custom profiles that you can use, in the profiles you can create different aliases, change the prompt and a lot of other things, today we will look at adding some info to prompt. First we need to open profiles.ps1 , this file can be put in the WindowsPowershell folder under System32, or in the users \My Documents\WindowsPowerShell. If you are running vista, and want to play around with your profiles.ps1 file, I would put it in the \My Documents\WindowsPowerShell folder, since you have permission to write to files in that dir. (You can read more about profiles<a href="http://pshell.info/basics/133/customizing-powershell-with-a-profile/">here</a><br>
+Well ok… on with the coding.. Lets say you want to add some basic info to your prompt.<br>
+When you start up powershell for the first time, your prompt will be defined as</p>
+<p> <code>“PS “ + $(get-location) + &quot;&gt;”</code></p>
+<p>When you open your profile.ps1 file (There is a template in C:\Windows\System32\WindowsPowerShell\v1.0\Examples\profile.ps1) you will find a function called<br>
+“ prompt”, this is where you will make the following changes.<br>
+The simplest alteration you can make is changing PS to your name</p>
+<p><code>“Xenophane “ + $(get-location) + &quot;&gt;” </code><br>
+Will give a prompt like this “Xenophane C:\Users\xen_”</p>
+<p>What if you want to know something about the system at the prompt, is that possible…. Of course it is…<br>
+Let say you want to know how many processes you are running</p>
+<p><code>function prompt { &quot;Processes &quot; + (Get-Process).Count+ &quot; &quot; + $(get-location) + &quot;&gt; &quot; }</code><br>
+Will give you a prompt like this: “ Processes 71 C:\Users\ctn_”</p>
+<p>But it is very annoying to see that info on the same line as your cursor, so lets add the info on the line over the cursor, and add some more information.</p>
+<p>`
+function prompt
+{
+[wmi]$Global:Cdrive=Get-WmiObject -query &ldquo;Select * from win32_logicaldisk where deviceid='c:'&rdquo;
+#Define Cdrive as global variable, which is type cast as a wmi
+$processcount=(Get-Process).Count
+#Define variable processcount as number of processes running
+$cpuload=(Get-WmiObject win32_processor).loadpercentage
+#cpuload is defined as a variable
+$diskinfoC=&rdquo; Free C: &ldquo;+&rdquo;{0:N2}&rdquo; -f (($global:Cdrive.freespace/1gb)/($global:cdrive.size/1gb)*100)+&rdquo;%&rdquo;
+#diskinfoC is defined, {0:N2} is .NET for 2 decimal places, -f is a the &ldquo;format&rdquo; property of the string object.</p>
+<h1 id="then-the-amount-of-free-space-on-drive-c-is-divided-by-the-size-of-drive-c-multiplies-by-100-to-get">Then the amount of free space on drive C is divided by the size of drive C multiplies by 100 to get<a href="#then-the-amount-of-free-space-on-drive-c-is-divided-by-the-size-of-drive-c-multiplies-by-100-to-get" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
+<p>#the percentage of free space.
+$time=Get-WmiObject -class Win32_OperatingSystem
+#Define $time is object Win32_OperatingSystem
+$t=$time.ConvertToDateTime($time.Lastbootuptime)
+#Define #t as the result of the convertion of LastBootuptime into a readable dateTime format.
+[TimeSpan]$uptime=New-TimeSpan $t $(get-date)
+#Typecast the variable $uptime as a [timespan], the timespan cmdlet in powershell is a way to do date arithmetic in ps
+#This way we can compare our variable $t (Which was Lastbootuptime) and the current time Get-date cmdlet
+$up=&quot;$($uptime.days)d $($uptime.hours)h $($uptime.minutes)m $($uptime.seconds)s&rdquo;
+#define variable $up to display the uptime in days/hours/minuted/seconds
+$TextToDisplay=&quot;CPU:&ldquo;+$cpuload+&rdquo;% Processes:&rdquo; + $processcount + $diskinfoC+ &quot; &quot; + $diskinfoG+ &quot; &ldquo;+ ([char]0x25b2)+$up +&rdquo; &ldquo;+(Get-Date -format g)
+#define one variable that contains all the data we collected so far.
+Write-Host -fore red $TextToDisplay
+#Write the information to the screen in red
+Write-Host &ldquo;My PoSh:&rdquo; $(get-location) -nonewline
+#Display the regular prompt.
+}
+`<br>
+One other thing to be aware of is that PowerShell by default will not let you run scripts, so in order to run scripts like profile.ps1 you need to loosen up the security, to get help you can type the command &ldquo;get-help about_signing&rdquo; in a powershell command prompt. I have chosen to use RemotedSigned which will let me run scripts locally on the machine. But you can read about the different security levels in the help file.</p>
+<p><a href="http://www.xipher.dk/WordPress/wp-content/uploads/2007/07/profile-published.txt" title="Profile txt file">Profile txt file</a></p>
+
+      </div></div>
+
+  
+  
+<div class="pagination">
+    <div class="pagination__title">
+        <span class="pagination__title-h">Read other posts</span>
+        <hr />
+    </div>
+    <div class="pagination__buttons">
+        
+        <span class="button previous">
+            <a href="/posts/2007-09-25-speedreading/">
+                <span class="button__icon">←</span>
+                <span class="button__text">SpeedReading</span>
+            </a>
+        </span>
+        
+        
+        <span class="button next">
+            <a href="/posts/2007-06-28-a-little-more-fun-with-the-eventlog-in-powershell/">
+                <span class="button__text">A little more fun with the eventlog in PowerShell</span>
+                <span class="button__icon">→</span>
+            </a>
+        </span>
+        
+    </div>
+</div>
+
+  
+
+  
+
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2020 Powered by <a href="http://gohugo.io">Hugo</a></span>
+    
+        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Getting info from the eventlog with PowerShell :: XenoBlog — Random rants</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="Started playing around with PowerShell, so I thought I would post a few simple things on the blog, maybe you won&amp;rsquo;t find it interesting, but it is a good way for me to remember, so BLAH!.
+First in order to get information from the eventlog you call the cmdlet called:
+get-eventlog
+Then you need to tell it what you want to get.
+get-eventlog -logname Application
+Which will get you the Application log on the local machine." />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="/posts/2007-06-18-getting-info-from-the-eventlog-with-powershell/" />
+
+
+
+
+<link rel="stylesheet" href="/assets/style.css">
+
+  <link rel="stylesheet" href="/assets/green.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="/img/favicon/green.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+  <meta name="twitter:site" content="" />
+
+<meta name="twitter:creator" content="" />
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Getting info from the eventlog with PowerShell :: XenoBlog">
+<meta property="og:description" content="Started playing around with PowerShell, so I thought I would post a few simple things on the blog, maybe you won&amp;rsquo;t find it interesting, but it is a good way for me to remember, so BLAH!.
+First in order to get information from the eventlog you call the cmdlet called:
+get-eventlog
+Then you need to tell it what you want to get.
+get-eventlog -logname Application
+Which will get you the Application log on the local machine." />
+<meta property="og:url" content="/posts/2007-06-18-getting-info-from-the-eventlog-with-powershell/" />
+<meta property="og:site_name" content="Getting info from the eventlog with PowerShell" />
+
+  
+    <meta property="og:image" content="/img/favicon/green.png">
+  
+
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+  <meta property="article:section" content="Tech Stuff" />
+
+
+  <meta property="article:published_time" content="2007-06-18 15:14:13 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body class="">
+
+
+<div class="container center headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    XenoBlog
+  </div>
+</a>
+
+    </div>
+    <div class="menu-trigger">menu</div>
+  </div>
+  
+    <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="https://github.com/claustn">github</a></li>
+        
+      
+      
+    
+
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="https://github.com/claustn">github</a></li>
+      
+    
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="/posts/2007-06-18-getting-info-from-the-eventlog-with-powershell/">Getting info from the eventlog with PowerShell</a></h1>
+  <div class="post-meta">
+      
+    <span class="post-date">
+      2007-06-18
+    </span>
+    
+    
+  </div>
+
+  
+  <span class="post-tags">
+    
+    #<a href="/tags/eventlog/">Eventlog</a>&nbsp;
+    
+    #<a href="/tags/posh/">PoSH</a>&nbsp;
+    
+    #<a href="/tags/powershell/">PowerShell</a>&nbsp;
+    
+    #<a href="/tags/ps/">PS</a>&nbsp;
+    
+    #<a href="/tags/scripting/">Scripting</a>&nbsp;
+    
+  </span>
+  
+
+  
+
+  <div class="post-content"><div>
+        <p>Started playing around with PowerShell, so I thought I would post a few simple things on the blog, maybe you won&rsquo;t find it interesting, but it is a good way for me to remember, so BLAH!.</p>
+<p>First in order to get information from the eventlog you call the cmdlet called:<br>
+<code>get-eventlog</code></p>
+<p>Then you need to tell it what you want to get.<br>
+<code>get-eventlog -logname Application</code></p>
+<p><!-- raw HTML omitted -->Which will get you the Application log on the local machine.<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->That will list the entire Application eventlog to the screen, which is usually a lot of data. So we want to be able to pick specific data out of the eventlog, and here is a way to do it.<!-- raw HTML omitted --></p>
+<p><code>get-eventlog -logname Application -newest 50 | where {$_.EventID -eq &quot;1&quot;} </code></p>
+<p>What this does is, it gets the Application eventlog, and gives me an object with the newest 50 entries, i pipe this object into another function called &ldquo;where&rdquo;,  I tell &ldquo;where&rdquo; to show me all objects where EventID is equal to 1. I this case you see I use $_.EventID, the $_ in powershell represents the object the as being passed into the new function, so in this case $_ represents the newest 50 values in the Application Eventlog.</p>
+
+      </div></div>
+
+  
+  
+<div class="pagination">
+    <div class="pagination__title">
+        <span class="pagination__title-h">Read other posts</span>
+        <hr />
+    </div>
+    <div class="pagination__buttons">
+        
+        <span class="button previous">
+            <a href="/posts/2007-06-28-a-little-more-fun-with-the-eventlog-in-powershell/">
+                <span class="button__icon">←</span>
+                <span class="button__text">A little more fun with the eventlog in PowerShell</span>
+            </a>
+        </span>
+        
+        
+        <span class="button next">
+            <a href="/posts/2007-06-13-very-good-beginners-guide-to-powershell/">
+                <span class="button__text">Very good beginners guide to PowerShell</span>
+                <span class="button__icon">→</span>
+            </a>
+        </span>
+        
+    </div>
+</div>
+
+  
+
+  
+
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2020 Powered by <a href="http://gohugo.io">Hugo</a></span>
+    
+        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

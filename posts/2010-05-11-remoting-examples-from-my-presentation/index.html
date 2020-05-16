@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Remoting examples from my presentation :: XenoBlog — Random rants</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="Example #1
+[ps]
+#Sessions
+#Single Session
+$Session = New-PSSession -ComputerName &amp;ldquo;computername&amp;rdquo;
+#Multiple Sessions
+$Session = New-PSSession -ComputerName &amp;ldquo;comp1&amp;rdquo;,&amp;ldquo;comp2&amp;rdquo;&amp;hellip;..
+#Remove all Sessions
+Remove-PSSession *
+#Remove Named Session
+Remove-PSSession $Session
+#Using $session
+Invoke-Command {ipconfig} -Session $Session
+Enter-PSSession -Session $session
+[/sourcecode]
+Example #2
+[sourcecode lang=&amp;quot;PosH&amp;rdquo;]
+$session = New-PSSession -ComputerName &amp;ldquo;compname&amp;rdquo;
+Invoke-Command {Import-Module ActiveDirectory} -Session $session
+Import-PSSession -Session $session -Module ActiveDirectory -Prefix &amp;ldquo;ctn&amp;rdquo;
+notepad (Get-Module).path
+Get-Command *ctn*
+[/ps]" />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="/posts/2010-05-11-remoting-examples-from-my-presentation/" />
+
+
+
+
+<link rel="stylesheet" href="/assets/style.css">
+
+  <link rel="stylesheet" href="/assets/green.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="/img/favicon/green.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+  <meta name="twitter:site" content="" />
+
+<meta name="twitter:creator" content="" />
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Remoting examples from my presentation :: XenoBlog">
+<meta property="og:description" content="Example #1
+[ps]
+#Sessions
+#Single Session
+$Session = New-PSSession -ComputerName &amp;ldquo;computername&amp;rdquo;
+#Multiple Sessions
+$Session = New-PSSession -ComputerName &amp;ldquo;comp1&amp;rdquo;,&amp;ldquo;comp2&amp;rdquo;&amp;hellip;..
+#Remove all Sessions
+Remove-PSSession *
+#Remove Named Session
+Remove-PSSession $Session
+#Using $session
+Invoke-Command {ipconfig} -Session $Session
+Enter-PSSession -Session $session
+[/sourcecode]
+Example #2
+[sourcecode lang=&amp;quot;PosH&amp;rdquo;]
+$session = New-PSSession -ComputerName &amp;ldquo;compname&amp;rdquo;
+Invoke-Command {Import-Module ActiveDirectory} -Session $session
+Import-PSSession -Session $session -Module ActiveDirectory -Prefix &amp;ldquo;ctn&amp;rdquo;
+notepad (Get-Module).path
+Get-Command *ctn*
+[/ps]" />
+<meta property="og:url" content="/posts/2010-05-11-remoting-examples-from-my-presentation/" />
+<meta property="og:site_name" content="Remoting examples from my presentation" />
+
+  
+    <meta property="og:image" content="/img/favicon/green.png">
+  
+
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+  <meta property="article:section" content="Tech Stuff" />
+
+
+  <meta property="article:published_time" content="2010-05-11 22:14:45 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body class="">
+
+
+<div class="container center headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    XenoBlog
+  </div>
+</a>
+
+    </div>
+    <div class="menu-trigger">menu</div>
+  </div>
+  
+    <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="https://github.com/claustn">github</a></li>
+        
+      
+      
+    
+
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="https://github.com/claustn">github</a></li>
+      
+    
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="/posts/2010-05-11-remoting-examples-from-my-presentation/">Remoting examples from my presentation</a></h1>
+  <div class="post-meta">
+      
+    <span class="post-date">
+      2010-05-11
+    </span>
+    
+    
+  </div>
+
+  
+  <span class="post-tags">
+    
+    #<a href="/tags/powershell/">PowerShell</a>&nbsp;
+    
+  </span>
+  
+
+  
+
+  <div class="post-content"><div>
+        <p>Example #1</p>
+<p>[ps]<br>
+#Sessions</p>
+<p>#Single Session<br>
+$Session = New-PSSession -ComputerName &ldquo;computername&rdquo;</p>
+<p>#Multiple Sessions</p>
+<p>$Session = New-PSSession -ComputerName &ldquo;comp1&rdquo;,&ldquo;comp2&rdquo;&hellip;..</p>
+<p>#Remove all Sessions</p>
+<p>Remove-PSSession *</p>
+<p>#Remove Named Session</p>
+<p>Remove-PSSession $Session</p>
+<p>#Using $session<br>
+Invoke-Command {ipconfig} -Session $Session</p>
+<p>Enter-PSSession -Session $session<br>
+[/sourcecode]</p>
+<p>Example #2</p>
+<p>[sourcecode lang=&quot;PosH&rdquo;]<br>
+$session = New-PSSession -ComputerName &ldquo;compname&rdquo;</p>
+<p>Invoke-Command {Import-Module ActiveDirectory} -Session $session</p>
+<p>Import-PSSession -Session $session -Module ActiveDirectory -Prefix &ldquo;ctn&rdquo;</p>
+<p>notepad (Get-Module).path</p>
+<p>Get-Command *ctn*</p>
+<p>[/ps]</p>
+
+      </div></div>
+
+  
+  
+<div class="pagination">
+    <div class="pagination__title">
+        <span class="pagination__title-h">Read other posts</span>
+        <hr />
+    </div>
+    <div class="pagination__buttons">
+        
+        <span class="button previous">
+            <a href="/posts/2010-05-11-powershell-presentation-from-2010-minasi-conference/">
+                <span class="button__icon">←</span>
+                <span class="button__text">PowerShell presentation from 2010 Minasi Conference</span>
+            </a>
+        </span>
+        
+        
+        <span class="button next">
+            <a href="/posts/2010-05-11-quest-ad-cmdlet-examples-from-my-presentation/">
+                <span class="button__text">Quest AD Cmdlet examples from my Presentation</span>
+                <span class="button__icon">→</span>
+            </a>
+        </span>
+        
+    </div>
+</div>
+
+  
+
+  
+
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2020 Powered by <a href="http://gohugo.io">Hugo</a></span>
+    
+        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

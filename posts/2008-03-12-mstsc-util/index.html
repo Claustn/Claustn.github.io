@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>MSTSC Util :: XenoBlog — Random rants</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="A while back I needed to connect to different servers quite often via mstsc, and a lot of the times I needed a console connection to the specific server, so I decided to write a small app, so I did not have to type Mstsc /v:server /console all the time.
+I decided to make a small AutoIT app, that would dock in the systray.
+
+What it does is, it reads a list of servers from an ." />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="/posts/2008-03-12-mstsc-util/" />
+
+
+
+
+<link rel="stylesheet" href="/assets/style.css">
+
+  <link rel="stylesheet" href="/assets/green.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="/img/favicon/green.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+  <meta name="twitter:site" content="" />
+
+<meta name="twitter:creator" content="" />
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="MSTSC Util :: XenoBlog">
+<meta property="og:description" content="A while back I needed to connect to different servers quite often via mstsc, and a lot of the times I needed a console connection to the specific server, so I decided to write a small app, so I did not have to type Mstsc /v:server /console all the time.
+I decided to make a small AutoIT app, that would dock in the systray.
+
+What it does is, it reads a list of servers from an ." />
+<meta property="og:url" content="/posts/2008-03-12-mstsc-util/" />
+<meta property="og:site_name" content="MSTSC Util" />
+
+  
+    <meta property="og:image" content="/img/favicon/green.png">
+  
+
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+  <meta property="article:section" content="Tech Stuff" />
+
+
+  <meta property="article:published_time" content="2008-03-12 16:44:02 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body class="">
+
+
+<div class="container center headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    XenoBlog
+  </div>
+</a>
+
+    </div>
+    <div class="menu-trigger">menu</div>
+  </div>
+  
+    <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="https://github.com/claustn">github</a></li>
+        
+      
+      
+    
+
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="https://github.com/claustn">github</a></li>
+      
+    
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="/posts/2008-03-12-mstsc-util/">MSTSC Util</a></h1>
+  <div class="post-meta">
+      
+    <span class="post-date">
+      2008-03-12
+    </span>
+    
+    
+  </div>
+
+  
+  <span class="post-tags">
+    
+    #<a href="/tags/autoit/">AutoIT</a>&nbsp;
+    
+    #<a href="/tags/scripts/">scripts</a>&nbsp;
+    
+  </span>
+  
+
+  
+
+  <div class="post-content"><div>
+        <p>A while back I needed to connect to different servers quite often via mstsc, and a lot of the times I needed a console connection to the specific server, so I decided to write a small app, so I did not have to type Mstsc /v:server /console all the time.</p>
+<p>I decided to make a small AutoIT app, that would dock in the systray.<br>
+<a href="http://www.xipher.dk/WordPress/wp-content/uploads/2008-03-12_1630.png" title="Systray icon"><img src="/assets/images/2008-03-12_1630.thumbnail.png" alt="Systray icon"></a></p>
+<p>What it does is, it reads a list of servers from an .ini file, you need to prepopulate the list with the servers in your own environment like this.</p>
+<p><a href="http://www.xipher.dk/WordPress/wp-content/uploads/2008-03-12_1620.png" title="Servers.INI"><img src="/assets/images/2008-03-12_1620.thumbnail.png" alt="Servers.INI"></a></p>
+<p><a href="http://screencast.com/t/f5dqaHkGmZe">So what it ends up looking like in &ldquo;production&rdquo; is something like this&hellip;</a></p>
+<p>You can download the compiled app here&hellip;<br>
+<a href="http://www.xipher.dk/WordPress/wp-content/uploads/mstsc-tray-flex1.exe" title="Flex Console connect app by Xenophane">Flex Console connect app by Xenophane</a></p>
+<p>For the paranoid I will attach the AutoIT source code, so you can compile it your self :)</p>
+<p><code>#Include </code></p>
+<p>Opt(&ldquo;TrayOnEventMode&rdquo;,1)<br>
+Opt(&ldquo;TrayAutoPause&rdquo;,0)<br>
+Opt(&ldquo;TrayMenuMode&rdquo;,1) ; Default tray menu items (Script Paused/Exit) will not be shown.<br>
+Global $server[100][3]</p>
+<p>$Console = TrayCreateMenu(&ldquo;Console Connect&rdquo;)<br>
+$Regular = TrayCreateMenu(&ldquo;Regular Connect&rdquo;)</p>
+<p>$data = IniReadSection ( @ScriptDir&amp;&quot;\servers.ini&rdquo;, &ldquo;servers&rdquo; )</p>
+<p>;~ For $i = 1 To $data[0][0]<br>
+;~ MsgBox(4096, &ldquo;&quot;, &ldquo;Key: &quot; &amp; $data[$i][2] &amp; @CRLF &amp; &ldquo;Value: &quot; &amp; $data[$i][1])<br>
+;~ Next</p>
+<p>$server[0][0] = $data[0][0]<br>
+For $i = 1 to $data[0][0]<br>
+$server[$i][0] = TrayCreateItem($data[$i][0], $Console)<br>
+TrayItemSetOnEvent(-1, &ldquo;ServerConsole&rdquo;)<br>
+$server[$i][1] = TrayCreateItem($data[$i][0], $Regular)<br>
+TrayItemSetOnEvent(-1, &ldquo;ServerRegular&rdquo;)<br>
+$server[$i][2] = $data[$i][1]<br>
+Next</p>
+<p>TrayCreateItem(&quot;&quot;)<br>
+TrayCreateItem(&ldquo;About&rdquo;)<br>
+TrayItemSetOnEvent(-1, &ldquo;DoAbout&rdquo;)<br>
+TrayCreateItem(&quot;&quot;)<br>
+TrayCreateItem(&ldquo;Exit&rdquo;)<br>
+TrayItemSetOnEvent(-1, &ldquo;DoExit&rdquo;)</p>
+<p>TraySetState()</p>
+<p>While 1<br>
+Sleep(100)<br>
+WEnd</p>
+<p>Func DoAbout()<br>
+Msgbox(64,&ldquo;About:&quot;,&ldquo;Tool by Claus T. Nielsen&rdquo;)<br>
+EndFunc</p>
+<p>Func DoExit()<br>
+Exit<br>
+EndFunc</p>
+<p>Func ServerConsole()<br>
+For $i = 1 to $server[0][0]<br>
+If $server[$i][0] = @TRAY_ID Then<br>
+Run(&ldquo;mstsc -v:&quot;&amp;$server[$i][2]&amp;&rdquo; /F -console&rdquo;)<br>
+ExitLoop<br>
+EndIf<br>
+Next<br>
+EndFunc</p>
+<p>Func ServerRegular()<br>
+For $i = 1 to $server[0][0]<br>
+If $server[$i][1] = @TRAY_ID Then<br>
+Run(&ldquo;mstsc -v:&quot;&amp;$server[$i][2]&amp;&rdquo; &ldquo;)<br>
+ExitLoop<br>
+EndIf<br>
+Next<br>
+EndFunc</p>
+<p>Remember that the /console switch has been deprecated in Vista SP1, and replaced by the /admin switch, the above code does not reflect this change currently, but it is very easily changed.</p>
+
+      </div></div>
+
+  
+  
+<div class="pagination">
+    <div class="pagination__title">
+        <span class="pagination__title-h">Read other posts</span>
+        <hr />
+    </div>
+    <div class="pagination__buttons">
+        
+        <span class="button previous">
+            <a href="/posts/2008-04-01-tickets-booked-and-i-am-ready-to-go/">
+                <span class="button__icon">←</span>
+                <span class="button__text">Tickets booked and I am ready to go!</span>
+            </a>
+        </span>
+        
+        
+        <span class="button next">
+            <a href="/posts/2008-02-27-log-in-notepad/">
+                <span class="button__text">.LOG in notepad</span>
+                <span class="button__icon">→</span>
+            </a>
+        </span>
+        
+    </div>
+</div>
+
+  
+
+  
+
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2020 Powered by <a href="http://gohugo.io">Hugo</a></span>
+    
+        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Everyday :: XenoBlog — Random rants</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="/categories/everyday/" />
+
+
+
+
+<link rel="stylesheet" href="/assets/style.css">
+
+  <link rel="stylesheet" href="/assets/green.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="/img/favicon/green.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+  <meta name="twitter:site" content="" />
+
+<meta name="twitter:creator" content="" />
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Everyday :: XenoBlog">
+<meta property="og:description" content="" />
+<meta property="og:url" content="/categories/everyday/" />
+<meta property="og:site_name" content="Everyday" />
+
+  
+    <meta property="og:image" content="/img/favicon/green.png">
+  
+
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+
+
+
+
+  <link href="/categories/everyday/index.xml" rel="alternate" type="application/rss+xml" title="XenoBlog" />
+
+
+
+
+
+
+
+
+
+</head>
+<body class="">
+
+
+<div class="container center headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    XenoBlog
+  </div>
+</a>
+
+    </div>
+    <div class="menu-trigger">menu</div>
+  </div>
+  
+    <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="https://github.com/claustn">github</a></li>
+        
+      
+      
+    
+
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="https://github.com/claustn">github</a></li>
+      
+    
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="posts">
+  
+  
+
+  
+  
+  
+
+  
+  <div class="post on-list">
+    <h1 class="post-title">
+      <a href="/posts/2009-07-21-get-exchange-rates/">Get Exchange rates</a></h1>
+    <div class="post-meta">
+      <span class="post-date">
+        2009-07-21
+      </span>
+      
+    </div>
+
+    
+
+    
+
+    <div class="post-content">
+      
+      
+      I stumbled on a post about getting Exchange rates from a bank, from an online XML file.. So I thought I would try that with a local bank, I figured out the Danish national bank, has an XML file online with the current rates…
+[sourcecode lang=&quot;PosH”]
+#Get Exchange Rates from The Danish National Bank
+$wc = New-Object System.Net.WebClient
+$rates = [xml]$wc.DownloadString(“http://www.nationalbanken.dk/dndk/valuta.nsf/valuta.xml&quot;)
+$MonCode = @{Name=&quot;ValutaKode”;Expression = {$_.Code}}
+$Description = @{Name=&quot;Valuta”;Expression = {“100 &quot; + $_.
+      
+      
+    </div>
+
+    
+    <div>
+      <a class="read-more button"
+        href="/posts/2009-07-21-get-exchange-rates/">Read more →</a>
+    </div>
+    
+  </div>
+  
+  <div class="post on-list">
+    <h1 class="post-title">
+      <a href="/posts/2009-07-19-create-excel-spreadsheet/">Create Excel Spreadsheet</a></h1>
+    <div class="post-meta">
+      <span class="post-date">
+        2009-07-19
+      </span>
+      
+    </div>
+
+    
+    <span class="post-tags">
+      
+      #<a href="/tags/excel/">Excel</a>&nbsp;
+      
+      #<a href="/tags/powershell/">PowerShell</a>&nbsp;
+      
+    </span>
+    
+
+    
+
+    <div class="post-content">
+      
+      
+      The other day I was tasked with creating a spreadsheet containing a list of all servers in our network, manager wanted a “sheet” for each computer, and an “index” sheet with links to all the other sheets.
+Since we have more than 150 servers, there was no way I was going to create this list by hand… So I wrote a quick and dirty little Powershell function.
+[sourcecode lang=&quot;PosH”]
+Function Fill-Excel {
+      
+      
+    </div>
+
+    
+    <div>
+      <a class="read-more button"
+        href="/posts/2009-07-19-create-excel-spreadsheet/">Read more →</a>
+    </div>
+    
+  </div>
+  
+  <div class="post on-list">
+    <h1 class="post-title">
+      <a href="/posts/2009-03-30-deleting-empty-folders-in-outlook/">Deleting empty folders in Outlook</a></h1>
+    <div class="post-meta">
+      <span class="post-date">
+        2009-03-30
+      </span>
+      
+    </div>
+
+    
+    <span class="post-tags">
+      
+      #<a href="/tags/exchange/">Exchange</a>&nbsp;
+      
+      #<a href="/tags/folder/">Folder</a>&nbsp;
+      
+      #<a href="/tags/mail/">Mail</a>&nbsp;
+      
+      #<a href="/tags/outlook/">Outlook</a>&nbsp;
+      
+      #<a href="/tags/powershell/">PowerShell</a>&nbsp;
+      
+    </span>
+    
+
+    
+
+    <div class="post-content">
+      
+      
+      A friend of mine called me, and asked me for help… He had had a migration go wrong and had ended up with a bunch of .pst files containing 1000’s of emtpy folders. He had started cleaning up the .pst’s manually, after having spent several hours on one .pst file he decided on another approach, and this is where I came in.
+He asked if it was possible to write a script that would delete all the empty folders for him, I said to him that I bet it is possible, just not sure if I can do it, I have never really “scripted” Outlook before.
+      
+      
+    </div>
+
+    
+    <div>
+      <a class="read-more button"
+        href="/posts/2009-03-30-deleting-empty-folders-in-outlook/">Read more →</a>
+    </div>
+    
+  </div>
+  
+  <div class="post on-list">
+    <h1 class="post-title">
+      <a href="/posts/2009-03-11-get-mailboxinfo-powershell-script/">Get-Mailboxinfo Powershell script</a></h1>
+    <div class="post-meta">
+      <span class="post-date">
+        2009-03-11
+      </span>
+      
+    </div>
+
+    
+
+    
+
+    <div class="post-content">
+      
+      
+      $script:totalSize += ([System.Int64]$mailbox.Size)
+$script:totalItems += ([System.Int32]$mailbox.TotalItems)
+$script:totalDeleted += ([System.Int64]$mailbox.DeletedMessageSizeExtended)
+$script:totalMailboxes += 1
+}
+}
+}
+}
+“Mailbox name Mailbox size Item count Deleted size” | Out-File $OutPutFile -append
+“==================================================================================” | Out-File $OutPutFile -append
+Get-MailBoxInfo
+“==================================================================================” | Out-File $OutPutFile -append
+$string = ($script:totalMailboxes.ToString(“N0”) + &quot; mailboxes”).PadRight(40)
+$string += $script:totalSize.ToString(“N0”).PadLeft(12) + &quot; KB”
+$string += $script:totalItems.ToString(“N0”).PadLeft(9) + &quot; &quot;
+$string += $script:totalDeleted.ToString(“N0”).PadLeft(12) + &quot; KB”
+$string | Out-File $OutPutFile -append
+“==================================================================================” | Out-File $OutPutFile -append
+      
+      
+    </div>
+
+    
+    <div>
+      <a class="read-more button"
+        href="/posts/2009-03-11-get-mailboxinfo-powershell-script/">Read more →</a>
+    </div>
+    
+  </div>
+  
+  <div class="post on-list">
+    <h1 class="post-title">
+      <a href="/posts/2009-01-29-double-arrrgghhh/">Double arrrgghhh</a></h1>
+    <div class="post-meta">
+      <span class="post-date">
+        2009-01-29
+      </span>
+      
+    </div>
+
+    
+
+    
+
+    <div class="post-content">
+      
+      
+      
+    </div>
+
+    
+    <div>
+      <a class="read-more button"
+        href="/posts/2009-01-29-double-arrrgghhh/">Read more →</a>
+    </div>
+    
+  </div>
+  
+  <div class="post on-list">
+    <h1 class="post-title">
+      <a href="/posts/2009-01-22-aarrggghhh/">AArrggghhh</a></h1>
+    <div class="post-meta">
+      <span class="post-date">
+        2009-01-22
+      </span>
+      
+    </div>
+
+    
+
+    
+
+    <div class="post-content">
+      
+      
+      
+    </div>
+
+    
+    <div>
+      <a class="read-more button"
+        href="/posts/2009-01-22-aarrggghhh/">Read more →</a>
+    </div>
+    
+  </div>
+  
+  <div class="post on-list">
+    <h1 class="post-title">
+      <a href="/posts/2008-12-17-i-am-back/">I am back</a></h1>
+    <div class="post-meta">
+      <span class="post-date">
+        2008-12-17
+      </span>
+      
+    </div>
+
+    
+    <span class="post-tags">
+      
+      #<a href="/tags/back/">Back</a>&nbsp;
+      
+    </span>
+    
+
+    
+
+    <div class="post-content">
+      
+      
+      Have you missed me ??
+I know I have been away for a while, but between becoming a dad, starting a new job, having to get deep knowledge of several different enterprise products that I have not worked with before has taken some time… But now things are looking a little less hectic, so I hope to get some good PowerShell posts written up in the near future.
+In the very near future I will also write a post about the Minasi 2009 conference, that we are trying to put together for April 2009, there will be some exciting speakers lined up, but more to come one that soon.
+      
+      
+    </div>
+
+    
+    <div>
+      <a class="read-more button"
+        href="/posts/2008-12-17-i-am-back/">Read more →</a>
+    </div>
+    
+  </div>
+  
+  <div class="post on-list">
+    <h1 class="post-title">
+      <a href="/posts/2008-05-18-test-post/">Test Post</a></h1>
+    <div class="post-meta">
+      <span class="post-date">
+        2008-05-18
+      </span>
+      
+    </div>
+
+    
+
+    
+
+    <div class="post-content">
+      
+      
+      
+    </div>
+
+    
+    <div>
+      <a class="read-more button"
+        href="/posts/2008-05-18-test-post/">Read more →</a>
+    </div>
+    
+  </div>
+  
+  <div class="post on-list">
+    <h1 class="post-title">
+      <a href="/posts/2008-05-07-trying-out-new-syntax-highligther/">Trying out new Syntax Highligther</a></h1>
+    <div class="post-meta">
+      <span class="post-date">
+        2008-05-07
+      </span>
+      
+    </div>
+
+    
+
+    
+
+    <div class="post-content">
+      
+      
+      
+    </div>
+
+    
+    <div>
+      <a class="read-more button"
+        href="/posts/2008-05-07-trying-out-new-syntax-highligther/">Read more →</a>
+    </div>
+    
+  </div>
+  
+  <div class="post on-list">
+    <h1 class="post-title">
+      <a href="/posts/2008-04-19-aften-tide/">Aften tide&hellip;</a></h1>
+    <div class="post-meta">
+      <span class="post-date">
+        2008-04-19
+      </span>
+      
+    </div>
+
+    
+    <span class="post-tags">
+      
+      #<a href="/tags/2008/">2008</a>&nbsp;
+      
+      #<a href="/tags/forummeet/">Forummeet</a>&nbsp;
+      
+      #<a href="/tags/virgina/">Virgina</a>&nbsp;
+      
+    </span>
+    
+
+    
+
+    <div class="post-content">
+      
+      
+      Så har jeg lige snakket med min mor i telefonen…. Klokken er 20.45 herovre…. og 02.45 i Danmark….
+Er lige kommet tilbage, har kørt en tur rundt og set lidt af Washington by.. Der er rigtigt meget natur rundt omkring Washington, det havde jeg slet ikke forestillet mig, det er faktisk en rigtig flot by..
+Jeg havde ikke fået andet en fly mad, så jeg beslutte mig for at finde en bøf.
+      
+      
+    </div>
+
+    
+    <div>
+      <a class="read-more button"
+        href="/posts/2008-04-19-aften-tide/">Read more →</a>
+    </div>
+    
+  </div>
+  
+  <div class="pagination">
+  <div class="pagination__buttons">
+    
+      <span class="button previous">
+        <a href="/categories/everyday/page/5/">
+          <span class="button__icon">←</span>
+          <span class="button__text">Newer posts</span>
+        </a>
+      </span>
+    
+    
+      <span class="button next">
+        <a href="/categories/everyday/page/7/">
+          <span class="button__text">Older posts</span>
+          <span class="button__icon">→</span>
+        </a>
+      </span>
+    
+  </div>
+</div>
+
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2020 Powered by <a href="http://gohugo.io">Hugo</a></span>
+    
+        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Set-ExecutionPolicy :: XenoBlog — Random rants</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="I was just playing with the Set-ExecutionPolicy cmdlet today, when I noticed that in V2, it is possible to change the execution policy for different scopes, even though you are not running your session using the &amp;ldquo;Run as administrator&amp;rdquo;.
+Lets say you want to set the executionpolicy to unrestricted for a single powershell process, you can do that using the -scope option like this
+Set-ExecutionPolicy -Scope Process Unrestricted
+This will prompt you if you want to change the execution policy for your &amp;ldquo;current&amp;rdquo; process." />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="/posts/2009-09-23-set-executionpolicy/" />
+
+
+
+
+<link rel="stylesheet" href="/assets/style.css">
+
+  <link rel="stylesheet" href="/assets/green.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="/img/favicon/green.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+  <meta name="twitter:site" content="" />
+
+<meta name="twitter:creator" content="" />
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Set-ExecutionPolicy :: XenoBlog">
+<meta property="og:description" content="I was just playing with the Set-ExecutionPolicy cmdlet today, when I noticed that in V2, it is possible to change the execution policy for different scopes, even though you are not running your session using the &amp;ldquo;Run as administrator&amp;rdquo;.
+Lets say you want to set the executionpolicy to unrestricted for a single powershell process, you can do that using the -scope option like this
+Set-ExecutionPolicy -Scope Process Unrestricted
+This will prompt you if you want to change the execution policy for your &amp;ldquo;current&amp;rdquo; process." />
+<meta property="og:url" content="/posts/2009-09-23-set-executionpolicy/" />
+<meta property="og:site_name" content="Set-ExecutionPolicy" />
+
+  
+    <meta property="og:image" content="/img/favicon/green.png">
+  
+
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+  <meta property="article:section" content="Everyday" />
+
+
+  <meta property="article:published_time" content="2009-09-23 21:21:29 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body class="">
+
+
+<div class="container center headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    XenoBlog
+  </div>
+</a>
+
+    </div>
+    <div class="menu-trigger">menu</div>
+  </div>
+  
+    <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="https://github.com/claustn">github</a></li>
+        
+      
+      
+    
+
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="https://github.com/claustn">github</a></li>
+      
+    
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="/posts/2009-09-23-set-executionpolicy/">Set-ExecutionPolicy</a></h1>
+  <div class="post-meta">
+      
+    <span class="post-date">
+      2009-09-23
+    </span>
+    
+    
+  </div>
+
+  
+
+  
+
+  <div class="post-content"><div>
+        <p>I was just playing with the Set-ExecutionPolicy cmdlet today, when I noticed that in V2, it is possible to change the execution policy for different scopes, even though you are not running your session using the &ldquo;Run as administrator&rdquo;.</p>
+<p>Lets say you want to set the executionpolicy to unrestricted for a single powershell process, you can do that using the -scope option like this</p>
+<p>Set-ExecutionPolicy -Scope Process Unrestricted</p>
+<p>This will prompt you if you want to change the execution policy for your &ldquo;current&rdquo; process.</p>
+<p>There are 3 different scopes, Process, CurrentUser and LocalMachine, where Localmachine is computer wide setting for all users, this still requires &ldquo;admin rights&rdquo; to set.</p>
+
+      </div></div>
+
+  
+  
+<div class="pagination">
+    <div class="pagination__title">
+        <span class="pagination__title-h">Read other posts</span>
+        <hr />
+    </div>
+    <div class="pagination__buttons">
+        
+        <span class="button previous">
+            <a href="/posts/2009-09-25-finding-out-how-many-active-sessions-are-on-a-server-2008-ts/">
+                <span class="button__icon">←</span>
+                <span class="button__text">Finding out how many active sessions are on a Server 2008 TS</span>
+            </a>
+        </span>
+        
+        
+        <span class="button next">
+            <a href="/posts/2009-09-20-admgs-active-directory-management-gateway-service/">
+                <span class="button__text">ADMGS (Active Directory Management Gateway Service)</span>
+                <span class="button__icon">→</span>
+            </a>
+        </span>
+        
+    </div>
+</div>
+
+  
+
+  
+
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2020 Powered by <a href="http://gohugo.io">Hugo</a></span>
+    
+        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

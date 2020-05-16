@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>PowerShell :: XenoBlog — Random rants</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="/tags/powershell/" />
+
+
+
+
+<link rel="stylesheet" href="/assets/style.css">
+
+  <link rel="stylesheet" href="/assets/green.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="/img/favicon/green.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+  <meta name="twitter:site" content="" />
+
+<meta name="twitter:creator" content="" />
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="PowerShell :: XenoBlog">
+<meta property="og:description" content="" />
+<meta property="og:url" content="/tags/powershell/" />
+<meta property="og:site_name" content="PowerShell" />
+
+  
+    <meta property="og:image" content="/img/favicon/green.png">
+  
+
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+
+
+
+
+  <link href="/tags/powershell/index.xml" rel="alternate" type="application/rss+xml" title="XenoBlog" />
+
+
+
+
+
+
+
+
+
+</head>
+<body class="">
+
+
+<div class="container center headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    XenoBlog
+  </div>
+</a>
+
+    </div>
+    <div class="menu-trigger">menu</div>
+  </div>
+  
+    <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="https://github.com/claustn">github</a></li>
+        
+      
+      
+    
+
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="https://github.com/claustn">github</a></li>
+      
+    
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="posts">
+  
+  
+
+  
+  
+  
+
+  
+  <div class="post on-list">
+    <h1 class="post-title">
+      <a href="/posts/2014-09-08-adding-applications-to-emet/">Adding Applications to EMET</a></h1>
+    <div class="post-meta">
+      <span class="post-date">
+        2014-09-08
+      </span>
+      
+    </div>
+
+    
+    <span class="post-tags">
+      
+      #<a href="/tags/emet/">EMET</a>&nbsp;
+      
+      #<a href="/tags/powershell/">PowerShell</a>&nbsp;
+      
+    </span>
+    
+
+    
+
+    <div class="post-content">
+      
+      
+      If you have been using EMET (Enhanced Mitigation Experience Toolkit ) toolkit from Microsoft you probably have had to need to add custom application, one of the main “culprits” is Flash Player with its ever changing name (filename contains it’s version number)
+In EMET wildcards are only allowed in paths not filenames, so I wrote a little script to add applications to the EMET “Watch list” :)
+It consist of 2 functions one to remove an application and one to add an application.
+      
+      
+    </div>
+
+    
+    <div>
+      <a class="read-more button"
+        href="/posts/2014-09-08-adding-applications-to-emet/">Read more →</a>
+    </div>
+    
+  </div>
+  
+  <div class="post on-list">
+    <h1 class="post-title">
+      <a href="/posts/2011-02-09-send-sms-through-bibob-with-powershell/">Send SMS through bibob with Powershell</a></h1>
+    <div class="post-meta">
+      <span class="post-date">
+        2011-02-09
+      </span>
+      
+    </div>
+
+    
+    <span class="post-tags">
+      
+      #<a href="/tags/bibob/">bibob</a>&nbsp;
+      
+      #<a href="/tags/powershell/">PowerShell</a>&nbsp;
+      
+      #<a href="/tags/sms/">sms</a>&nbsp;
+      
+    </span>
+    
+
+    
+
+    <div class="post-content">
+      
+      
+      I thought I had posted this script more than a year ago, but apparently I have not. It is quite similar to the script, I posted recently sending SMS messages through unwire, this just allows bibob customers to send messages through bibobs online gateway.
+One thing to notice is that you are required to convert your password in an MD5 hash, before you send it. Here is a function to convert your plain passwords into an MD5 hash (Adapted from a script by Dennis Damen)
+      
+      
+    </div>
+
+    
+    <div>
+      <a class="read-more button"
+        href="/posts/2011-02-09-send-sms-through-bibob-with-powershell/">Read more →</a>
+    </div>
+    
+  </div>
+  
+  <div class="post on-list">
+    <h1 class="post-title">
+      <a href="/posts/2011-02-09-send-sms-from-powershell-through-unwire/">Send SMS from Powershell through Unwire</a></h1>
+    <div class="post-meta">
+      <span class="post-date">
+        2011-02-09
+      </span>
+      
+    </div>
+
+    
+    <span class="post-tags">
+      
+      #<a href="/tags/powershell/">PowerShell</a>&nbsp;
+      
+      #<a href="/tags/sms/">sms</a>&nbsp;
+      
+    </span>
+    
+
+    
+
+    <div class="post-content">
+      
+      
+      At work we have bought an SMS gateway service through the danish company Unwire, so after we the deal was signed we got the information on how to send email through their services, so in order to test I wrote a quick Powershell script to test it.
+Of course all company/Unwire specific data has been removed, since it relates to our company account.
+[ps]
+&lt;#
+.SYNOPSIS
+Send SMS through Unwire GW Server
+      
+      
+    </div>
+
+    
+    <div>
+      <a class="read-more button"
+        href="/posts/2011-02-09-send-sms-from-powershell-through-unwire/">Read more →</a>
+    </div>
+    
+  </div>
+  
+  <div class="post on-list">
+    <h1 class="post-title">
+      <a href="/posts/2011-01-06-the-revolution-of-a-script/">The (r)evolution of a script</a></h1>
+    <div class="post-meta">
+      <span class="post-date">
+        2011-01-06
+      </span>
+      
+    </div>
+
+    
+    <span class="post-tags">
+      
+      #<a href="/tags/powershell/">PowerShell</a>&nbsp;
+      
+    </span>
+    
+
+    
+
+    <div class="post-content">
+      
+      
+      As those of you who a following my blog know, I have been fortunate enough to become a Microsoft MVP in Powershell, and because of that I have been allowed on the Powershell MVP mailing list, an let me tell, there are some amazing people out there, doing some amazing stuff. Some of the stuff floating around I don’t even have a clue what does ;)
+But people are also very helpful, and quick to jump in if someone has a problem or even if someone just posts a piece of code they find useful, people tend to jump in with suggestions/additions to make the script even better… Here is an example of a script that went from 14 lines of code to 334 in half a day.
+      
+      
+    </div>
+
+    
+    <div>
+      <a class="read-more button"
+        href="/posts/2011-01-06-the-revolution-of-a-script/">Read more →</a>
+    </div>
+    
+  </div>
+  
+  <div class="post on-list">
+    <h1 class="post-title">
+      <a href="/posts/2010-09-08-translate-service-dacls/">Translate Service DACL&rsquo;s</a></h1>
+    <div class="post-meta">
+      <span class="post-date">
+        2010-09-08
+      </span>
+      
+    </div>
+
+    
+    <span class="post-tags">
+      
+      #<a href="/tags/dacl/">DACL</a>&nbsp;
+      
+      #<a href="/tags/powershell/">PowerShell</a>&nbsp;
+      
+    </span>
+    
+
+    
+
+    <div class="post-content">
+      
+      
+      There was a post on the Minasi forum, where someone was trying to check which users had start/stop permissions on a given server. I knew SC would give the results, but it returns it in DACL format, which as far from readable by humans… So since I had some time to pass I decided to try to write a powershell script to translate the DACL into something human readable (We were having our floor lacquered, and the guy doing it, had a little extra lacquer, and decided to lacquer our hallway, thereby cutting me off from leaving the first floor of our house).
+      
+      
+    </div>
+
+    
+    <div>
+      <a class="read-more button"
+        href="/posts/2010-09-08-translate-service-dacls/">Read more →</a>
+    </div>
+    
+  </div>
+  
+  <div class="post on-list">
+    <h1 class="post-title">
+      <a href="/posts/2010-09-08-my-account-keeps-getting-locked-out-where-did-i-use-it/">My account keeps getting locked out, where did I use it ??</a></h1>
+    <div class="post-meta">
+      <span class="post-date">
+        2010-09-08
+      </span>
+      
+    </div>
+
+    
+    <span class="post-tags">
+      
+      #<a href="/tags/powershell/">PowerShell</a>&nbsp;
+      
+    </span>
+    
+
+    
+
+    <div class="post-content">
+      
+      
+      A few weeks ago my admin account kept getting locked out, after I had changed my password.. So I assumed I had used it somewhere to either run a service or a scheduled task on a test server. But where???
+So I decided to write a little PowerShell script to help me find out where, and give me a chance to be more proactive next time I need to change my Password, or the password of one of our service accounts.
+      
+      
+    </div>
+
+    
+    <div>
+      <a class="read-more button"
+        href="/posts/2010-09-08-my-account-keeps-getting-locked-out-where-did-i-use-it/">Read more →</a>
+    </div>
+    
+  </div>
+  
+  <div class="post on-list">
+    <h1 class="post-title">
+      <a href="/posts/2010-05-30-output-a-sortable-html-table/">Output a sortable HTML table</a></h1>
+    <div class="post-meta">
+      <span class="post-date">
+        2010-05-30
+      </span>
+      
+    </div>
+
+    
+    <span class="post-tags">
+      
+      #<a href="/tags/module/">module</a>&nbsp;
+      
+      #<a href="/tags/powershell/">PowerShell</a>&nbsp;
+      
+    </span>
+    
+
+    
+
+    <div class="post-content">
+      
+      
+      A while back I posted a script that would take whatever input it got, into a sortable HTML table in a file.
+Last night my family was here, and they wanted to see the Eurovision song contest thing, so I had some time to rewrite the script into a PowerShell V2 Advanced function, that supports pipeline input.
+There are some examples in the code on how to use the function
+      
+      
+    </div>
+
+    
+    <div>
+      <a class="read-more button"
+        href="/posts/2010-05-30-output-a-sortable-html-table/">Read more →</a>
+    </div>
+    
+  </div>
+  
+  <div class="post on-list">
+    <h1 class="post-title">
+      <a href="/posts/2010-05-11-remoting-examples-from-my-presentation/">Remoting examples from my presentation</a></h1>
+    <div class="post-meta">
+      <span class="post-date">
+        2010-05-11
+      </span>
+      
+    </div>
+
+    
+    <span class="post-tags">
+      
+      #<a href="/tags/powershell/">PowerShell</a>&nbsp;
+      
+    </span>
+    
+
+    
+
+    <div class="post-content">
+      
+      
+      
+    </div>
+
+    
+    <div>
+      <a class="read-more button"
+        href="/posts/2010-05-11-remoting-examples-from-my-presentation/">Read more →</a>
+    </div>
+    
+  </div>
+  
+  <div class="post on-list">
+    <h1 class="post-title">
+      <a href="/posts/2010-05-11-quest-ad-cmdlet-examples-from-my-presentation/">Quest AD Cmdlet examples from my Presentation</a></h1>
+    <div class="post-meta">
+      <span class="post-date">
+        2010-05-11
+      </span>
+      
+    </div>
+
+    
+    <span class="post-tags">
+      
+      #<a href="/tags/powershell/">PowerShell</a>&nbsp;
+      
+    </span>
+    
+
+    
+
+    <div class="post-content">
+      
+      
+      Example #1
+List users that expires within X days
+[ps]
+$DaysToExpire = 14
+$MaxPassAge = (Get-QADObject (Get-QADRootDSE).defaultNamingContextDN).MaximumPasswordAge.days
+[array]$a = Get-QADUser -Enabled -PasswordNeverExpires:$false -SizeLimit 0 -Email * |Select-Object Name,Email,@{Name=&quot;Expires”;Expression={ $MaxPassAge - $_.PasswordAge.days }} | where {$_.Expires -lt 0} | Sort-Object expires
+[/ps]
+Example #2
+Locate that Hyper-V Host
+[ps]
+Get-QADComputer | Where {$_.OSname -match “2008”} | % { Get-Service -ComputerName $_.Name} | where {$_.Displayname -match “hyper”} | select Machinename, Displayname
+#Kirk Munroe pointed out that Hyper-V actually registers ans SCP (Service Connection Point)
+      
+      
+    </div>
+
+    
+    <div>
+      <a class="read-more button"
+        href="/posts/2010-05-11-quest-ad-cmdlet-examples-from-my-presentation/">Read more →</a>
+    </div>
+    
+  </div>
+  
+  <div class="post on-list">
+    <h1 class="post-title">
+      <a href="/posts/2010-05-11-net-examples-from-presentation/">.Net Examples from Presentation</a></h1>
+    <div class="post-meta">
+      <span class="post-date">
+        2010-05-11
+      </span>
+      
+    </div>
+
+    
+    <span class="post-tags">
+      
+      #<a href="/tags/powershell/">PowerShell</a>&nbsp;
+      
+    </span>
+    
+
+    
+
+    <div class="post-content">
+      
+      
+      Example #1 (From Lee Holmes’ Powershell cookbook)
+“Compile C# code on the fly”
+[ps]
+$code =@’
+using System.Management.Automation;
+[Cmdlet(“Write”, “InputObject”)]
+public class MyWriteInputObjectCmdlet : Cmdlet
+{
+[Parameter]
+public string Parameter1;
+[Parameter(Mandatory = true, ValueFromPipeline=true)]
+public string InputObject;
+protected override void ProcessRecord()
+{
+if (Parameter1 != null)
+WriteObject(Parameter1 + “:” + InputObject);
+else
+WriteObject(InputObject);
+}
+}
+‘@
+Add-Type -TypeDefinition $code -OutputAssembly .\ExampleModule.dll
+Import-Module .\ExampleModule.dll
+[/ps]
+Example #2 (From Lee Holmes’ Powershell cookbook)
+      
+      
+    </div>
+
+    
+    <div>
+      <a class="read-more button"
+        href="/posts/2010-05-11-net-examples-from-presentation/">Read more →</a>
+    </div>
+    
+  </div>
+  
+  <div class="pagination">
+  <div class="pagination__buttons">
+    
+    
+      <span class="button next">
+        <a href="/tags/powershell/page/2/">
+          <span class="button__text">Older posts</span>
+          <span class="button__icon">→</span>
+        </a>
+      </span>
+    
+  </div>
+</div>
+
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2020 Powered by <a href="http://gohugo.io">Hugo</a></span>
+    
+        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

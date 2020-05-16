@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Translate Service DACL&#39;s :: XenoBlog — Random rants</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="There was a post on the Minasi forum, where someone was trying to check which users had start/stop permissions on a given server. I knew SC would give the results, but it returns it in DACL format, which as far from readable by humans&amp;hellip; So since I had some time to pass I decided to try to write a powershell script to translate the DACL into something human readable (We were having our floor lacquered, and the guy doing it, had a little extra lacquer, and decided to lacquer our hallway, thereby cutting me off from leaving the first floor of our house)." />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="/posts/2010-09-08-translate-service-dacls/" />
+
+
+
+
+<link rel="stylesheet" href="/assets/style.css">
+
+  <link rel="stylesheet" href="/assets/green.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="/img/favicon/green.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+  <meta name="twitter:site" content="" />
+
+<meta name="twitter:creator" content="" />
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Translate Service DACL&#39;s :: XenoBlog">
+<meta property="og:description" content="There was a post on the Minasi forum, where someone was trying to check which users had start/stop permissions on a given server. I knew SC would give the results, but it returns it in DACL format, which as far from readable by humans&amp;hellip; So since I had some time to pass I decided to try to write a powershell script to translate the DACL into something human readable (We were having our floor lacquered, and the guy doing it, had a little extra lacquer, and decided to lacquer our hallway, thereby cutting me off from leaving the first floor of our house)." />
+<meta property="og:url" content="/posts/2010-09-08-translate-service-dacls/" />
+<meta property="og:site_name" content="Translate Service DACL&#39;s" />
+
+  
+    <meta property="og:image" content="/img/favicon/green.png">
+  
+
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+  <meta property="article:section" content="Everyday" />
+
+
+  <meta property="article:published_time" content="2010-09-08 22:21:42 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body class="">
+
+
+<div class="container center headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    XenoBlog
+  </div>
+</a>
+
+    </div>
+    <div class="menu-trigger">menu</div>
+  </div>
+  
+    <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="https://github.com/claustn">github</a></li>
+        
+      
+      
+    
+
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="https://github.com/claustn">github</a></li>
+      
+    
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="/posts/2010-09-08-translate-service-dacls/">Translate Service DACL&rsquo;s</a></h1>
+  <div class="post-meta">
+      
+    <span class="post-date">
+      2010-09-08
+    </span>
+    
+    
+  </div>
+
+  
+  <span class="post-tags">
+    
+    #<a href="/tags/dacl/">DACL</a>&nbsp;
+    
+    #<a href="/tags/powershell/">PowerShell</a>&nbsp;
+    
+  </span>
+  
+
+  
+
+  <div class="post-content"><div>
+        <p>There was a post on the Minasi forum, where someone was trying to check which users had start/stop permissions on a given server. I knew SC would give the results, but it returns it in DACL format, which as far from readable by humans&hellip; So since I had some time to pass I decided to try to write a powershell script to translate the DACL into something human readable (We were having our floor lacquered, and the guy doing it, had a little extra lacquer, and decided to lacquer our hallway, thereby cutting me off from leaving the first floor of our house).</p>
+<p>This function takes a service name and a computername as input, if no computername is given, it tries to look it up on the localmachine.</p>
+<pre><code>Function Get-ServiceDACL { [CmdletBinding()] param( [Parameter(Mandatory=$true,Position=0,ValueFromPipeline=$true)] [String]$Servicename, [Parameter(Mandatory=$false,Position=1)] [String]$Computername= &quot;.&quot;) $sddl = Invoke-expression -Command &quot;c:\Windows\System32\sc.exe \\$Computername sdshow $Servicename&quot; # $Servicename $sddl $parts = $sddl -split(&quot;:&quot;) #$parts.Length $i = 0 Write-Host &quot;Getting Service DACL for $ServiceName on $Computername&quot; While ($i -lt $parts.length) { $part = $parts[$i] Switch ($part) { &quot;D&quot; { $i++; Parse-DACL $parts[$i] } } $i++ } $sddl = '' } Function Parse-DACL { Param([String]$SDDLIN) [Array]$sddls = ($SDDLIN).split('(') Foreach ($SDDLI in $sddls) { #($SDDLI).replace(')';'') #$SDDLI $tokens = (($SDDLI).replace(')','')).split(&quot;;&quot;) If ($tokens[5]) { If ($tokens[5].length -gt 3) { [wmi]$obj = 'Win32\_SID.SID=&quot;{0}&quot;' -f $($tokens[5]) $encoded = [System.Convert]::ToBase64String($obj.BinaryRepresentation) $obj | Add-Member -MemberType NoteProperty -Name base64\_sid -Value $encoded Write-Host &quot;$($obj.ReferencedDomainName)\$($obj.AccountName)&quot; -ForegroundColor red } Else { Write-Host &quot;$($Trustees.get\_item($tokens[5]))&quot; -ForegroundColor red } &quot; &quot; + $AceType.get\_item($tokens[0]) [regex]::split($tokens[2], '(.{2})') | % {Write-host &quot; $($PermissionType.get\_item($\_)) `n&quot; -NoNewline} } } } $AceType = @{&quot;A&quot; = &quot;ACCESS ALLOWED&quot;; &quot;D&quot; = &quot;ACCESS DENIED&quot;; &quot;OA&quot; = &quot;OBJECT ACCESS ALLOWED: ONLY APPLIES TO A SUBSET OF THE OBJECT(S).&quot;; &quot;OD&quot; = &quot;OBJECT ACCESS DENIED: ONLY APPLIES TO A SUBSET OF THE OBJECT(S).&quot;; &quot;AU&quot; = &quot;SYSTEM AUDIT&quot;; &quot;AL&quot; = &quot;SYSTEM ALARM&quot;; &quot;OU&quot; = &quot;OBJECT SYSTEM AUDIT&quot;; &quot;OL&quot; = &quot;OBJECT SYSTEM ALARM&quot;; &quot;ML&quot; = &quot;MANDATORY LABEL&quot;} $AceFlags = @{ &quot;CI&quot; = &quot;CONTAINER INHERIT: Child objects that are containers, such as directories, inherit the ACE as an explicit ACE.&quot;; &quot;OI&quot; = &quot;OBJECT INHERIT: Child objects that are not containers inherit the ACE as an explicit ACE.&quot;; &quot;NP&quot; = &quot;NO PROPAGATE: ONLY IMMEDIATE CHILDREN INHERIT THIS ACE.&quot;; &quot;IO&quot; = &quot;INHERITANCE ONLY: ACE DOESN'T APPLY TO THIS OBJECT; BUT MAY AFFECT CHILDREN VIA INHERITANCE.&quot;; &quot;ID&quot; = &quot;ACE IS INHERITED&quot;; &quot;SA&quot; = &quot;SUCCESSFUL ACCESS AUDIT&quot;; &quot;FA&quot; = &quot;FAILED ACCESS AUDIT&quot; } $PermissionType = @{ &quot;CC&quot; = &quot;Query Conf&quot;; &quot;DC&quot; = &quot;Change Conf&quot;; &quot;LC&quot; = &quot;QueryStat&quot;; &quot;SW&quot; = &quot;EnumDeps&quot;; &quot;RP&quot; = &quot;Start&quot;; &quot;WP&quot; = &quot;Stop&quot;; &quot;DT&quot; = &quot;Pause&quot;; &quot;LO&quot; = &quot;Interrogate&quot;; &quot;CR&quot; = &quot;UserDefined&quot;; &quot;GA&quot; = &quot;Generic All&quot;; &quot;GX&quot; = &quot;Generic Execute&quot;; &quot;GW&quot; = &quot;Generic Write&quot;; &quot;GR&quot; = &quot;Generic Read&quot;; &quot;SD&quot; = &quot;Standard Delete&quot;; &quot;RC&quot; = &quot;Read Control&quot;; &quot;WD&quot; = &quot;Write DAC&quot;; &quot;WO&quot; = &quot;Write Owner&quot; } $Trustees = @{ &quot;AO&quot; = &quot;Account operators&quot;; &quot;RU&quot; = &quot;Alias to allow previous Windows 2000&quot;; &quot;AN&quot; = &quot;Anonymous logon&quot;; &quot;AU&quot; = &quot;Authenticated users&quot;; &quot;BA&quot; = &quot;Built-in administrators&quot;; &quot;BG&quot; = &quot;Built-in guests&quot;; &quot;BO&quot; = &quot;Backup operators&quot;; &quot;BU&quot; = &quot;Built-in users&quot;; &quot;CA&quot; = &quot;Certificate server administrators&quot;; &quot;CG&quot; = &quot;Creator group&quot;; &quot;CO&quot; = &quot;Creator owner&quot;; &quot;DA&quot; = &quot;Domain administrators&quot;; &quot;DC&quot; = &quot;Domain computers&quot;; &quot;DD&quot; = &quot;Domain controllers&quot;; &quot;DG&quot; = &quot;Domain guests&quot;; &quot;DU&quot; = &quot;Domain users&quot;; &quot;EA&quot; = &quot;Enterprise administrators&quot;; &quot;ED&quot; = &quot;Enterprise domain controllers&quot;; &quot;WD&quot; = &quot;Everyone&quot;; &quot;PA&quot; = &quot;Group Policy administrators&quot;; &quot;IU&quot; = &quot;Interactively logged-on user&quot;; &quot;LA&quot; = &quot;Local administrator&quot;; &quot;LG&quot; = &quot;Local guest&quot;; &quot;LS&quot; = &quot;Local service account&quot;; &quot;SY&quot; = &quot;Local system&quot;; &quot;NU&quot; = &quot;Network logon user&quot;; &quot;NO&quot; = &quot;Network configuration operators&quot;; &quot;NS&quot; = &quot;Network service account&quot;; &quot;PO&quot; = &quot;Printer operators&quot;; &quot;PS&quot; = &quot;Personal self&quot;; &quot;PU&quot; = &quot;Power users&quot;; &quot;RS&quot; = &quot;RAS servers group&quot;; &quot;RD&quot; = &quot;Terminal server users&quot;; &quot;RE&quot; = &quot;Replicator&quot;; &quot;RC&quot; = &quot;Restricted code&quot;; &quot;SA&quot; = &quot;Schema administrators&quot;; &quot;SO&quot; = &quot;Server operators&quot;; &quot;SU&quot; = &quot;Service logon user&quot; } #Example below queries the WinRM service on RemoteServer Get-ServiceDACL winrm remotemgmt [/pre]
+</code></pre>
+      </div></div>
+
+  
+  
+<div class="pagination">
+    <div class="pagination__title">
+        <span class="pagination__title-h">Read other posts</span>
+        <hr />
+    </div>
+    <div class="pagination__buttons">
+        
+        <span class="button previous">
+            <a href="/posts/2011-01-04-mvp/">
+                <span class="button__icon">←</span>
+                <span class="button__text">MVP</span>
+            </a>
+        </span>
+        
+        
+        <span class="button next">
+            <a href="/posts/2010-09-08-account-lockout-continued/">
+                <span class="button__text">Account lockout continued</span>
+                <span class="button__icon">→</span>
+            </a>
+        </span>
+        
+    </div>
+</div>
+
+  
+
+  
+
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2020 Powered by <a href="http://gohugo.io">Hugo</a></span>
+    
+        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

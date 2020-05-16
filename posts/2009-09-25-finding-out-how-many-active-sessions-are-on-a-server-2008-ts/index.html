@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Finding out how many active sessions are on a Server 2008 TS :: XenoBlog — Random rants</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="DisconnectedSessions Win32_TerminalService
+TotalSessions Win32_TerminalService
+ActiveSessions Win32_PerfFormattedData_LocalSessionManager_TerminalServices
+InactiveSessions Win32_PerfFormattedData_LocalSessionManager_TerminalServices
+TotalSessions Win32_PerfFormattedData_LocalSessionManager_TerminalServices
+ActiveSessions Win32_PerfRawData_LocalSessionManager_TerminalServices
+InactiveSessions Win32_PerfRawData_LocalSessionManager_TerminalServices
+TotalSessions Win32_PerfRawData_LocalSessionManager_TerminalServices
+Of course to be able to do this, I had to know/guess that the class contained &amp;ldquo;term&amp;rdquo; and that the property would be named something with &amp;ldquo;session&amp;rdquo;" />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="/posts/2009-09-25-finding-out-how-many-active-sessions-are-on-a-server-2008-ts/" />
+
+
+
+
+<link rel="stylesheet" href="/assets/style.css">
+
+  <link rel="stylesheet" href="/assets/green.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="/img/favicon/green.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+  <meta name="twitter:site" content="" />
+
+<meta name="twitter:creator" content="" />
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Finding out how many active sessions are on a Server 2008 TS :: XenoBlog">
+<meta property="og:description" content="DisconnectedSessions Win32_TerminalService
+TotalSessions Win32_TerminalService
+ActiveSessions Win32_PerfFormattedData_LocalSessionManager_TerminalServices
+InactiveSessions Win32_PerfFormattedData_LocalSessionManager_TerminalServices
+TotalSessions Win32_PerfFormattedData_LocalSessionManager_TerminalServices
+ActiveSessions Win32_PerfRawData_LocalSessionManager_TerminalServices
+InactiveSessions Win32_PerfRawData_LocalSessionManager_TerminalServices
+TotalSessions Win32_PerfRawData_LocalSessionManager_TerminalServices
+Of course to be able to do this, I had to know/guess that the class contained &amp;ldquo;term&amp;rdquo; and that the property would be named something with &amp;ldquo;session&amp;rdquo;" />
+<meta property="og:url" content="/posts/2009-09-25-finding-out-how-many-active-sessions-are-on-a-server-2008-ts/" />
+<meta property="og:site_name" content="Finding out how many active sessions are on a Server 2008 TS" />
+
+  
+    <meta property="og:image" content="/img/favicon/green.png">
+  
+
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+  <meta property="article:section" content="Everyday" />
+
+
+  <meta property="article:published_time" content="2009-09-25 20:40:36 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body class="">
+
+
+<div class="container center headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    XenoBlog
+  </div>
+</a>
+
+    </div>
+    <div class="menu-trigger">menu</div>
+  </div>
+  
+    <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="https://github.com/claustn">github</a></li>
+        
+      
+      
+    
+
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="https://github.com/claustn">github</a></li>
+      
+    
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="/posts/2009-09-25-finding-out-how-many-active-sessions-are-on-a-server-2008-ts/">Finding out how many active sessions are on a Server 2008 TS</a></h1>
+  <div class="post-meta">
+      
+    <span class="post-date">
+      2009-09-25
+    </span>
+    
+    
+  </div>
+
+  
+
+  
+
+  <div class="post-content"><div>
+        <!-- raw HTML omitted -->
+<p>DisconnectedSessions Win32_TerminalService<br>
+TotalSessions Win32_TerminalService<br>
+ActiveSessions Win32_PerfFormattedData_LocalSessionManager_TerminalServices<br>
+InactiveSessions Win32_PerfFormattedData_LocalSessionManager_TerminalServices<br>
+TotalSessions Win32_PerfFormattedData_LocalSessionManager_TerminalServices<br>
+ActiveSessions Win32_PerfRawData_LocalSessionManager_TerminalServices<br>
+InactiveSessions Win32_PerfRawData_LocalSessionManager_TerminalServices<br>
+TotalSessions Win32_PerfRawData_LocalSessionManager_TerminalServices</p>
+<p>Of course to be able to do this, I had to know/guess that the class contained &ldquo;term&rdquo; and that the property would be named something with &ldquo;session&rdquo;</p>
+
+      </div></div>
+
+  
+  
+<div class="pagination">
+    <div class="pagination__title">
+        <span class="pagination__title-h">Read other posts</span>
+        <hr />
+    </div>
+    <div class="pagination__buttons">
+        
+        <span class="button previous">
+            <a href="/posts/2009-10-28-windows-management-framework-has-arrived/">
+                <span class="button__icon">←</span>
+                <span class="button__text">Windows Management Framework has arrived</span>
+            </a>
+        </span>
+        
+        
+        <span class="button next">
+            <a href="/posts/2009-09-23-set-executionpolicy/">
+                <span class="button__text">Set-ExecutionPolicy</span>
+                <span class="button__icon">→</span>
+            </a>
+        </span>
+        
+    </div>
+</div>
+
+  
+
+  
+
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2020 Powered by <a href="http://gohugo.io">Hugo</a></span>
+    
+        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>
