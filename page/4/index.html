@@ -23,7 +23,7 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://xipher.dk/" />
-<meta property="og:updated_time" content="2018-09-23T12:58:34+00:00" /><meta property="og:site_name" content="XenoBlog" />
+<meta property="og:updated_time" content="2020-05-16T12:58:34+00:00" /><meta property="og:site_name" content="XenoBlog" />
 
 
     
@@ -176,20 +176,18 @@ Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.c
       
       <div class="post-list__item">
         <span class="item__title--big">
-          <a href="/posts/2014-05-30-sa-er-det-tid-til-at-saette-x-i-kalenderen-igen-26-juni/" >Så er det tid til at sætte X i kalenderen igen. ( 26 Juni)</a>
+          <a href="/posts/2011-09-02-testing-simple-theme/" >Testing simple theme</a>
         </span>
         <span class="item__date">
-          May 30, 2014
+          Sep 2, 2011
         </span>
         <span >
         
-        XXXX 26 Juni XXXX
-Denne gang er det med ret kort varsel i forhold til hvad vi plejer, vi
-har ligget i “forhandlinger” med Aleksandar Nikolic ( en af de førende specialister inden for PowerShell remoting, restrained endpoints etc.
+        I am currently having some problems with my site, apparently it gets linked to be a lot of spam sites, resulting in more than 4000 visits in the last 24 hours.
         
         </span>
         
-          ... <a class="read-more-symbol" href="/posts/2014-05-30-sa-er-det-tid-til-at-saette-x-i-kalenderen-igen-26-juni/">➦</a>
+          ... <a class="read-more-symbol" href="/posts/2011-09-02-testing-simple-theme/">➦</a>
         
         </div>
         
@@ -199,18 +197,28 @@ har ligget i “forhandlinger” med Aleksandar Nikolic ( en af de førende spec
       
       <div class="post-list__item">
         <span class="item__title--big">
-          <a href="/posts/2014-02-22-updating-upn-names-in-active-directory/" >Updating UPN names in Active Directory</a>
+          <a href="/posts/2011-06-17-fix-2008r2-scheduled-tasks/" >Fix 2008R2 scheduled tasks</a>
         </span>
         <span class="item__date">
-          Feb 22, 2014
+          Jun 17, 2011
         </span>
         <span >
         
-        function OnApplicationLoad { #Note: This function is not called in Projects #Note: This function runs before the form is created #Note: To get the script directory in the Packager use: Split-Path $hostinvocation.
+        [ps]
+Function Change-ScheduledTask {
+Param($XMLIn)
+$ShortDate = [regex]&quot;(?&lt;shortdate&gt;[0-9]{4}/.-/.-T(?:2[0-3]|[01][0-9])[:.][0-5][0-9][:.][0-5][0-9])(?&lt;digits&gt;.\d*)&rdquo;
+foreach ($line in $XMLIn){
+If ($line -match &ldquo;$ShortDate&rdquo;) {
+$line = [regex]::Replace($line, $ShortDate, $($Matches[&ldquo;Shortdate&rdquo;]))
+}
+$line
+#$Script:outfile += $line + &ldquo;`n&rdquo;
+}
         
         </span>
         
-          ... <a class="read-more-symbol" href="/posts/2014-02-22-updating-upn-names-in-active-directory/">➦</a>
+          ... <a class="read-more-symbol" href="/posts/2011-06-17-fix-2008r2-scheduled-tasks/">➦</a>
         
         </div>
         
@@ -220,18 +228,18 @@ har ligget i “forhandlinger” med Aleksandar Nikolic ( en af de førende spec
       
       <div class="post-list__item">
         <span class="item__title--big">
-          <a href="/posts/2014-02-03-using-ews-exchange-web-services-to-read-emails/" >Using EWS (Exchange Web Services) to read email subjects.</a>
+          <a href="/posts/2011-02-09-send-sms-through-bibob-with-powershell/" >Send SMS through bibob with Powershell</a>
         </span>
         <span class="item__date">
-          Feb 3, 2014
+          Feb 9, 2011
         </span>
         <span >
         
-        Today I had a discussion with a vendor, they are delivering a solution that reads email from a specific email account on Exchange, and create a ticket in our helpdesk system.
+        I thought I had posted this script more than a year ago, but apparently I have not. It is quite similar to the script, I posted recently sending SMS messages through unwire, this just allows bibob customers to send messages through bibobs online gateway.
         
         </span>
         
-          ... <a class="read-more-symbol" href="/posts/2014-02-03-using-ews-exchange-web-services-to-read-emails/">➦</a>
+          ... <a class="read-more-symbol" href="/posts/2011-02-09-send-sms-through-bibob-with-powershell/">➦</a>
         
         </div>
         
@@ -241,19 +249,18 @@ har ligget i “forhandlinger” med Aleksandar Nikolic ( en af de førende spec
       
       <div class="post-list__item">
         <span class="item__title--big">
-          <a href="/posts/2014-01-08-readable-password-generator/" >Readable Password generator</a>
+          <a href="/posts/2011-02-09-send-sms-from-powershell-through-unwire/" >Send SMS from Powershell through Unwire</a>
         </span>
         <span class="item__date">
-          Jan 8, 2014
+          Feb 9, 2011
         </span>
         <span >
         
-        Because of a report from our auditors, I was tasked with writing a password generator
-for our helpdesk staff, so instead of using a generic variation of the same password,
+        At work we have bought an SMS gateway service through the danish company Unwire, so after we the deal was signed we got the information on how to send email through their services, so in order to test I wrote a quick Powershell script to test it.
         
         </span>
         
-          ... <a class="read-more-symbol" href="/posts/2014-01-08-readable-password-generator/">➦</a>
+          ... <a class="read-more-symbol" href="/posts/2011-02-09-send-sms-from-powershell-through-unwire/">➦</a>
         
         </div>
         
@@ -263,17 +270,129 @@ for our helpdesk staff, so instead of using a generic variation of the same pass
       
       <div class="post-list__item">
         <span class="item__title--big">
-          <a href="/posts/2013-10-15-campus-days-session/" >Campus Days Session</a>
+          <a href="/posts/2011-01-29-change-usernamepassword-on-scheduled-tasks/" >Change username/password on scheduled tasks.</a>
         </span>
         <span class="item__date">
-          Oct 15, 2013
+          Jan 29, 2011
         </span>
         <span >
         
-        Videoen er endnu ikke kommet online, men den kan ses her når den kommer.
-hxxp://channel9.msdn.com/Events/Microsoft-Campus-Days/Microsoft-Campus-Days-2013/Windows-PowerShell-4-0
+        } #End Function
+#Call OnApplicationLoad to initialize
+if(OnApplicationLoad -eq $true)
+{
+#Create the form
+GenerateForm | Out-Null
+#Perform cleanup
+OnApplicationExit
+}
+[/ps]
         
         </span>
+        
+        </div>
+        
+     
+      
+        
+      
+      <div class="post-list__item">
+        <span class="item__title--big">
+          <a href="/posts/2011-01-29-scheduled-tasks-server-2008/" >Scheduled Tasks Server 2008(R2)</a>
+        </span>
+        <span class="item__date">
+          Jan 29, 2011
+        </span>
+        <span >
+        
+        I have been working on a script for changing passwords on scheduled tasks in our domain, in that process I have run into a few kinks with scheduled tasks in server 2008(R2).
+        
+        </span>
+        
+          ... <a class="read-more-symbol" href="/posts/2011-01-29-scheduled-tasks-server-2008/">➦</a>
+        
+        </div>
+        
+     
+      
+        
+      
+      <div class="post-list__item">
+        <span class="item__title--big">
+          <a href="/posts/2011-01-14-free-online-source-control-with-powergui-pro/" >Free online Source Control with PowerGui Pro.</a>
+        </span>
+        <span class="item__date">
+          Jan 14, 2011
+        </span>
+        <span >
+        
+        Currently I am using a free plan with Dynamsoft for source control with PowerGui, you get 25 MB for free, which will last me a long time at my current speed of writing PowerShell scripts  Here is a quick guide to setting up an account.
+        
+        </span>
+        
+          ... <a class="read-more-symbol" href="/posts/2011-01-14-free-online-source-control-with-powergui-pro/">➦</a>
+        
+        </div>
+        
+     
+      
+        
+      
+      <div class="post-list__item">
+        <span class="item__title--big">
+          <a href="/posts/2011-01-06-the-revolution-of-a-script/" >The (r)evolution of a script</a>
+        </span>
+        <span class="item__date">
+          Jan 6, 2011
+        </span>
+        <span >
+        
+        As those of you who a following my blog know, I have been fortunate enough to become a Microsoft MVP in Powershell, and because of that I have been allowed on the Powershell MVP mailing list, an let me tell, there are some amazing people out there, doing some amazing stuff.
+        
+        </span>
+        
+          ... <a class="read-more-symbol" href="/posts/2011-01-06-the-revolution-of-a-script/">➦</a>
+        
+        </div>
+        
+     
+      
+        
+      
+      <div class="post-list__item">
+        <span class="item__title--big">
+          <a href="/posts/2011-01-04-mvp/" >MVP</a>
+        </span>
+        <span class="item__date">
+          Jan 4, 2011
+        </span>
+        <span >
+        
+        Yesterday I received the notice from Microsoft, that I had been awarded the MVP title.
+So now I can call myself MVP for the next year..
+        
+        </span>
+        
+        </div>
+        
+     
+      
+        
+      
+      <div class="post-list__item">
+        <span class="item__title--big">
+          <a href="/posts/2010-09-08-translate-service-dacls/" >Translate Service DACL&#39;s</a>
+        </span>
+        <span class="item__date">
+          Sep 8, 2010
+        </span>
+        <span >
+        
+        There was a post on the Minasi forum, where someone was trying to check which users had start/stop permissions on a given server. I knew SC would give the results, but it returns it in DACL format, which as far from readable by humans&hellip; So since I had some time to pass I decided to try to write a powershell script to translate the DACL into something human readable (We were having our floor lacquered, and the guy doing it, had a little extra lacquer, and decided to lacquer our hallway, thereby cutting me off from leaving the first floor of our house).
+        
+        </span>
+        
+          ... <a class="read-more-symbol" href="/posts/2010-09-08-translate-service-dacls/">➦</a>
         
         </div>
         
@@ -429,124 +548,7 @@ hxxp://channel9.msdn.com/Events/Microsoft-Campus-Days/Microsoft-Campus-Days-2013
         
     
     
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/page/27/">27</a></li>
+    <li class="page-item"><a class="page-link" href="/page/14/">14</a></li>
     
     
     <li class="page-item">
@@ -554,7 +556,7 @@ hxxp://channel9.msdn.com/Events/Microsoft-Campus-Days/Microsoft-Campus-Days-2013
     </li>
     
     <li class="page-item">
-        <a href="/page/27/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+        <a href="/page/14/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
     </li>
     
 </ul>

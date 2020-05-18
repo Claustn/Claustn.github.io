@@ -23,7 +23,7 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://xipher.dk/" />
-<meta property="og:updated_time" content="2018-09-23T12:58:34+00:00" /><meta property="og:site_name" content="XenoBlog" />
+<meta property="og:updated_time" content="2020-05-16T12:58:34+00:00" /><meta property="og:site_name" content="XenoBlog" />
 
 
     
@@ -176,91 +176,6 @@ Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.c
       
       <div class="post-list__item">
         <span class="item__title--big">
-          <a href="/posts/2016-01-31-simple-module-dependency-mapper/" >Simple module dependency mapper</a>
-        </span>
-        <span class="item__date">
-          Jan 31, 2016
-        </span>
-        <span >
-        
-        Script to list module dependencies function Get-Depends { [CmdLetBinding()] Param( $ModulePath, $ModuleName, $Depth = 0, [switch]$ReturnDependency ) if ($Depth -eq 0) { $RootModulePath = $ModulePath } If ($Depth -ge 8 ) { Throw &lsquo;Module dependency is deeper than 8 levels, possible cyclical dependency&rsquo; } try { Write-Verbose -Message $($('&ndash;&rsquo; * $Depth)+$ModuleName) $ModPath = $(($(Get-ChildItem -Path &ldquo;$($ModulePath)&rdquo; -Filter &ldquo;$ModuleName.
-        
-        </span>
-        
-          ... <a class="read-more-symbol" href="/posts/2016-01-31-simple-module-dependency-mapper/">➦</a>
-        
-        </div>
-        
-     
-      
-        
-      
-      <div class="post-list__item">
-        <span class="item__title--big">
-          <a href="/posts/2016-01-05-run-azure-automation-hybrid-worker-using-runas/" >Run Azure Automation Hybrid Worker using &#34;RunAs&#34;</a>
-        </span>
-        <span class="item__date">
-          Jan 5, 2016
-        </span>
-        <span >
-        
-        Today I was working at a client, doing a bunch of Azure Automation stuff, moving a lot of the scheduled jobs into Azure Automation, when I noticed this little button.
-        
-        </span>
-        
-          ... <a class="read-more-symbol" href="/posts/2016-01-05-run-azure-automation-hybrid-worker-using-runas/">➦</a>
-        
-        </div>
-        
-     
-      
-        
-      
-      <div class="post-list__item">
-        <span class="item__title--big">
-          <a href="/posts/2015-06-08-configure-web-config-for-use-with-powershell-dsc-v5-configuration-names-and-registrationkey/" >Configure Web.Config for use with PowerShell DSC v5 Configuration Names and RegistrationKey</a>
-        </span>
-        <span class="item__date">
-          Jun 8, 2015
-        </span>
-        <span >
-        
-        One of the new features of PowerShell v5 DSC, is that you now can use ConfigurationNames in &ldquo;clear-text&rdquo; not GUID, meaning that you can now have human readable names for your configurations.
-        
-        </span>
-        
-          ... <a class="read-more-symbol" href="/posts/2015-06-08-configure-web-config-for-use-with-powershell-dsc-v5-configuration-names-and-registrationkey/">➦</a>
-        
-        </div>
-        
-     
-      
-        
-      
-      <div class="post-list__item">
-        <span class="item__title--big">
-          <a href="/posts/2015-05-06-new-in-wmf-5-april-release/" >New in WMF 5 April release</a>
-        </span>
-        <span class="item__date">
-          May 6, 2015
-        </span>
-        <span >
-        
-        2889dbbb-0389-4b50-a741-eb4ab7e20210
-If you need to copy and paste the GUID into a configuration, you can do something like this:
-(New-Guid).ToString() | clip or
-New-Guid | select -ExpandProperty Guid | clip 
-        
-        </span>
-        
-        </div>
-        
-     
-      
-        
-      
-      <div class="post-list__item">
-        <span class="item__title--big">
           <a href="/posts/2015-05-02-domain-requirement-for-ork/" >Domain requirement for ORK</a>
         </span>
         <span class="item__date">
@@ -274,6 +189,202 @@ I wanted to try to do a greenfield install, using a clean Server 2012R2 machine,
         </span>
         
           ... <a class="read-more-symbol" href="/posts/2015-05-02-domain-requirement-for-ork/">➦</a>
+        
+        </div>
+        
+     
+      
+        
+      
+      <div class="post-list__item">
+        <span class="item__title--big">
+          <a href="/posts/2015-04-30-new-version-of-powershell-v5-april-release/" >New version of PowerShell v5 (April release)</a>
+        </span>
+        <span class="item__date">
+          Apr 30, 2015
+        </span>
+        <span >
+        
+        There is a new version of PowerShell v5 out&hellip;. Get it while its hot :)
+Here is the blog post
+http://blogs.msdn.com/b/powershell/archive/2015/04/29/windows-management-framework-5-0-preview-april-2015-is-now-available.aspx
+Here is the direct link
+http://www.microsoft.com/en-us/download/details.aspx?id=46889
+        
+        </span>
+        
+        </div>
+        
+     
+      
+        
+      
+      <div class="post-list__item">
+        <span class="item__title--big">
+          <a href="/posts/2015-04-21-been-a-little-slow-lately/" >Been a little slow lately  ;)</a>
+        </span>
+        <span class="item__date">
+          Apr 21, 2015
+        </span>
+        <span >
+        
+        It has been a little slow here for a while, between being very busy at work, and then starting a new job, I haven&rsquo;t had enough time to blog that much.
+        
+        </span>
+        
+          ... <a class="read-more-symbol" href="/posts/2015-04-21-been-a-little-slow-lately/">➦</a>
+        
+        </div>
+        
+     
+      
+        
+      
+      <div class="post-list__item">
+        <span class="item__title--big">
+          <a href="/posts/2014-09-08-adding-applications-to-emet/" >Adding Applications to EMET</a>
+        </span>
+        <span class="item__date">
+          Sep 8, 2014
+        </span>
+        <span >
+        
+        If you have been using EMET (Enhanced Mitigation Experience Toolkit ) toolkit from Microsoft you probably have had to need to add custom application, one of the main &ldquo;culprits&rdquo; is Flash Player with its ever changing name (filename contains it&rsquo;s version number)
+        
+        </span>
+        
+          ... <a class="read-more-symbol" href="/posts/2014-09-08-adding-applications-to-emet/">➦</a>
+        
+        </div>
+        
+     
+      
+        
+      
+      <div class="post-list__item">
+        <span class="item__title--big">
+          <a href="/posts/2014-09-06-powershell-v5-com-improvements/" >PowerShell v5 COM improvements</a>
+        </span>
+        <span class="item__date">
+          Sep 6, 2014
+        </span>
+        <span >
+        
+        When I saw that Lee Holmes twittered about COM had been improved in WMF 5 September release, I just had to try it right away..
+I have several scripts that does some auditing of computers in AD, and populates an Excel spreadsheet, where different properties get highlighted depending on its value.
+        
+        </span>
+        
+          ... <a class="read-more-symbol" href="/posts/2014-09-06-powershell-v5-com-improvements/">➦</a>
+        
+        </div>
+        
+     
+      
+        
+      
+      <div class="post-list__item">
+        <span class="item__title--big">
+          <a href="/posts/2014-08-12-are-you-going-i-am/" >Are you going ? I am..</a>
+        </span>
+        <span class="item__date">
+          Aug 12, 2014
+        </span>
+        <span >
+        
+        The European PowerShell Summit, organised by PowerShell.org, will be in Amsterdam September 29 - October 1 2014 at the Park Hotel. Details at http://powershell.org/wp/community-events/summit/
+The Summit will feature 3 days of PowerShell sessions from PowerShell team members, PowerShell MVPs and other PowerShell experts.
+        
+        </span>
+        
+          ... <a class="read-more-symbol" href="/posts/2014-08-12-are-you-going-i-am/">➦</a>
+        
+        </div>
+        
+     
+      
+        
+      
+      <div class="post-list__item">
+        <span class="item__title--big">
+          <a href="/posts/2014-05-30-sa-er-det-tid-til-at-saette-x-i-kalenderen-igen-26-juni/" >Så er det tid til at sætte X i kalenderen igen. ( 26 Juni)</a>
+        </span>
+        <span class="item__date">
+          May 30, 2014
+        </span>
+        <span >
+        
+        XXXX 26 Juni XXXX
+Denne gang er det med ret kort varsel i forhold til hvad vi plejer, vi
+har ligget i “forhandlinger” med Aleksandar Nikolic ( en af de førende specialister inden for PowerShell remoting, restrained endpoints etc.
+        
+        </span>
+        
+          ... <a class="read-more-symbol" href="/posts/2014-05-30-sa-er-det-tid-til-at-saette-x-i-kalenderen-igen-26-juni/">➦</a>
+        
+        </div>
+        
+     
+      
+        
+      
+      <div class="post-list__item">
+        <span class="item__title--big">
+          <a href="/posts/2014-02-22-updating-upn-names-in-active-directory/" >Updating UPN names in Active Directory</a>
+        </span>
+        <span class="item__date">
+          Feb 22, 2014
+        </span>
+        <span >
+        
+        function OnApplicationLoad { #Note: This function is not called in Projects #Note: This function runs before the form is created #Note: To get the script directory in the Packager use: Split-Path $hostinvocation.
+        
+        </span>
+        
+          ... <a class="read-more-symbol" href="/posts/2014-02-22-updating-upn-names-in-active-directory/">➦</a>
+        
+        </div>
+        
+     
+      
+        
+      
+      <div class="post-list__item">
+        <span class="item__title--big">
+          <a href="/posts/2014-02-03-using-ews-exchange-web-services-to-read-emails/" >Using EWS (Exchange Web Services) to read email subjects.</a>
+        </span>
+        <span class="item__date">
+          Feb 3, 2014
+        </span>
+        <span >
+        
+        Today I had a discussion with a vendor, they are delivering a solution that reads email from a specific email account on Exchange, and create a ticket in our helpdesk system.
+        
+        </span>
+        
+          ... <a class="read-more-symbol" href="/posts/2014-02-03-using-ews-exchange-web-services-to-read-emails/">➦</a>
+        
+        </div>
+        
+     
+      
+        
+      
+      <div class="post-list__item">
+        <span class="item__title--big">
+          <a href="/posts/2014-01-08-readable-password-generator/" >Readable Password generator</a>
+        </span>
+        <span class="item__date">
+          Jan 8, 2014
+        </span>
+        <span >
+        
+        Because of a report from our auditors, I was tasked with writing a password generator
+for our helpdesk staff, so instead of using a generic variation of the same password,
+        
+        </span>
+        
+          ... <a class="read-more-symbol" href="/posts/2014-01-08-readable-password-generator/">➦</a>
         
         </div>
         
@@ -425,124 +536,7 @@ I wanted to try to do a greenfield install, using a clean Server 2012R2 machine,
         
     
     
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/page/27/">27</a></li>
+    <li class="page-item"><a class="page-link" href="/page/14/">14</a></li>
     
     
     <li class="page-item">
@@ -550,7 +544,7 @@ I wanted to try to do a greenfield install, using a clean Server 2012R2 machine,
     </li>
     
     <li class="page-item">
-        <a href="/page/27/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+        <a href="/page/14/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
     </li>
     
 </ul>

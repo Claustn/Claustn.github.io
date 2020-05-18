@@ -23,7 +23,7 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://xipher.dk/" />
-<meta property="og:updated_time" content="2018-09-23T12:58:34+00:00" /><meta property="og:site_name" content="XenoBlog" />
+<meta property="og:updated_time" content="2020-05-16T12:58:34+00:00" /><meta property="og:site_name" content="XenoBlog" />
 
 
     
@@ -176,23 +176,18 @@ Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.c
       
       <div class="post-list__item">
         <span class="item__title--big">
-          <a href="/posts/2010-05-11-quest-ad-cmdlet-examples-from-my-presentation/" >Quest AD Cmdlet examples from my Presentation</a>
+          <a href="/posts/2008-04-16-test-flash-drive/" >Test Flash Drive</a>
         </span>
         <span class="item__date">
-          May 11, 2010
+          Apr 16, 2008
         </span>
         <span >
         
-        Example #1
-List users that expires within X days
-[ps]
-$DaysToExpire = 14
-$MaxPassAge = (Get-QADObject (Get-QADRootDSE).defaultNamingContextDN).MaximumPasswordAge.days
-[array]$a = Get-QADUser -Enabled -PasswordNeverExpires:$false -SizeLimit 0 -Email * |Select-Object Name,Email,@{Name=&quot;Expires&rdquo;;Expression={ $MaxPassAge - $_.
+        I recently tried a software package called MojoPac. During the install of MojoPac to my USB stick it complained that it might not work very well, because it detected that I had a slow USB stick&hellip; So I started wondering, what do I need to test the speed of my USB drives, besides some large files and a stopwatch.
         
         </span>
         
-          ... <a class="read-more-symbol" href="/posts/2010-05-11-quest-ad-cmdlet-examples-from-my-presentation/">➦</a>
+          ... <a class="read-more-symbol" href="/posts/2008-04-16-test-flash-drive/">➦</a>
         
         </div>
         
@@ -202,27 +197,19 @@ $MaxPassAge = (Get-QADObject (Get-QADRootDSE).defaultNamingContextDN).MaximumPas
       
       <div class="post-list__item">
         <span class="item__title--big">
-          <a href="/posts/2010-05-11-net-examples-from-presentation/" >.Net Examples from Presentation</a>
+          <a href="/posts/2008-04-01-tickets-booked-and-i-am-ready-to-go/" >Tickets booked and I am ready to go!</a>
         </span>
         <span class="item__date">
-          May 11, 2010
+          Apr 1, 2008
         </span>
         <span >
         
-        Example #1 (From Lee Holmes&rsquo; Powershell cookbook)
-&ldquo;Compile C# code on the fly&rdquo;
-[ps]
-$code =@&rsquo;
-using System.Management.Automation;
-[Cmdlet(&ldquo;Write&rdquo;, &ldquo;InputObject&rdquo;)]
-public class MyWriteInputObjectCmdlet : Cmdlet
-{
-[Parameter]
-public string Parameter1;
+        Finally everything should be in place now, I have booked the plane tickets to Dulles Airport in Washington, I supposedly have a Cadillac waiting for me on arrival.
+I am planning to spend the first 1½ day in the Washington area, to see the sights.
         
         </span>
         
-          ... <a class="read-more-symbol" href="/posts/2010-05-11-net-examples-from-presentation/">➦</a>
+          ... <a class="read-more-symbol" href="/posts/2008-04-01-tickets-booked-and-i-am-ready-to-go/">➦</a>
         
         </div>
         
@@ -232,26 +219,18 @@ public string Parameter1;
       
       <div class="post-list__item">
         <span class="item__title--big">
-          <a href="/posts/2010-05-11-profile-examples-from-presentation/" >Profile Examples from Presentation</a>
+          <a href="/posts/2008-03-12-mstsc-util/" >MSTSC Util</a>
         </span>
         <span class="item__date">
-          May 11, 2010
+          Mar 12, 2008
         </span>
         <span >
         
-        Here are some of the scripts that I used during the demonstration in VA Beach.
-Profiles:
-Example #1
-[ps]
-function prompt
-{
-&ldquo;Xenophane &quot; + $(get-location) + &ldquo;&gt;&rdquo;
-}
-[/ps]
+        A while back I needed to connect to different servers quite often via mstsc, and a lot of the times I needed a console connection to the specific server, so I decided to write a small app, so I did not have to type Mstsc /v:server /console all the time.
         
         </span>
         
-          ... <a class="read-more-symbol" href="/posts/2010-05-11-profile-examples-from-presentation/">➦</a>
+          ... <a class="read-more-symbol" href="/posts/2008-03-12-mstsc-util/">➦</a>
         
         </div>
         
@@ -261,18 +240,19 @@ function prompt
       
       <div class="post-list__item">
         <span class="item__title--big">
-          <a href="/posts/2010-05-11-gotten-back-from-minasi-conference/" >Gotten back from Minasi conference</a>
+          <a href="/posts/2008-02-27-log-in-notepad/" >.LOG in notepad</a>
         </span>
         <span class="item__date">
-          May 11, 2010
+          Feb 27, 2008
         </span>
         <span >
         
-        I got back from Virgina Beach this past Saturday, after attending a very good conference, where I learned a lot of new an exciting stuff&hellip; And of course it was very good to meet up with the &ldquo;gang&rdquo; again.
+        I was recently made aware of a feature in notepad that I was not aware of.
+If you open Notepad and type in .LOG (In CAPITAL letters) and the save it.
         
         </span>
         
-          ... <a class="read-more-symbol" href="/posts/2010-05-11-gotten-back-from-minasi-conference/">➦</a>
+          ... <a class="read-more-symbol" href="/posts/2008-02-27-log-in-notepad/">➦</a>
         
         </div>
         
@@ -282,18 +262,129 @@ function prompt
       
       <div class="post-list__item">
         <span class="item__title--big">
-          <a href="/posts/2010-01-24-powershell-as-a-webservice/" >Powershell as a webservice</a>
+          <a href="/posts/2008-02-25-ata-security/" >ATA security</a>
         </span>
         <span class="item__date">
-          Jan 24, 2010
+          Feb 25, 2008
         </span>
         <span >
         
-        Seems as if Quest has been doing some really cool things with Powershell, from what I can read, they have &ldquo;rolled&rdquo; it up as a webservice, meaning that you can now run your Powershell scripts over HTTPS from either you local machine, your phone, anything that supports a newer web browser.
+        On the security topic Heise.de tested it, and found that it was not enough to remove the circuit board and replace it with a board from an unlocked drive. So password data is stored on the drive platters as well.
         
         </span>
         
-          ... <a class="read-more-symbol" href="/posts/2010-01-24-powershell-as-a-webservice/">➦</a>
+          ... <a class="read-more-symbol" href="/posts/2008-02-25-ata-security/">➦</a>
+        
+        </div>
+        
+     
+      
+        
+      
+      <div class="post-list__item">
+        <span class="item__title--big">
+          <a href="/posts/2008-02-24-dram-data-rentention/" >DRAM data rentention</a>
+        </span>
+        <span class="item__date">
+          Feb 24, 2008
+        </span>
+        <span >
+        
+        Researchers from Princeton recently published an article about the possibility to extract information from RAM even after the PC has been turned on.
+In short, modern RAM contrary to popular belief does not instantly loose its contents, it degrades gradually over time.
+        
+        </span>
+        
+          ... <a class="read-more-symbol" href="/posts/2008-02-24-dram-data-rentention/">➦</a>
+        
+        </div>
+        
+     
+      
+        
+      
+      <div class="post-list__item">
+        <span class="item__title--big">
+          <a href="/posts/2008-02-01-dir-r/" >Dir /R</a>
+        </span>
+        <span class="item__date">
+          Feb 1, 2008
+        </span>
+        <span >
+        
+        While I was looking for information about streams in NTFS I found this little gem that I did not know, in Vista the dir command has be upgraded to be able to show streams as well.
+        
+        </span>
+        
+          ... <a class="read-more-symbol" href="/posts/2008-02-01-dir-r/">➦</a>
+        
+        </div>
+        
+     
+      
+        
+      
+      <div class="post-list__item">
+        <span class="item__title--big">
+          <a href="/posts/2008-02-01-annoying-security-warning-in-posh/" >Annoying Security warning in Posh</a>
+        </span>
+        <span class="item__date">
+          Feb 1, 2008
+        </span>
+        <span >
+        
+        As I wrote in an earlier post I am using PowerTabs in Powershell.. I recently upgraded to version 0.99 Beta 2 and it would come up with:
+ Security WarningRun only scripts that you trust.
+        
+        </span>
+        
+          ... <a class="read-more-symbol" href="/posts/2008-02-01-annoying-security-warning-in-posh/">➦</a>
+        
+        </div>
+        
+     
+      
+        
+      
+      <div class="post-list__item">
+        <span class="item__title--big">
+          <a href="/posts/2008-01-21-esbjerg-testen/" >Esbjerg Testen</a>
+        </span>
+        <span class="item__date">
+          Jan 21, 2008
+        </span>
+        <span >
+        
+        Fik lige denne her mail&hellip;.. Det er faktisk lidt uhyggeligt&hellip;
+ Du ved, du er fra Esbjerg når&hellip;
+&hellip; den vigtigste ingrediens i en kaffepunch er en mønt.
+&hellip; du i folkeskolen har haft gøgler-dag med Kaj Jørgensen.
+        
+        </span>
+        
+          ... <a class="read-more-symbol" href="/posts/2008-01-21-esbjerg-testen/">➦</a>
+        
+        </div>
+        
+     
+      
+        
+      
+      <div class="post-list__item">
+        <span class="item__title--big">
+          <a href="/posts/2008-01-02-bibob-gprs-internet/" >BiBoB GPRS Internet</a>
+        </span>
+        <span class="item__date">
+          Jan 2, 2008
+        </span>
+        <span >
+        
+        Efter jeg er flyttet har jeg ikke fået bestilt internet i god nok tid :(
+ Hvad skal man da bruge al den tid til&hellip; Så tænkte jeg, at jeg ville bruge min nye Nokia mobil til at gå på nettet på (E65).
+        
+        </span>
+        
+          ... <a class="read-more-symbol" href="/posts/2008-01-02-bibob-gprs-internet/">➦</a>
         
         </div>
         
@@ -453,124 +544,7 @@ function prompt
         
     
     
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/page/27/">27</a></li>
+    <li class="page-item"><a class="page-link" href="/page/14/">14</a></li>
     
     
     <li class="page-item">
@@ -578,7 +552,7 @@ function prompt
     </li>
     
     <li class="page-item">
-        <a href="/page/27/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+        <a href="/page/14/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
     </li>
     
 </ul>

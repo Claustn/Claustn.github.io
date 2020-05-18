@@ -23,7 +23,7 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://xipher.dk/" />
-<meta property="og:updated_time" content="2018-09-23T12:58:34+00:00" /><meta property="og:site_name" content="XenoBlog" />
+<meta property="og:updated_time" content="2020-05-16T12:58:34+00:00" /><meta property="og:site_name" content="XenoBlog" />
 
 
     
@@ -176,6 +176,28 @@ Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.c
       
       <div class="post-list__item">
         <span class="item__title--big">
+          <a href="/posts/2020-05-17-using-esp8266-to-monitor-kamstrup-omnipower/" >Using ESP8266 to monitor Kamstrup Omnipower</a>
+        </span>
+        <span class="item__date">
+          May 16, 2020
+        </span>
+        <span >
+        
+        (This is what I did to get it working with the Kamstrup Omnipower as a Radius customer, Danish Power Company)
+Over the years as the kids have gotten older, our electrical bill has just gone up and up, and I have been wondering what and when we were using all that power.
+        
+        </span>
+        
+          ... <a class="read-more-symbol" href="/posts/2020-05-17-using-esp8266-to-monitor-kamstrup-omnipower/">➦</a>
+        
+        </div>
+        
+     
+      
+        
+      
+      <div class="post-list__item">
+        <span class="item__title--big">
           <a href="/posts/2018-09-23-loading-p0wned-password-files-into-sqlite/" >Loading &#34;P0wned&#34; password file into SQLite</a>
         </span>
         <span class="item__date">
@@ -274,6 +296,91 @@ Part 1: Getting screenshots from VMware machines (This Post)
         </span>
         
           ... <a class="read-more-symbol" href="/posts/2016-01-31-dsc-resource-downloader/">➦</a>
+        
+        </div>
+        
+     
+      
+        
+      
+      <div class="post-list__item">
+        <span class="item__title--big">
+          <a href="/posts/2016-01-31-simple-module-dependency-mapper/" >Simple module dependency mapper</a>
+        </span>
+        <span class="item__date">
+          Jan 31, 2016
+        </span>
+        <span >
+        
+        Script to list module dependencies function Get-Depends { [CmdLetBinding()] Param( $ModulePath, $ModuleName, $Depth = 0, [switch]$ReturnDependency ) if ($Depth -eq 0) { $RootModulePath = $ModulePath } If ($Depth -ge 8 ) { Throw &lsquo;Module dependency is deeper than 8 levels, possible cyclical dependency&rsquo; } try { Write-Verbose -Message $($('&ndash;&rsquo; * $Depth)+$ModuleName) $ModPath = $(($(Get-ChildItem -Path &ldquo;$($ModulePath)&rdquo; -Filter &ldquo;$ModuleName.
+        
+        </span>
+        
+          ... <a class="read-more-symbol" href="/posts/2016-01-31-simple-module-dependency-mapper/">➦</a>
+        
+        </div>
+        
+     
+      
+        
+      
+      <div class="post-list__item">
+        <span class="item__title--big">
+          <a href="/posts/2016-01-05-run-azure-automation-hybrid-worker-using-runas/" >Run Azure Automation Hybrid Worker using &#34;RunAs&#34;</a>
+        </span>
+        <span class="item__date">
+          Jan 5, 2016
+        </span>
+        <span >
+        
+        Today I was working at a client, doing a bunch of Azure Automation stuff, moving a lot of the scheduled jobs into Azure Automation, when I noticed this little button.
+        
+        </span>
+        
+          ... <a class="read-more-symbol" href="/posts/2016-01-05-run-azure-automation-hybrid-worker-using-runas/">➦</a>
+        
+        </div>
+        
+     
+      
+        
+      
+      <div class="post-list__item">
+        <span class="item__title--big">
+          <a href="/posts/2015-06-08-configure-web-config-for-use-with-powershell-dsc-v5-configuration-names-and-registrationkey/" >Configure Web.Config for use with PowerShell DSC v5 Configuration Names and RegistrationKey</a>
+        </span>
+        <span class="item__date">
+          Jun 8, 2015
+        </span>
+        <span >
+        
+        One of the new features of PowerShell v5 DSC, is that you now can use ConfigurationNames in &ldquo;clear-text&rdquo; not GUID, meaning that you can now have human readable names for your configurations.
+        
+        </span>
+        
+          ... <a class="read-more-symbol" href="/posts/2015-06-08-configure-web-config-for-use-with-powershell-dsc-v5-configuration-names-and-registrationkey/">➦</a>
+        
+        </div>
+        
+     
+      
+        
+      
+      <div class="post-list__item">
+        <span class="item__title--big">
+          <a href="/posts/2015-05-06-new-in-wmf-5-april-release/" >New in WMF 5 April release</a>
+        </span>
+        <span class="item__date">
+          May 6, 2015
+        </span>
+        <span >
+        
+        2889dbbb-0389-4b50-a741-eb4ab7e20210
+If you need to copy and paste the GUID into a configuration, you can do something like this:
+(New-Guid).ToString() | clip or
+New-Guid | select -ExpandProperty Guid | clip 
+        
+        </span>
         
         </div>
         
@@ -425,124 +532,7 @@ Part 1: Getting screenshots from VMware machines (This Post)
         
     
     
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/page/27/">27</a></li>
+    <li class="page-item"><a class="page-link" href="/page/14/">14</a></li>
     
     
     <li class="page-item">
@@ -550,7 +540,7 @@ Part 1: Getting screenshots from VMware machines (This Post)
     </li>
     
     <li class="page-item">
-        <a href="/page/27/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+        <a href="/page/14/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
     </li>
     
 </ul>

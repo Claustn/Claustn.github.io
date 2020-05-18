@@ -23,7 +23,7 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://xipher.dk/" />
-<meta property="og:updated_time" content="2018-09-23T12:58:34+00:00" /><meta property="og:site_name" content="XenoBlog" />
+<meta property="og:updated_time" content="2020-05-16T12:58:34+00:00" /><meta property="og:site_name" content="XenoBlog" />
 
 
     
@@ -176,18 +176,25 @@ Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.c
       
       <div class="post-list__item">
         <span class="item__title--big">
-          <a href="/posts/2013-08-02-managing-queue-it-queues-with-powershell/" >Managing Queue-It queues with PowerShell</a>
+          <a href="/posts/2010-09-08-account-lockout-continued/" >Account lockout continued</a>
         </span>
         <span class="item__date">
-          Aug 2, 2013
+          Sep 8, 2010
         </span>
         <span >
         
-        We are using Queue-IT for some of our external websites, and we needed to start/stop the queues when we doing maintenance on our sites, I found this very easy to do, with Powershell&rsquo;s Invoke-WebRequest cmdlet.
+        } #End Function
+#Call OnApplicationLoad to initialize
+if(OnApplicationLoad -eq $true)
+{
+#Create the form
+GenerateForm | Out-Null
+#Perform cleanup
+OnApplicationExit
+}
+[/sourcecode]
         
         </span>
-        
-          ... <a class="read-more-symbol" href="/posts/2013-08-02-managing-queue-it-queues-with-powershell/">➦</a>
         
         </div>
         
@@ -197,18 +204,18 @@ Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.c
       
       <div class="post-list__item">
         <span class="item__title--big">
-          <a href="/posts/2013-06-27-culture-gotchas/" >Culture Gotchas</a>
+          <a href="/posts/2010-09-08-my-account-keeps-getting-locked-out-where-did-i-use-it/" >My account keeps getting locked out, where did I use it ??</a>
         </span>
         <span class="item__date">
-          Jun 27, 2013
+          Sep 8, 2010
         </span>
         <span >
         
-        We are not everyone running Powershell on machines with ”en-US” locale, and sometimes that gives some unexpected problems, if you are running on a non US system, and have been working with Excel for instance, you have probably run into this error when trying to add something to Excel like this:
+        A few weeks ago my admin account kept getting locked out, after I had changed my password.. So I assumed I had used it somewhere to either run a service or a scheduled task on a test server.
         
         </span>
         
-          ... <a class="read-more-symbol" href="/posts/2013-06-27-culture-gotchas/">➦</a>
+          ... <a class="read-more-symbol" href="/posts/2010-09-08-my-account-keeps-getting-locked-out-where-did-i-use-it/">➦</a>
         
         </div>
         
@@ -218,19 +225,17 @@ Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.c
       
       <div class="post-list__item">
         <span class="item__title--big">
-          <a href="/posts/2013-04-15-sending-out-password-expiration-mails-to-users-in-active-directory/" >Sending out Password Expiration mails to users in Active Directory</a>
+          <a href="/posts/2010-05-30-export-xls-powershell-script-to-export-to-xls/" >Export-xls Powershell script to export to XLS</a>
         </span>
         <span class="item__date">
-          Apr 15, 2013
+          May 30, 2010
         </span>
         <span >
         
-        I was tasked with writing a script that would send out an e-mail to users, when there were 14,7,3,2 and 1 days before their AD passwords expired.
-I use the Quest AD cmdlets to get users from AD.
+        This looks very promising, going to give it a spin tomorrow when I get to work
+http://www.lucd.info/2010/05/29/beyond-export-csv-export-xls/
         
         </span>
-        
-          ... <a class="read-more-symbol" href="/posts/2013-04-15-sending-out-password-expiration-mails-to-users-in-active-directory/">➦</a>
         
         </div>
         
@@ -240,21 +245,19 @@ I use the Quest AD cmdlets to get users from AD.
       
       <div class="post-list__item">
         <span class="item__title--big">
-          <a href="/posts/2012-09-10-troubleshooting-test-connection/" >Troubleshooting Test-Connection</a>
+          <a href="/posts/2010-05-30-output-a-sortable-html-table/" >Output a sortable HTML table</a>
         </span>
         <span class="item__date">
-          Sep 10, 2012
+          May 30, 2010
         </span>
         <span >
         
-        I was contacted by a friend who was having some issues with Test-Connection when using TimeToLive
-Example:
-Test-Connection -ComputerName www.google.ie -Count 1 -TimeToLive 3
-Test-Connection : Testing connection to computer &lsquo;www.
+        A while back I posted a script that would take whatever input it got, into a sortable HTML table in a file.
+Last night my family was here, and they wanted to see the Eurovision song contest thing, so I had some time to rewrite the script into a PowerShell V2 Advanced function, that supports pipeline input.
         
         </span>
         
-          ... <a class="read-more-symbol" href="/posts/2012-09-10-troubleshooting-test-connection/">➦</a>
+          ... <a class="read-more-symbol" href="/posts/2010-05-30-output-a-sortable-html-table/">➦</a>
         
         </div>
         
@@ -264,18 +267,155 @@ Test-Connection : Testing connection to computer &lsquo;www.
       
       <div class="post-list__item">
         <span class="item__title--big">
-          <a href="/posts/2012-03-14-the-mystery-of-why-cisco-anyconnect-stopped-working/" >The mystery of why Cisco AnyConnect stopped working</a>
+          <a href="/posts/2010-05-11-powershell-presentation-from-2010-minasi-conference/" >PowerShell presentation from 2010 Minasi Conference</a>
         </span>
         <span class="item__date">
-          Mar 14, 2012
+          May 11, 2010
         </span>
         <span >
         
-        A while back I tried to update my Intel Centrino Ultimate 6300 Wifi NIC to the latest drivers, to test Intel MY wifi while I was out travelling, but I never got it to work, it said it could not detect a suitable adaptor.
+        Here is my presentation from the 2010 Minasi conference.
+Presentation
         
         </span>
         
-          ... <a class="read-more-symbol" href="/posts/2012-03-14-the-mystery-of-why-cisco-anyconnect-stopped-working/">➦</a>
+        </div>
+        
+     
+      
+        
+      
+      <div class="post-list__item">
+        <span class="item__title--big">
+          <a href="/posts/2010-05-11-remoting-examples-from-my-presentation/" >Remoting examples from my presentation</a>
+        </span>
+        <span class="item__date">
+          May 11, 2010
+        </span>
+        <span >
+        
+        Example #1
+[ps]
+#Sessions
+#Single Session
+$Session = New-PSSession -ComputerName &ldquo;computername&rdquo;
+#Multiple Sessions
+$Session = New-PSSession -ComputerName &ldquo;comp1&rdquo;,&ldquo;comp2&rdquo;&hellip;..
+#Remove all Sessions
+Remove-PSSession *
+#Remove Named Session
+Remove-PSSession $Session
+#Using $session
+        
+        </span>
+        
+          ... <a class="read-more-symbol" href="/posts/2010-05-11-remoting-examples-from-my-presentation/">➦</a>
+        
+        </div>
+        
+     
+      
+        
+      
+      <div class="post-list__item">
+        <span class="item__title--big">
+          <a href="/posts/2010-05-11-quest-ad-cmdlet-examples-from-my-presentation/" >Quest AD Cmdlet examples from my Presentation</a>
+        </span>
+        <span class="item__date">
+          May 11, 2010
+        </span>
+        <span >
+        
+        Example #1
+List users that expires within X days
+[ps]
+$DaysToExpire = 14
+$MaxPassAge = (Get-QADObject (Get-QADRootDSE).defaultNamingContextDN).MaximumPasswordAge.days
+[array]$a = Get-QADUser -Enabled -PasswordNeverExpires:$false -SizeLimit 0 -Email * |Select-Object Name,Email,@{Name=&quot;Expires&rdquo;;Expression={ $MaxPassAge - $_.
+        
+        </span>
+        
+          ... <a class="read-more-symbol" href="/posts/2010-05-11-quest-ad-cmdlet-examples-from-my-presentation/">➦</a>
+        
+        </div>
+        
+     
+      
+        
+      
+      <div class="post-list__item">
+        <span class="item__title--big">
+          <a href="/posts/2010-05-11-net-examples-from-presentation/" >.Net Examples from Presentation</a>
+        </span>
+        <span class="item__date">
+          May 11, 2010
+        </span>
+        <span >
+        
+        Example #1 (From Lee Holmes&rsquo; Powershell cookbook)
+&ldquo;Compile C# code on the fly&rdquo;
+[ps]
+$code =@&rsquo;
+using System.Management.Automation;
+[Cmdlet(&ldquo;Write&rdquo;, &ldquo;InputObject&rdquo;)]
+public class MyWriteInputObjectCmdlet : Cmdlet
+{
+[Parameter]
+public string Parameter1;
+        
+        </span>
+        
+          ... <a class="read-more-symbol" href="/posts/2010-05-11-net-examples-from-presentation/">➦</a>
+        
+        </div>
+        
+     
+      
+        
+      
+      <div class="post-list__item">
+        <span class="item__title--big">
+          <a href="/posts/2010-05-11-profile-examples-from-presentation/" >Profile Examples from Presentation</a>
+        </span>
+        <span class="item__date">
+          May 11, 2010
+        </span>
+        <span >
+        
+        Here are some of the scripts that I used during the demonstration in VA Beach.
+Profiles:
+Example #1
+[ps]
+function prompt
+{
+&ldquo;Xenophane &quot; + $(get-location) + &ldquo;&gt;&rdquo;
+}
+[/ps]
+        
+        </span>
+        
+          ... <a class="read-more-symbol" href="/posts/2010-05-11-profile-examples-from-presentation/">➦</a>
+        
+        </div>
+        
+     
+      
+        
+      
+      <div class="post-list__item">
+        <span class="item__title--big">
+          <a href="/posts/2010-05-11-gotten-back-from-minasi-conference/" >Gotten back from Minasi conference</a>
+        </span>
+        <span class="item__date">
+          May 11, 2010
+        </span>
+        <span >
+        
+        I got back from Virgina Beach this past Saturday, after attending a very good conference, where I learned a lot of new an exciting stuff&hellip; And of course it was very good to meet up with the &ldquo;gang&rdquo; again.
+        
+        </span>
+        
+          ... <a class="read-more-symbol" href="/posts/2010-05-11-gotten-back-from-minasi-conference/">➦</a>
         
         </div>
         
@@ -433,124 +573,7 @@ Test-Connection : Testing connection to computer &lsquo;www.
         
     
     
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/page/27/">27</a></li>
+    <li class="page-item"><a class="page-link" href="/page/14/">14</a></li>
     
     
     <li class="page-item">
@@ -558,7 +581,7 @@ Test-Connection : Testing connection to computer &lsquo;www.
     </li>
     
     <li class="page-item">
-        <a href="/page/27/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+        <a href="/page/14/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
     </li>
     
 </ul>

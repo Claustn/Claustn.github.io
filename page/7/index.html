@@ -23,7 +23,7 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://xipher.dk/" />
-<meta property="og:updated_time" content="2018-09-23T12:58:34+00:00" /><meta property="og:site_name" content="XenoBlog" />
+<meta property="og:updated_time" content="2020-05-16T12:58:34+00:00" /><meta property="og:site_name" content="XenoBlog" />
 
 
     
@@ -176,119 +176,220 @@ Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.c
       
       <div class="post-list__item">
         <span class="item__title--big">
-          <a href="/posts/2011-06-17-fix-2008r2-scheduled-tasks/" >Fix 2008R2 scheduled tasks</a>
+          <a href="/posts/2009-08-15-the-scripting-guys-have-done-it-again/" >&#34;The Scripting Guy(s)) have done it again.</a>
         </span>
         <span class="item__date">
-          Jun 17, 2011
+          Aug 15, 2009
         </span>
         <span >
         
-        [ps]
-Function Change-ScheduledTask {
-Param($XMLIn)
-$ShortDate = [regex]&quot;(?&lt;shortdate&gt;[0-9]{4}/.-/.-T(?:2[0-3]|[01][0-9])[:.][0-5][0-9][:.][0-5][0-9])(?&lt;digits&gt;.\d*)&rdquo;
-foreach ($line in $XMLIn){
-If ($line -match &ldquo;$ShortDate&rdquo;) {
-$line = [regex]::Replace($line, $ShortDate, $($Matches[&ldquo;Shortdate&rdquo;]))
+        They have gone back and tagged all the scripts they have made during the last many years, and put up an easily searchable repository on their site on Technet.
+They are calling it the Script Gallery
+        
+        </span>
+        
+          ... <a class="read-more-symbol" href="/posts/2009-08-15-the-scripting-guys-have-done-it-again/">➦</a>
+        
+        </div>
+        
+     
+      
+        
+      
+      <div class="post-list__item">
+        <span class="item__title--big">
+          <a href="/posts/2009-08-14-powershell-v2-for-vista-and-server-2008-has-been-released-as-rc/" >PowerShell v2 for Vista and Server 2008 has been released as RC</a>
+        </span>
+        <span class="item__date">
+          Aug 14, 2009
+        </span>
+        <span >
+        
+        You can now get PowerShell v2 as a download for Windows Vista and Windows Server 2008 from Microsoft Connect.
+Windows XP and Windows Server 2003 SP2 are not included in this RC release but they will be made available in future.
+        
+        </span>
+        
+          ... <a class="read-more-symbol" href="/posts/2009-08-14-powershell-v2-for-vista-and-server-2008-has-been-released-as-rc/">➦</a>
+        
+        </div>
+        
+     
+      
+        
+      
+      <div class="post-list__item">
+        <span class="item__title--big">
+          <a href="/posts/2009-07-30-editing-excel-using-powershell/" >&#34;Editing&#34; Excel using Powershell</a>
+        </span>
+        <span class="item__date">
+          Jul 30, 2009
+        </span>
+        <span >
+        
+        At work we have a spreadsheet, where we keep track of our mobile phones, and 3G dongles, in it we keep info about the IMEI code, PUK/PIN codes etc.
+Today we found a few SIM cards lying around, the only thing on them was the SIM card number (19 digits).
+        
+        </span>
+        
+          ... <a class="read-more-symbol" href="/posts/2009-07-30-editing-excel-using-powershell/">➦</a>
+        
+        </div>
+        
+     
+      
+        
+      
+      <div class="post-list__item">
+        <span class="item__title--big">
+          <a href="/posts/2009-07-27-prevent-screensaver/" >Prevent-Screensaver</a>
+        </span>
+        <span class="item__date">
+          Jul 27, 2009
+        </span>
+        <span >
+        
+        A while back I created a small AutoIt script, to prevent the screensaver from kicking in, last employer had screensaver kick after 5 min, which was rather annoying when you are out doing presentations, and you have to punch in your password everytime the screensaver kicks in.
+        
+        </span>
+        
+          ... <a class="read-more-symbol" href="/posts/2009-07-27-prevent-screensaver/">➦</a>
+        
+        </div>
+        
+     
+      
+        
+      
+      <div class="post-list__item">
+        <span class="item__title--big">
+          <a href="/posts/2009-07-23-installing-exchange-2007-mgmt-tools-with-powershell-ctps/" >Installing Exchange 2007 Mgmt tools with PowerShell CTP&#39;s</a>
+        </span>
+        <span class="item__date">
+          Jul 23, 2009
+        </span>
+        <span >
+        
+        When you try to install Exchange 2007 mgmt tools on a machine running anything else than PowerShell V1 (yah yah I know, shouldn&rsquo;t run &ldquo;beta&rdquo; software in production, but I want my remoting).
+        
+        </span>
+        
+          ... <a class="read-more-symbol" href="/posts/2009-07-23-installing-exchange-2007-mgmt-tools-with-powershell-ctps/">➦</a>
+        
+        </div>
+        
+     
+      
+        
+      
+      <div class="post-list__item">
+        <span class="item__title--big">
+          <a href="/posts/2009-07-21-get-exchange-rates/" >Get Exchange rates</a>
+        </span>
+        <span class="item__date">
+          Jul 21, 2009
+        </span>
+        <span >
+        
+        I stumbled on a post about getting Exchange rates from a bank, from an online XML file.. So I thought I would try that with a local bank, I figured out the Danish national bank, has an XML file online with the current rates&hellip;
+        
+        </span>
+        
+          ... <a class="read-more-symbol" href="/posts/2009-07-21-get-exchange-rates/">➦</a>
+        
+        </div>
+        
+     
+      
+        
+      
+      <div class="post-list__item">
+        <span class="item__title--big">
+          <a href="/posts/2009-07-19-create-excel-spreadsheet/" >Create Excel Spreadsheet</a>
+        </span>
+        <span class="item__date">
+          Jul 19, 2009
+        </span>
+        <span >
+        
+        The other day I was tasked with creating a spreadsheet containing a list of all servers in our network, manager wanted a &ldquo;sheet&rdquo; for each computer, and an &ldquo;index&rdquo; sheet with links to all the other sheets.
+        
+        </span>
+        
+          ... <a class="read-more-symbol" href="/posts/2009-07-19-create-excel-spreadsheet/">➦</a>
+        
+        </div>
+        
+     
+      
+        
+      
+      <div class="post-list__item">
+        <span class="item__title--big">
+          <a href="/posts/2009-04-17-arrived-safely-in-washington-dulles-airport/" >Arrived safely in Washington Dulles airport</a>
+        </span>
+        <span class="item__date">
+          Apr 17, 2009
+        </span>
+        <span >
+        
+        I landed in Dulles on time, or actually earlier that we were supposed to&hellip;
+I am meeting up with Wes, who is flying in from California, we are sharing a ride down to Virgina, unfortunately his flight was delayed, so I have to wait 4 hours here.
+        
+        </span>
+        
+          ... <a class="read-more-symbol" href="/posts/2009-04-17-arrived-safely-in-washington-dulles-airport/">➦</a>
+        
+        </div>
+        
+     
+      
+        
+      
+      <div class="post-list__item">
+        <span class="item__title--big">
+          <a href="/posts/2009-03-30-deleting-empty-folders-in-outlook/" >Deleting empty folders in Outlook</a>
+        </span>
+        <span class="item__date">
+          Mar 30, 2009
+        </span>
+        <span >
+        
+        A friend of mine called me, and asked me for help&hellip; He had had a migration go wrong and had ended up with a bunch of .pst files containing 1000&rsquo;s of emtpy folders.
+        
+        </span>
+        
+          ... <a class="read-more-symbol" href="/posts/2009-03-30-deleting-empty-folders-in-outlook/">➦</a>
+        
+        </div>
+        
+     
+      
+        
+      
+      <div class="post-list__item">
+        <span class="item__title--big">
+          <a href="/posts/2009-03-11-get-mailboxinfo-powershell-script/" >Get-Mailboxinfo Powershell script</a>
+        </span>
+        <span class="item__date">
+          Mar 11, 2009
+        </span>
+        <span >
+        
+        $script:totalSize += ([System.Int64]$mailbox.Size)
+$script:totalItems += ([System.Int32]$mailbox.TotalItems)
+$script:totalDeleted += ([System.Int64]$mailbox.DeletedMessageSizeExtended)
+$script:totalMailboxes += 1
 }
-$line
-#$Script:outfile += $line + &ldquo;`n&rdquo;
 }
-        
-        </span>
-        
-          ... <a class="read-more-symbol" href="/posts/2011-06-17-fix-2008r2-scheduled-tasks/">➦</a>
-        
-        </div>
-        
-     
-      
-        
-      
-      <div class="post-list__item">
-        <span class="item__title--big">
-          <a href="/posts/2011-02-09-send-sms-through-bibob-with-powershell/" >Send SMS through bibob with Powershell</a>
-        </span>
-        <span class="item__date">
-          Feb 9, 2011
-        </span>
-        <span >
-        
-        I thought I had posted this script more than a year ago, but apparently I have not. It is quite similar to the script, I posted recently sending SMS messages through unwire, this just allows bibob customers to send messages through bibobs online gateway.
-        
-        </span>
-        
-          ... <a class="read-more-symbol" href="/posts/2011-02-09-send-sms-through-bibob-with-powershell/">➦</a>
-        
-        </div>
-        
-     
-      
-        
-      
-      <div class="post-list__item">
-        <span class="item__title--big">
-          <a href="/posts/2011-02-09-send-sms-from-powershell-through-unwire/" >Send SMS from Powershell through Unwire</a>
-        </span>
-        <span class="item__date">
-          Feb 9, 2011
-        </span>
-        <span >
-        
-        At work we have bought an SMS gateway service through the danish company Unwire, so after we the deal was signed we got the information on how to send email through their services, so in order to test I wrote a quick Powershell script to test it.
-        
-        </span>
-        
-          ... <a class="read-more-symbol" href="/posts/2011-02-09-send-sms-from-powershell-through-unwire/">➦</a>
-        
-        </div>
-        
-     
-      
-        
-      
-      <div class="post-list__item">
-        <span class="item__title--big">
-          <a href="/posts/2011-01-29-change-usernamepassword-on-scheduled-tasks/" >Change username/password on scheduled tasks.</a>
-        </span>
-        <span class="item__date">
-          Jan 29, 2011
-        </span>
-        <span >
-        
-        } #End Function
-#Call OnApplicationLoad to initialize
-if(OnApplicationLoad -eq $true)
-{
-#Create the form
-GenerateForm | Out-Null
-#Perform cleanup
-OnApplicationExit
 }
-[/ps]
+}
+&ldquo;Mailbox name Mailbox size Item count Deleted size&rdquo; | Out-File $OutPutFile -append
+&ldquo;==================================================================================&rdquo; | Out-File $OutPutFile -append
         
         </span>
         
-        </div>
-        
-     
-      
-        
-      
-      <div class="post-list__item">
-        <span class="item__title--big">
-          <a href="/posts/2011-01-29-scheduled-tasks-server-2008/" >Scheduled Tasks Server 2008(R2)</a>
-        </span>
-        <span class="item__date">
-          Jan 29, 2011
-        </span>
-        <span >
-        
-        I have been working on a script for changing passwords on scheduled tasks in our domain, in that process I have run into a few kinks with scheduled tasks in server 2008(R2).
-        
-        </span>
-        
-          ... <a class="read-more-symbol" href="/posts/2011-01-29-scheduled-tasks-server-2008/">➦</a>
+          ... <a class="read-more-symbol" href="/posts/2009-03-11-get-mailboxinfo-powershell-script/">➦</a>
         
         </div>
         
@@ -448,124 +549,7 @@ OnApplicationExit
         
     
     
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/page/27/">27</a></li>
+    <li class="page-item"><a class="page-link" href="/page/14/">14</a></li>
     
     
     <li class="page-item">
@@ -573,7 +557,7 @@ OnApplicationExit
     </li>
     
     <li class="page-item">
-        <a href="/page/27/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+        <a href="/page/14/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
     </li>
     
 </ul>
