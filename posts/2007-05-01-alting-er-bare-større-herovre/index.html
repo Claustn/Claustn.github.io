@@ -17,19 +17,25 @@
     
     
 
-<title>Virtualisering og hvorfor det er nødvendigt. • XenoBlog</title>
+<title>Alting er bare større herovre... • XenoBlog</title>
 
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Virtualisering og hvorfor det er nødvendigt."/>
-<meta name="twitter:description" content="Nathan Winters holdt et excellent foredrag om hvad og hvorfor man skal begynde at overveje at bruge virtualisering, jeg vil her prøve at opsummere nogle af de ting, som han lagde vægt på under sit foredrag."/>
+<meta name="twitter:title" content="Alting er bare større herovre..."/>
+<meta name="twitter:description" content="Når man siger at alting er større herovre, så er der altså noget om snakken&hellip;
+Det kan f.eks være brusehoveder&hellip;.
 
-<meta property="og:title" content="Virtualisering og hvorfor det er nødvendigt." />
-<meta property="og:description" content="Nathan Winters holdt et excellent foredrag om hvad og hvorfor man skal begynde at overveje at bruge virtualisering, jeg vil her prøve at opsummere nogle af de ting, som han lagde vægt på under sit foredrag." />
+Kunne heller ikke lade være med, at finde kameraet frem, da jeg kørte bag denne truck&hellip;"/>
+
+<meta property="og:title" content="Alting er bare større herovre..." />
+<meta property="og:description" content="Når man siger at alting er større herovre, så er der altså noget om snakken&hellip;
+Det kan f.eks være brusehoveder&hellip;.
+
+Kunne heller ikke lade være med, at finde kameraet frem, da jeg kørte bag denne truck&hellip;" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xipher.dk/posts/2007-05-11-virtualisering-og-hvorfor-det-er-n%c3%b8dvendigt/" />
-<meta property="article:published_time" content="2007-05-11T00:59:02+00:00" />
-<meta property="article:modified_time" content="2007-05-11T00:59:02+00:00" /><meta property="og:site_name" content="XenoBlog" />
+<meta property="og:url" content="https://xipher.dk/posts/2007-05-01-alting-er-bare-st%C3%B8rre-herovre/" />
+<meta property="article:published_time" content="2007-05-01T21:21:59+00:00" />
+<meta property="article:modified_time" content="2007-05-01T21:21:59+00:00" /><meta property="og:site_name" content="XenoBlog" />
 
 
     
@@ -176,13 +182,13 @@ Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.c
     
 <article>
   <header>
-    <h1>Virtualisering og hvorfor det er nødvendigt.</h1>
+    <h1>Alting er bare større herovre...</h1>
     
     
 <div class="post__meta">
     
     
-      <i class="fas fa-calendar-alt"></i> May 11, 2007
+      <i class="fas fa-calendar-alt"></i> May 1, 2007
     
     
     
@@ -191,15 +197,43 @@ Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.c
           in
           
           
-              <a class="badge badge-category" href="/categories/tech-stuff">TECH STUFF</a>
+              <a class="badge badge-category" href="/categories/minasi-trip-2007">MINASI TRIP 2007</a>
               
           
       
     
     
     
+      
+      
+          <br/>
+           <i class="fas fa-tags"></i>
+          
+          <a class="badge badge-tag" href="/tags/biler">biler</a>
+           
+      
+          <a class="badge badge-tag" href="/tags/bruser">bruser</a>
+           
+      
+          <a class="badge badge-tag" href="/tags/cars">cars</a>
+           
+      
+          <a class="badge badge-tag" href="/tags/showerhead">showerhead</a>
+           
+      
+          <a class="badge badge-tag" href="/tags/truck">truck</a>
+           
+      
+          <a class="badge badge-tag" href="/tags/usa">usa</a>
+           
+      
+          <a class="badge badge-tag" href="/tags/virgina">virgina</a>
+          
+      
+    
+    
     <br/>
-    <i class="fas fa-clock"></i> 4 min read
+    <i class="fas fa-clock"></i> 1 min read
 </div>
 
 
@@ -207,30 +241,25 @@ Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.c
   
   
   <div class="post">
-    <p>Nathan Winters holdt et excellent foredrag om hvad og hvorfor man skal begynde at overveje at bruge virtualisering, jeg vil her prøve at opsummere nogle af de ting, som han lagde vægt på under sit foredrag.<br>
-Moderne servere har enormt mange kræfter, og det sker derfor ofte at det langt overstiger hvad en applikation reelt skal bruge, derfor er det lavet flere undersøgelser, som rent faktisk har vist, at en gennemsnits server idag, kun bruger ca 5% CPU kraft, det vil sige at der er en masse spildte ressourcer.<br>
-Fordele ved at virtualisere flere servere gør, at man vil få en langt højere udnyttelsesgrad af sine server ressourcer, og yderligere muligheder for at sikre højere oppetid på sine applikationer ved at have flere servere kørende. Hvis man kigger på Vmware som idag er markedsførende, understøtter det blandt andet clustering i deres ESX server produkt, det gør at man kan have flere servere til at køre samme applikation, hvis den ene går ned, kan en anden tage over. Jeg vil prøve at gå lidt tættere på nogle af de ting som Vmware’s 3 generation software er i stand til.<br>
-En virtuel maskine i kan idag have 16GB RAM og 4 virtuelle CPU’er, Vmware ESX understøtter fysiske servere med op til 32 fysiske CPU’er (Med idags Quad-core CPU’er betyder det reelt 128 CPU’er) samt 64GB RAM.<br>
-Vmware har en feature de kalder Vmotion, som tillader at flytte en kørende virtuel maskine over på en anden server, det vil sige at har man en CPU tung opgave, og man har en server, der ikke bliver brugt ret meget, kan man uden at slukke den virtuelle server, flytte den over på en anden maskine. Vi testede dette, ved at pinge fra den virtuelle maskine, og pingede den virtulle maskine fra en af host maskinerne, det eneste det resulterede i var at 1 ping ikke kom igennem. Det var meget imporende, og det fleste applikationer idag, kan håndtere sådan et lille netværksudfald. Det er også muligt at få Vmware til selv at håndtere flytningen af serverene, så hvis man har en server der ikke laver noget, og en virtuel maskine på en anden server bruger mange ressourcer, så kan Vmware selv flytte den krævende maskiner, over hvor der er ledige ressourcer. Det kan også bruges hvis en host server rapporterer der er problemer med f.eks en harddisk, så kan man flytte alle kørende virtuelle servere over på en anden server, reparere den pågældende host server, og så flytte de virtuelle maskiner tilbage igen.<br>
-Vmware håndterer ressourcer, ved at lave en ”resource pool” det vil sige at har man en ”server gruppe” kan denne f.eks have 36Ghz CPU ressourcer og 64GB RAM, en anden server gruppe kan have 20Ghz CPU og 32GB RAM. Det betyder at man så kan har en aggregeret logisk ressource på 56Ghz samt 96GB RAM, det skal dog igen siges, at det ikke betyder man kan give en server hele clusterets ressourcer, men kun maks 4 CPU’er og 16GB RAM. Det betyder også at hvis man mangler ressourcer i sit cluster, så installerer man bare en ekstra server, og melder den ind i clusteret, og så bliver dens ressourcer automatisk tilføjet den aggregerede ”Resource pool.”</p>
-<p>Hvis man skal køre VmWare hvad enten det er Workstation eller ESX server, er det alfa og omega at have hurtige diske, derfor kan man med stor fordel bruge et SAN (Ihvertfald ved server udgaverne)<br>
-Ved at bruge et SAN, giver det muliged for let at tilføje flere diske, og dermed tilføje mere plads til virtuelle servere, samt gøre det lettere for andre host servere at overtage fra en evt. crashet host server.<br>
-En anden fordel ved Vmware er backup, når man kører Vmware, har man reelt bare en fil som ligger på serveren, denne fil kan kopieres rundt, og startes på hvilken som helst Vmware host. Der findes idag også flere 3 parts produkter, som kører og tager snapsshots af disse filer, selv når serveren kører, og dermed har man hele tiden en fuld kopi af sit produktions miljø hvis noget skulle gå galt.<br>
-Nathan fortalte også at man med nogle af de ovenstående fordele faktisk var begyndt at virtualisere både Exchange &amp; SQL servere.</p>
+    <p>Når man siger at alting er større herovre, så er der altså noget om snakken&hellip;</p>
+<p>Det kan f.eks være brusehoveder&hellip;.<br>
+<a href="http://xipher.dk/assets/images/cimg1046.JPG" title="Det store brusehovede fra Helvede…"><img src="/assets/images/cimg1046.thumbnail.JPG" alt="Det store brusehovede fra Helvede…"></a></p>
+<p>Kunne heller ikke lade være med, at finde kameraet frem, da jeg kørte bag denne truck&hellip;<br>
+<a href="http://xipher.dk/assets/images/cimg1047.JPG" title="Stor Bil med store hjul…"><img src="/assets/images/cimg1047.thumbnail.JPG" alt="Stor Bil med store hjul…"></a> <a href="http://xipher.dk/assets/images/cimg1048.JPG" title="Stor Bil med store hjul fra siden…"><img src="/assets/images/cimg1048.thumbnail.JPG" alt="Stor Bil med store hjul fra siden…"></a></p>
 
   </div>
   
 
 <div class="navigation navigation-single">
     
-    <a href="/posts/2007-05-09-microsoft-windows-usergroup-danmark/" class="navigation-prev">
+    <a href="/posts/2007-05-01-sa-er-det-igen-lykkedes-for-mig-at-finde-noget-internet/" class="navigation-prev">
       <i aria-hidden="true" class="fa fa-chevron-left"></i>
-      <span class="navigation-tittle">Microsoft Windows Usergroup Danmark</span>
+      <span class="navigation-tittle">Så er det igen lykkedes for mig at finde noget internet.</span>
     </a>
     
     
-    <a href="/posts/2007-05-18-hjemme-igen/" class="navigation-next">
-      <span class="navigation-tittle">Hjemme igen..</span>
+    <a href="/posts/2007-05-01-hotel-numero-dos/" class="navigation-next">
+      <span class="navigation-tittle">Hotel numero dos</span>
       <i aria-hidden="true" class="fa fa-chevron-right"></i>
     </a>
     
