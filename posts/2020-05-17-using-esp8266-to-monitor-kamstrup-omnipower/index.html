@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-us">
     
     
 
@@ -29,7 +29,7 @@ Over the years as the kids have gotten older, our electrical bill has just gone 
 <meta property="og:description" content="(This is what I did to get it working with the Kamstrup Omnipower as a Radius customer, Danish Power Company)
 Over the years as the kids have gotten older, our electrical bill has just gone up and up, and I have been wondering what and when we were using all that power." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xipher.dk/posts/2020-05-17-using-esp8266-to-monitor-kamstrup-omnipower/" />
+<meta property="og:url" content="/posts/2020-05-17-using-esp8266-to-monitor-kamstrup-omnipower/" />
 <meta property="article:published_time" content="2020-05-16T12:58:34+00:00" />
 <meta property="article:modified_time" content="2020-05-16T12:58:34+00:00" /><meta property="og:site_name" content="XenoBlog" />
 
@@ -73,14 +73,14 @@ Over the years as the kids have gotten older, our electrical bill has just gone 
   <div class="container ">
     <div class="sidebar-about">
       <span class="site__title">
-        <a href="https://xipher.dk">XenoBlog</a>
+        <a href="/">XenoBlog</a>
       </span>
       
         
         
         
         <div class="author-image">
-          <img src="https://xipher.dkhttps://xipher.dk/assets/images/logo.jpg" alt="Author Image" class="img--circle img--headshot element--center">
+          <img src="/https://xipher.dk/assets/images/logo.jpg" alt="Author Image" class="img--circle img--headshot element--center">
         </div>
         
       
@@ -212,7 +212,7 @@ Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.c
     <p>(This is what I did to get it working with the Kamstrup Omnipower as a Radius customer, Danish Power Company)</p>
 <p>Over the years as the kids have gotten older, our electrical bill has just gone up and up, and I have been wondering what and when we were using all that power.</p>
 <p>My initial setup looked like this.</p>
-<p><img src="../../static/assets/images/oldsetup.png" alt=""></p>
+<p><img src="/assets/images/oldsetup.png" alt=""></p>
 <p>A Raspberry Pi connected to a webcam and a relay to turn on a little LED so the camera could read the LCD when the lights were off. Then sending the pictures to Azure to do OCR to get the reading of the display so that I could measure power consumption over time.<br>
 (This was more to play with IoT than anything else, and the WAF was very low)</p>
 <p>I Denmark, it has been mandated by law that everyone should have a new smart “Power meter” installed one that can report power consumption hourly,  this way there can be differentiated prices on electricity  during the day.</p>
@@ -225,14 +225,14 @@ What makes this a little hard is that the data is encrypted, and you need to get
 With Radius you have to ask for the “DIY” keys (DLMS/COSEM). This means you get 2 keys instead of 1, which is used for the HAN module.<br>
 Your meter also needs to have a special firmware, which is supposed to be rolled out to everyone by summer 2020, but when you ask for the keys, I assume the validate you have the correct firmware.<br>
 The new firmware outputs the measurement data every 10 seconds to the serial pins behind the “blinder” on the top of the meter</p>
-<p><img src="../../static/assets/images/kamstrupblinder.png" alt=""></p>
+<p><img src="/assets/images/kamstrupblinder.png" alt=""></p>
 <p>Under that you will find 6 pins in the upper left corner, and we will use Pin 5 and 6, which are “Ground” and “Data_OUT”</p>
-<p><img src="../../static/assets/images/pinout.png" alt=""></p>
+<p><img src="/assets/images/pinout.png" alt=""></p>
 <p>I received my encryption keys in an email after about 5 days, the email also contains a very basic description of how to decrypt the data.</p>
 <p>Now I had my keys and was eager to get started so I  went and got my 2$ Lolin NodeMCU v3 , and hooked it up to my computer via USB.</p>
-<p><img src="../../static/assets/images/lolinesp8266.png" alt=""></p>
+<p><img src="/assets/images/lolinesp8266.png" alt=""></p>
 <p>In the Arduino IDE I connect it as an “Node MCU 1.0 (ESP-12E Module)</p>
-<p><img src="../../static/assets/images/arduino_ide_lolin.png" alt=""></p>
+<p><img src="/assets/images/arduino_ide_lolin.png" alt=""></p>
 <p>As stated above I tried to use Asbjørn’s code directly, but  for some reason I could not get the MQTT part working.(Also be aware that the code is in the development branch)<br>
 It simply did not connect to my mosquito MQTT server, which I run as part of my Home Assistant setup<br>
 I decided to try and simplify Asbjørn’s code as much as possible to suit my needs, Read sensor data -&gt; decrypt sensor data -&gt; send sensor data to MQTT server.</p>
@@ -240,7 +240,7 @@ I decided to try and simplify Asbjørn’s code as much as possible to suit my n
 <p>Serial.begin(2400, SERIAL_8N1);
 Serial.swap();</p>
 <p>First we set the Serial Port configuration, and then call Serial.swap(); which remaps the UART0 ports from GPIO1 (TX) and GPIO3 (RX) to GPIO15 (TXD2) and GPIO13 (RXD2), from looking at the schematic below we then need to use “D7” to connect to the (TX) port on the Kamstrup Meter (Pin 5)
-<img src="../../static/assets/images/lolin_pinout.png" alt=""></p>
+<img src="/assets/images/lolin_pinout.png" alt=""></p>
 <p>You need to change the following in the file before you can use it</p>
 <ul>
 <li>ssid</li>
@@ -256,7 +256,7 @@ Serial.swap();</p>
 <p>(This is very much a v0.1 release, I will move passwords etc into a separate file later.)</p>
 <p>When the sketch is successfully loaded, you can connect the NodeMCU to your power meter and power it on, it should connect to your wifi/MQTT server and start receiving data from the power meter, then decrypt it and send the data to your MQTT server. You can verify that it connects to wifi and MQTT from the serial monitor in Arduino.</p>
 <p>I the following post I will look at getting that data from MQTT into InfluxDB and use Grafana Dashboards to monitor your power usage.</p>
-<p><img src="../../static/assets/images/powerusage_grafana.png" alt=""></p>
+<p><img src="/assets/images/powerusage_grafana.png" alt=""></p>
 
   </div>
   
