@@ -1,4 +1,23 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Pofiles on XenoBlog</title><link>https://xipher.dk/tags/pofiles/</link><description>Recent content in Pofiles on XenoBlog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 11 May 2010 21:47:52 +0000</lastBuildDate><atom:link href="https://xipher.dk/tags/pofiles/index.xml" rel="self" type="application/rss+xml"/><item><title>Profile Examples from Presentation</title><link>https://xipher.dk/posts/2010-05-11-profile-examples-from-presentation/</link><pubDate>Tue, 11 May 2010 21:47:52 +0000</pubDate><guid>https://xipher.dk/posts/2010-05-11-profile-examples-from-presentation/</guid><description>Here are some of the scripts that I used during the demonstration in VA Beach.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pofiles on XenoBlog</title>
+    <link>https://xipher.dk/tags/pofiles/</link>
+    <description>Recent content in Pofiles on XenoBlog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 11 May 2010 21:47:52 +0000</lastBuildDate>
+    
+	<atom:link href="https://xipher.dk/tags/pofiles/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Profile Examples from Presentation</title>
+      <link>https://xipher.dk/posts/2010-05-11-profile-examples-from-presentation/</link>
+      <pubDate>Tue, 11 May 2010 21:47:52 +0000</pubDate>
+      
+      <guid>https://xipher.dk/posts/2010-05-11-profile-examples-from-presentation/</guid>
+      <description>Here are some of the scripts that I used during the demonstration in VA Beach.
 Profiles:
 Example #1
 [ps]
@@ -6,4 +25,8 @@ function prompt
 {
 &amp;ldquo;Xenophane &amp;quot; + $(get-location) + &amp;ldquo;&amp;gt;&amp;rdquo;
 }
-[/ps]</description></item></channel></rss>
+[/ps]</description>
+    </item>
+    
+  </channel>
+</rss>

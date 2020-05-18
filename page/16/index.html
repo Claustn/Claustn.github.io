@@ -1,24 +1,578 @@
-<!doctype html><html lang=en><head><link href=https://gmpg.org/xfn/11 rel=profile><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta http-equiv=cache-control content="public"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta name=generator content="Hugo 0.71.0"><title>XenoBlog</title><meta name=twitter:card content="summary"><meta name=twitter:title content="XenoBlog"><meta name=twitter:description content><meta property="og:title" content="XenoBlog"><meta property="og:description" content><meta property="og:type" content="website"><meta property="og:url" content="https://xipher.dk/"><meta property="og:updated_time" content="2018-09-23T12:58:34+00:00"><meta property="og:site_name" content="XenoBlog"><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css><link rel=stylesheet href=/scss/hyde-hyde.9181f25ed2263aeb878ec6f8a84f10c4ebb16150000fca8767308880bdde5ca0.css integrity="sha256-kYHyXtImOuuHjsb4qE8QxOuxYVAAD8qHZzCIgL3eXKA="><link rel=stylesheet href=/scss/print.2744dcbf8a0b2e74f8a50e4b34e5f441be7cf93cc7de27029121c6a09f9e77bc.css integrity="sha256-J0Tcv4oLLnT4pQ5LNOX0Qb58+TzH3icCkSHGoJ+ed7w=" media=print><!--[if lt IE 9]><script src=https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js></script><script src=https://oss.maxcdn.com/respond/1.4.2/respond.min.js></script><![endif]--><link rel=apple-touch-icon-precomposed sizes=144x144 href=/apple-touch-icon-144-precomposed.png><link rel="shortcut icon" href=/favicon.png><link rel=alternate type=application/rss+xml href=https://xipher.dk/index.xml title=XenoBlog></head><body><div class=sidebar><div class=container><div class=sidebar-about><span class=site__title><a href=https://xipher.dk>XenoBlog</a></span><div class=author-image><img src=https://xipher.dkhttps://xipher.dk/assets/images/logo.jpg alt="Author Image" class="img--circle img--headshot element--center"></div><p class=site__description></p></div><div class=collapsible-menu><input type=checkbox id=menuToggle>
-<label for=menuToggle>XenoBlog</label><div class=menu-content><div><ul class=sidebar-nav><li><a href=/posts/><span>Posts</span></a></li><li><a href=/portfolio/><span>Portfolio</span></a></li><li><a href=/about/><span>AboutMe</span></a></li></ul></div><section class=social><a href=https://twitter.com/claustn rel=me><i class="fab fa-twitter fa-lg" aria-hidden=true></i></a><a href=https://facebook.com/claus.t.nielsen.37 rel=me><i class="fab fa-facebook-f"></i></a><a href=https://github.com/claustn rel=me><i class="fab fa-github fa-lg" aria-hidden=true></i></a><a href=https://linkedin.com/in/claustn rel=me><i class="fab fa-linkedin fa-lg" aria-hidden=true></i></a><a href=mailto:claustnspam@gmail.com rel=me><i class="fas fa-at fa-lg" aria-hidden=true></i></a></section></div></div><div class=copyright>&copy; 2019 - 2020 htr3n
-<a href=https://creativecommons.org/licenses/by-sa/4.0>CC BY-SA 4.0</a></div><div class=builtwith>Built with <a href=https://gohugo.io>Hugo</a> ❤️ <a href=https://github.com/htr3n/hyde-hyde>hyde-hyde</a>.</div></div></div><div class="content container"><div class=post-list><div class=post-list__item><span class=item__title--big><a href=/posts/2009-01-15-quick-and-dirty-ping-script/>Quick and dirty ping script</a></span>
-<span class=item__date>Jan 15, 2009</span>
-<span>There was a question on the Minasi forum asking if someone had written a batch script to ping a bunch of servers.. So I thought: " I have&rsquo;nt, but I would like to try&rdquo;.</span>
-... <a class=read-more-symbol href=/posts/2009-01-15-quick-and-dirty-ping-script/>➦</a></div><div class=post-list__item><span class=item__title--big><a href=/posts/2009-01-08-creatin-multiple-users-in-multiple-ous/>Creating multiple users in multiple OU's</a></span>
-<span class=item__date>Jan 8, 2009</span>
-<span>The other day I was setting up a few VmWare test environments for work, where I had to test amongst other apps Quest Recovery Manager for AD..
-So I had to create some users in Active Directory, I thought I would create a PowerShell script to do that (Must keep your PS skill fresh :)</span>
-... <a class=read-more-symbol href=/posts/2009-01-08-creatin-multiple-users-in-multiple-ous/>➦</a></div><div class=post-list__item><span class=item__title--big><a href=/posts/2008-12-17-i-am-back/>I am back</a></span>
-<span class=item__date>Dec 17, 2008</span>
-<span>Have you missed me ??
-I know I have been away for a while, but between becoming a dad, starting a new job, having to get deep knowledge of several different enterprise products that I have not worked with before has taken some time&mldr; But now things are looking a little less hectic, so I hope to get some good PowerShell posts written up in the near future.</span>
-... <a class=read-more-symbol href=/posts/2008-12-17-i-am-back/>➦</a></div><div class=post-list__item><span class=item__title--big><a href=/posts/2008-06-04-powershell-tombstone-revival/>PowerShell TombStone revival</a></span>
-<span class=item__date>Jun 4, 2008</span>
-<span>Our friend Darren Mar-Elia over at SDM software has just released some nice PowerShell cmdlets, to view Tombstoned objects in AD&mldr; You can even revive(or reanimate them as I think the correct AD term is) them as well.</span>
-... <a class=read-more-symbol href=/posts/2008-06-04-powershell-tombstone-revival/>➦</a></div><div class=post-list__item><span class=item__title--big><a href=/posts/2008-05-18-test-post/>Test Post</a></span>
-<span class=item__date>May 18, 2008</span>
-<span>[sourcecode lang="powershell&rdquo;]
+<!DOCTYPE html>
+<html lang="en">
+    
+  <head>
+    <link href="https://gmpg.org/xfn/11" rel="profile">
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="Cache-Control" content="public" />
+<!-- Enable responsiveness on mobile devices -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="generator" content="Hugo 0.71.0" />
+
+    
+
+<title>XenoBlog</title>
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="XenoBlog"/>
+<meta name="twitter:description" content=""/>
+
+<meta property="og:title" content="XenoBlog" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://xipher.dk/" />
+<meta property="og:updated_time" content="2018-09-23T12:58:34+00:00" /><meta property="og:site_name" content="XenoBlog" />
+
+
+    
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css">
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/scss/hyde-hyde.9181f25ed2263aeb878ec6f8a84f10c4ebb16150000fca8767308880bdde5ca0.css" integrity="sha256-kYHyXtImOuuHjsb4qE8QxOuxYVAAD8qHZzCIgL3eXKA=">
+
+
+<link rel="stylesheet" href="/scss/print.2744dcbf8a0b2e74f8a50e4b34e5f441be7cf93cc7de27029121c6a09f9e77bc.css" integrity="sha256-J0Tcv4oLLnT4pQ5LNOX0Qb58&#43;TzH3icCkSHGoJ&#43;ed7w=" media="print">
+
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.png">
+    <link rel="alternate" type="application/rss+xml" href="https://xipher.dk/index.xml" title="XenoBlog" />
+
+    
+
+</head>
+
+
+    <body class=" ">
+    
+<div class="sidebar">
+  <div class="container ">
+    <div class="sidebar-about">
+      <span class="site__title">
+        <a href="https://xipher.dk">XenoBlog</a>
+      </span>
+      
+        
+        
+        
+        <div class="author-image">
+          <img src="https://xipher.dkhttps://xipher.dk/assets/images/logo.jpg" alt="Author Image" class="img--circle img--headshot element--center">
+        </div>
+        
+      
+      
+      <p class="site__description">
+        
+      </p>
+    </div>
+    <div class="collapsible-menu">
+      <input type="checkbox" id="menuToggle">
+      <label for="menuToggle">XenoBlog</label>
+      <div class="menu-content">
+        <div>
+	<ul class="sidebar-nav">
+		 
+		 
+			 
+				<li>
+					<a href="/posts/">
+						<span>Posts</span>
+					</a>
+				</li>
+			 
+		 
+			 
+				<li>
+					<a href="/portfolio/">
+						<span>Portfolio</span>
+					</a>
+				</li>
+			 
+		 
+			 
+				<li>
+					<a href="/about/">
+						<span>AboutMe</span>
+					</a>
+				</li>
+			 
+		
+	</ul>
+</div>
+
+        <section class="social">
+	
+	<a href="https://twitter.com/claustn" rel="me"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a>
+	
+	
+	<a href="https://facebook.com/claus.t.nielsen.37" rel="me"><i class="fab fa-facebook-f"></i></a>
+	
+	
+	<a href="https://github.com/claustn" rel="me"><i class="fab fa-github fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	
+	
+	
+	
+	<a href="https://linkedin.com/in/claustn" rel="me"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<a href="mailto:claustnspam@gmail.com" rel="me"><i class="fas fa-at fa-lg" aria-hidden="true"></i></a>
+	
+</section>
+
+      </div>
+    </div>
+    
+<div class="copyright">
+  &copy; 2019 - 2020 htr3n
+  
+    <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>
+  
+</div>
+
+
+<div class="builtwith">
+Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.com/htr3n/hyde-hyde">hyde-hyde</a>.
+</div>
+
+
+  </div>
+</div>
+
+        <div class="content container">
+            
+  <div class="post-list">
+    
+    
+      
+        
+      
+      <div class="post-list__item">
+        <span class="item__title--big">
+          <a href="/posts/2009-01-15-quick-and-dirty-ping-script/" >Quick and dirty ping script</a>
+        </span>
+        <span class="item__date">
+          Jan 15, 2009
+        </span>
+        <span >
+        
+        There was a question on the Minasi forum asking if someone had written a batch script to ping a bunch of servers.. So I thought: &quot; I have&rsquo;nt, but I would like to try&rdquo;.
+        
+        </span>
+        
+          ... <a class="read-more-symbol" href="/posts/2009-01-15-quick-and-dirty-ping-script/">➦</a>
+        
+        </div>
+        
+     
+      
+        
+      
+      <div class="post-list__item">
+        <span class="item__title--big">
+          <a href="/posts/2009-01-08-creatin-multiple-users-in-multiple-ous/" >Creating multiple users in multiple OU&#39;s</a>
+        </span>
+        <span class="item__date">
+          Jan 8, 2009
+        </span>
+        <span >
+        
+        The other day I was setting up a few VmWare test environments for work, where I had to test amongst other apps Quest Recovery Manager for AD..
+So I had to create some users in Active Directory, I thought I would create a PowerShell script to do that (Must keep your PS skill fresh :)
+        
+        </span>
+        
+          ... <a class="read-more-symbol" href="/posts/2009-01-08-creatin-multiple-users-in-multiple-ous/">➦</a>
+        
+        </div>
+        
+     
+      
+        
+      
+      <div class="post-list__item">
+        <span class="item__title--big">
+          <a href="/posts/2008-12-17-i-am-back/" >I am back</a>
+        </span>
+        <span class="item__date">
+          Dec 17, 2008
+        </span>
+        <span >
+        
+        Have you missed me ??
+I know I have been away for a while, but between becoming a dad, starting a new job, having to get deep knowledge of several different enterprise products that I have not worked with before has taken some time&hellip; But now things are looking a little less hectic, so I hope to get some good PowerShell posts written up in the near future.
+        
+        </span>
+        
+          ... <a class="read-more-symbol" href="/posts/2008-12-17-i-am-back/">➦</a>
+        
+        </div>
+        
+     
+      
+        
+      
+      <div class="post-list__item">
+        <span class="item__title--big">
+          <a href="/posts/2008-06-04-powershell-tombstone-revival/" >PowerShell TombStone revival</a>
+        </span>
+        <span class="item__date">
+          Jun 4, 2008
+        </span>
+        <span >
+        
+        Our friend Darren Mar-Elia over at SDM software has just released some nice PowerShell cmdlets, to view Tombstoned objects in AD&hellip; You can even revive(or reanimate them as I think the correct AD term is) them as well.
+        
+        </span>
+        
+          ... <a class="read-more-symbol" href="/posts/2008-06-04-powershell-tombstone-revival/">➦</a>
+        
+        </div>
+        
+     
+      
+        
+      
+      <div class="post-list__item">
+        <span class="item__title--big">
+          <a href="/posts/2008-05-18-test-post/" >Test Post</a>
+        </span>
+        <span class="item__date">
+          May 18, 2008
+        </span>
+        <span >
+        
+        [sourcecode lang=&quot;powershell&rdquo;]
 PowerShell cmdlet to list the System files in the root of C:\ $i=0
 $GciFiles = get-ChildItem &ldquo;c:&rdquo; -force |where {$_.attributes -match &ldquo;System&rdquo;}
 foreach ($file in $GciFiles) {$i++}
-$GciFiles |sort |ft name, attributes -auto</span>
-... <a class=read-more-symbol href=/posts/2008-05-18-test-post/>➦</a></div></div><ul class=pagination><li class=page-item><a href=/ class=page-link aria-label=First><span aria-hidden=true>&#171;&#171;</span></a></li><li class=page-item><a href=/page/15/ class=page-link aria-label=Previous><span aria-hidden=true>&#171;</span></a></li><li class=page-item><a class=page-link href=/>1</a></li><li class=page-item><a class=page-link href=/page/2/>2</a></li><li class=page-item><a class=page-link href=/page/3/>3</a></li><li class="page-item disabled"><span aria-hidden=true>&nbsp;&mldr;&nbsp;</span></li><li class=page-item><a class=page-link href=/page/15/>15</a></li><li class="page-item active"><a class=page-link href=/page/16/>16</a></li><li class=page-item><a class=page-link href=/page/17/>17</a></li><li class="page-item disabled"><span aria-hidden=true>&nbsp;&mldr;&nbsp;</span></li><li class=page-item><a class=page-link href=/page/27/>27</a></li><li class=page-item><a href=/page/17/ class=page-link aria-label=Next><span aria-hidden=true>&#187;</span></a></li><li class=page-item><a href=/page/27/ class=page-link aria-label=Last><span aria-hidden=true>&#187;&#187;</span></a></li></ul></div><script defer src=https://use.fontawesome.com/releases/v5.11.2/js/all.js integrity=sha384-b3ua1l97aVGAPEIe48b4TC60WUQbQaGi2jqAWM90y0OZXZeyaTCWtBTKtjW2GXG1 crossorigin=anonymous></script></body></html>
+$GciFiles |sort |ft name, attributes -auto
+        
+        </span>
+        
+          ... <a class="read-more-symbol" href="/posts/2008-05-18-test-post/">➦</a>
+        
+        </div>
+        
+     
+  </div>
+  
+
+<ul class="pagination">
+    
+    <li class="page-item">
+        <a href="/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+    </li>
+    
+    <li class="page-item">
+    <a href="/page/15/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+    </li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/">1</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/page/2/">2</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/page/3/">3</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/page/15/">15</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item active"><a class="page-link" href="/page/16/">16</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/page/17/">17</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/page/27/">27</a></li>
+    
+    
+    <li class="page-item">
+    <a href="/page/17/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+    </li>
+    
+    <li class="page-item">
+        <a href="/page/27/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    </li>
+    
+</ul>
+
+
+        </div>
+        
+  
+  <script defer src="https://use.fontawesome.com/releases/v5.11.2/js/all.js" integrity="sha384-b3ua1l97aVGAPEIe48b4TC60WUQbQaGi2jqAWM90y0OZXZeyaTCWtBTKtjW2GXG1" crossorigin="anonymous"></script>
+
+
+    </body>
+</html>
