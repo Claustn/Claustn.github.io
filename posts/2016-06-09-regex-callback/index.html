@@ -225,7 +225,20 @@ The files he had to traverse had several million lines each, so certain performa
 <p>So what I did was to create a callback function (Just named it Callback, could be called anything)</p>
 <p>Instead of using -Replace I use the .Net type accelerator [Regex] to define the regex, and call the ::Replace method in that, which does support callbacks</p>
 <pre><code>$CallBack = { param($match) HexConvert -HEX $($match.Groups[1].Value) } $Regex = [regex]'(?ismx)\[([0-9A-F]+)\]' $Text = (Get-Content C:\temp\Input.txt -Raw ) [Regex]::Replace($Text,$Regex,$CallBack) | Set-Content C:\temp\Output.txt}
-</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$CallBack = { <span style="color:#66d9ef">param</span>($match) HexConvert -HEX $($match.Groups[1].Value) } $Regex = <span style="color:#66d9ef">[regex]</span><span style="color:#e6db74">&#39;(?ismx)\[([0-9A-F]+)\]&#39;</span> $Text = (Get-Content C:\temp\Input.txt -Raw ) <span style="color:#66d9ef">[Regex]</span>::Replace($Text,$Regex,$CallBack) | Set-Content C:\temp\Output.txt}</code></pre></div>
+</code></pre><div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$CallBack = { <span style="color:#66d9ef">param</span>($match) HexConvert -HEX $($match.Groups[1].Value) }
+$Regex = <span style="color:#66d9ef">[regex]</span><span style="color:#e6db74">&#39;(?ismx)\[([0-9A-F]+)\]&#39;</span> 
+$Text = (Get-Content C:\temp\Input.txt -Raw ) 
+<span style="color:#66d9ef">[Regex]</span>::Replace($Text,$Regex,$CallBack) | Set-Content C:\temp\Output.txt}</code></pre></td></tr></table>
+</div>
+</div>
 <p>This literally cut the running time down from hours to minutes.</p>
 
   </div>
