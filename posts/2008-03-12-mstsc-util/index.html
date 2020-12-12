@@ -8,10 +8,9 @@
     <link href="https://gmpg.org/xfn/11" rel="profile">
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta http-equiv="Cache-Control" content="public" />
 <!-- Enable responsiveness on mobile devices -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="generator" content="Hugo 0.71.0" />
+<meta name="generator" content="Hugo 0.79.0" />
 
     
     
@@ -71,7 +70,11 @@
   <div class="container ">
     <div class="sidebar-about">
       <span class="site__title">
-        <a href="/">XenoBlog</a>
+        <a href="/">
+        
+          XenoBlog
+        
+        </a>
       </span>
       
         
@@ -127,6 +130,7 @@
 	<a href="https://twitter.com/claustn" rel="me"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a>
 	
 	
+	
 	<a href="https://facebook.com/claus.t.nielsen.37" rel="me"><i class="fab fa-facebook-f"></i></a>
 	
 	
@@ -148,7 +152,11 @@
 	
 	
 	
+	
 	<a href="mailto:claustnspam@gmail.com" rel="me"><i class="fas fa-at fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
 	
 </section>
 
@@ -236,9 +244,9 @@ Opt(&ldquo;TrayMenuMode&rdquo;,1) ; Default tray menu items (Script Paused/Exit)
 Global $server[100][3]</p>
 <p>$Console = TrayCreateMenu(&ldquo;Console Connect&rdquo;)<br>
 $Regular = TrayCreateMenu(&ldquo;Regular Connect&rdquo;)</p>
-<p>$data = IniReadSection ( @ScriptDir&amp;&quot;\servers.ini&rdquo;, &ldquo;servers&rdquo; )</p>
+<p>$data = IniReadSection ( @ScriptDir&amp;&quot;\servers.ini&quot;, &ldquo;servers&rdquo; )</p>
 <p>;~ For $i = 1 To $data[0][0]<br>
-;~ MsgBox(4096, &ldquo;&quot;, &ldquo;Key: &quot; &amp; $data[$i][2] &amp; @CRLF &amp; &ldquo;Value: &quot; &amp; $data[$i][1])<br>
+;~ MsgBox(4096, &ldquo;&rdquo;, &ldquo;Key: &quot; &amp; $data[$i][2] &amp; @CRLF &amp; &ldquo;Value: &quot; &amp; $data[$i][1])<br>
 ;~ Next</p>
 <p>$server[0][0] = $data[0][0]<br>
 For $i = 1 to $data[0][0]<br>
@@ -259,7 +267,7 @@ TrayItemSetOnEvent(-1, &ldquo;DoExit&rdquo;)</p>
 Sleep(100)<br>
 WEnd</p>
 <p>Func DoAbout()<br>
-Msgbox(64,&ldquo;About:&quot;,&ldquo;Tool by Claus T. Nielsen&rdquo;)<br>
+Msgbox(64,&ldquo;About:&rdquo;,&ldquo;Tool by Claus T. Nielsen&rdquo;)<br>
 EndFunc</p>
 <p>Func DoExit()<br>
 Exit<br>
@@ -343,12 +351,11 @@ EndFunc</p>
         
     
 
-<script defer src="https://use.fontawesome.com/releases/v5.11.2/js/all.js" integrity="sha384-b3ua1l97aVGAPEIe48b4TC60WUQbQaGi2jqAWM90y0OZXZeyaTCWtBTKtjW2GXG1" crossorigin="anonymous"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" integrity="sha384-ZbbbT1gw3joYkKRqh0kWyRp32UAvdqkpbLedQJSlnI8iLQcFVxaGyrOgOJiDQTTR" crossorigin="anonymous"></script>
 
 
     
-    
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
         
             
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/powershell.min.js"></script>
@@ -356,7 +363,6 @@ EndFunc</p>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/sql.min.js"></script>
             
         
-    
     <script type="text/javascript">
         
         hljs.configure({languages: ["powershell, sql"]});
@@ -364,7 +370,6 @@ EndFunc</p>
         hljs.initHighlightingOnLoad();
     </script>
     
-
 
 
 

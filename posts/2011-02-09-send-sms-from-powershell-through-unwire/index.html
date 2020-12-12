@@ -8,10 +8,9 @@
     <link href="https://gmpg.org/xfn/11" rel="profile">
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta http-equiv="Cache-Control" content="public" />
 <!-- Enable responsiveness on mobile devices -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="generator" content="Hugo 0.71.0" />
+<meta name="generator" content="Hugo 0.79.0" />
 
     
     
@@ -71,7 +70,11 @@
   <div class="container ">
     <div class="sidebar-about">
       <span class="site__title">
-        <a href="/">XenoBlog</a>
+        <a href="/">
+        
+          XenoBlog
+        
+        </a>
       </span>
       
         
@@ -127,6 +130,7 @@
 	<a href="https://twitter.com/claustn" rel="me"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a>
 	
 	
+	
 	<a href="https://facebook.com/claus.t.nielsen.37" rel="me"><i class="fab fa-facebook-f"></i></a>
 	
 	
@@ -148,7 +152,11 @@
 	
 	
 	
+	
 	<a href="mailto:claustnspam@gmail.com" rel="me"><i class="fas fa-at fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
 	
 </section>
 
@@ -259,7 +267,7 @@ $Content= &ldquo;Hello There&rdquo;,<br>
 $Recipient=42424242,<br>
 [Parameter(Position=2, Mandatory=$false)]<br>
 [System.String]<br>
-$Sender=&quot;IT-Drift&rdquo;<br>
+$Sender=&ldquo;IT-Drift&rdquo;<br>
 )<br>
 begin {</p>
 <p>If ( $Recipient -notmatch &lsquo;^(\d{8}|\d{10})$&rsquo; )<br>
@@ -277,23 +285,23 @@ $Password = &ldquo;xxxxxx&rdquo;<br>
 $AppNr = &ldquo;xxxxx&rdquo;<br>
 $smsc = &ldquo;xxxxxx&rdquo;<br>
 $Price = &ldquo;xxxxx&rdquo;</p>
-<p>$Message = [System.Web.HttpUtility]::UrlEncode([System.Text.Encoding]::GetEncoding(&ldquo;ISO-8859-1&rdquo;).GetBytes(&ldquo;$Content&rdquo;))<br>
-$SenderName = [System.Web.HttpUtility]::UrlEncode([System.Text.Encoding]::GetEncoding(&ldquo;ISO-8859-1&rdquo;).GetBytes(&ldquo;$Sender&rdquo;))</p>
+<p>$Message = [System.Web.HttpUtility]::UrlEncode([System.Text.Encoding]::GetEncoding(&ldquo;ISO-8859-1&rdquo;).GetBytes(&quot;$Content&quot;))<br>
+$SenderName = [System.Web.HttpUtility]::UrlEncode([System.Text.Encoding]::GetEncoding(&ldquo;ISO-8859-1&rdquo;).GetBytes(&quot;$Sender&quot;))</p>
 <p>[String] $unwireURL = &ldquo;xxxxxxxx&rdquo;<br>
 [String] $UnwireServer = &ldquo;xxxxxxxx&rdquo;<br>
-[String] $UnwireHost =&quot;xxxxxxxxxx&rdquo;</p>
+[String] $UnwireHost =&ldquo;xxxxxxxxxx&rdquo;</p>
 <p>}</p>
 <p>process {</p>
-<p>$PushString = @&rdquo;<br>
+<p>$PushString = @&quot;<br>
 user=$user&amp;password=$password&amp;to=$Recipient&amp;text=$Message&amp;smsc=$smsc&amp;price=$Price&amp;type=text&amp;appnr=$AppNr&amp;from=$SenderName<br>
 &ldquo;@</p>
 <p>$objHTTP.open(&lsquo;POST&rsquo;, $UnwireServer, $False)</p>
-<p>$objHTTP.setRequestHeader(&lsquo;POST&rsquo;, $unwireURL + ' HTTP/1.1&rsquo;)<br>
+<p>$objHTTP.setRequestHeader(&lsquo;POST&rsquo;, $unwireURL + ' HTTP/1.1')<br>
 $objHTTP.setRequestHeader(&lsquo;Host&rsquo;, $UnwireHost)<br>
-$objHTTP.setRequestHeader(&lsquo;User-Agent:', &lsquo;CP agent&rsquo;)<br>
+$objHTTP.setRequestHeader(&lsquo;User-Agent:&rsquo;, &lsquo;CP agent&rsquo;)<br>
 $objHTTP.setRequestHeader(&lsquo;Content-Type&rsquo;, &lsquo;application/x-www-form-urlencoded&rsquo;)<br>
 $objHTTP.setRequestHeader(&lsquo;Content-Length&rsquo;, $($XMLString.Length))<br>
-$objHTTP.send(&ldquo;$PushString&rdquo;)<br>
+$objHTTP.send(&quot;$PushString&rdquo;)<br>
 $objHTTP.status<br>
 $objHTTP.statusText</p>
 <p>}<br>
@@ -361,12 +369,11 @@ $objHTTP.statusText</p>
         
     
 
-<script defer src="https://use.fontawesome.com/releases/v5.11.2/js/all.js" integrity="sha384-b3ua1l97aVGAPEIe48b4TC60WUQbQaGi2jqAWM90y0OZXZeyaTCWtBTKtjW2GXG1" crossorigin="anonymous"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" integrity="sha384-ZbbbT1gw3joYkKRqh0kWyRp32UAvdqkpbLedQJSlnI8iLQcFVxaGyrOgOJiDQTTR" crossorigin="anonymous"></script>
 
 
     
-    
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
         
             
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/powershell.min.js"></script>
@@ -374,7 +381,6 @@ $objHTTP.statusText</p>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/sql.min.js"></script>
             
         
-    
     <script type="text/javascript">
         
         hljs.configure({languages: ["powershell, sql"]});
@@ -382,7 +388,6 @@ $objHTTP.statusText</p>
         hljs.initHighlightingOnLoad();
     </script>
     
-
 
 
 

@@ -8,10 +8,9 @@
     <link href="https://gmpg.org/xfn/11" rel="profile">
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta http-equiv="Cache-Control" content="public" />
 <!-- Enable responsiveness on mobile devices -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="generator" content="Hugo 0.71.0" />
+<meta name="generator" content="Hugo 0.79.0" />
 
     
     
@@ -71,7 +70,11 @@
   <div class="container ">
     <div class="sidebar-about">
       <span class="site__title">
-        <a href="/">XenoBlog</a>
+        <a href="/">
+        
+          XenoBlog
+        
+        </a>
       </span>
       
         
@@ -127,6 +130,7 @@
 	<a href="https://twitter.com/claustn" rel="me"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a>
 	
 	
+	
 	<a href="https://facebook.com/claus.t.nielsen.37" rel="me"><i class="fab fa-facebook-f"></i></a>
 	
 	
@@ -148,7 +152,11 @@
 	
 	
 	
+	
 	<a href="mailto:claustnspam@gmail.com" rel="me"><i class="fas fa-at fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
 	
 </section>
 
@@ -208,13 +216,13 @@ Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.c
   
   <div class="post">
     <p>I stumbled on a post about getting Exchange rates from a bank, from an online XML file.. So I thought I would try that with a local bank, I figured out the Danish national bank, has an XML file online with the current rates&hellip;</p>
-<p>[sourcecode lang=&quot;PosH&rdquo;]<br>
+<p>[sourcecode lang=&ldquo;PosH&rdquo;]<br>
 #Get Exchange Rates from The Danish National Bank<br>
 $wc = New-Object System.Net.WebClient<br>
 $rates = [xml]$wc.DownloadString(&ldquo;<a href="http://www.nationalbanken.dk/dndk/valuta.nsf/valuta.xml%22">http://www.nationalbanken.dk/dndk/valuta.nsf/valuta.xml&quot;</a>)<br>
-$MonCode = @{Name=&quot;ValutaKode&rdquo;;Expression = {$_.Code}}<br>
-$Description = @{Name=&quot;Valuta&rdquo;;Expression = {&ldquo;100 &quot; + $_.desc + &quot; = &ldquo;}}<br>
-$Kurs = @{Name=&quot;Kurs&rdquo;;Expression = {$_.Rate + &quot; KR&rdquo;}}<br>
+$MonCode = @{Name=&ldquo;ValutaKode&rdquo;;Expression = {$_.Code}}<br>
+$Description = @{Name=&ldquo;Valuta&rdquo;;Expression = {&ldquo;100 &quot; + $_.desc + &quot; = &ldquo;}}<br>
+$Kurs = @{Name=&ldquo;Kurs&rdquo;;Expression = {$_.Rate + &quot; KR&rdquo;}}<br>
 $rates.exchangerates.dailyrates.currency | Select-Object $MonCode,$Description,$Kurs | ft -AutoSize</p>
 <p>[/sourcecode]</p>
 <p>Another option would be to use Out-Gridview as well, then you would get the result in a GUI form, instead of in the command prompt</p>
@@ -280,12 +288,11 @@ $rates.exchangerates.dailyrates.currency | Select-Object $MonCode,$Description,$
         
     
 
-<script defer src="https://use.fontawesome.com/releases/v5.11.2/js/all.js" integrity="sha384-b3ua1l97aVGAPEIe48b4TC60WUQbQaGi2jqAWM90y0OZXZeyaTCWtBTKtjW2GXG1" crossorigin="anonymous"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" integrity="sha384-ZbbbT1gw3joYkKRqh0kWyRp32UAvdqkpbLedQJSlnI8iLQcFVxaGyrOgOJiDQTTR" crossorigin="anonymous"></script>
 
 
     
-    
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
         
             
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/powershell.min.js"></script>
@@ -293,7 +300,6 @@ $rates.exchangerates.dailyrates.currency | Select-Object $MonCode,$Description,$
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/sql.min.js"></script>
             
         
-    
     <script type="text/javascript">
         
         hljs.configure({languages: ["powershell, sql"]});
@@ -301,7 +307,6 @@ $rates.exchangerates.dailyrates.currency | Select-Object $MonCode,$Description,$
         hljs.initHighlightingOnLoad();
     </script>
     
-
 
 
 

@@ -6,11 +6,7 @@
     <description>Recent content in playing on XenoBlog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 10 Jul 2007 11:08:02 +0000</lastBuildDate>
-    
-	<atom:link href="/tags/playing/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 10 Jul 2007 11:08:02 +0000</lastBuildDate><atom:link href="/tags/playing/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Playing around with profiles.</title>
       <link>/posts/2007-07-10-playing-around-with-profiles/</link>

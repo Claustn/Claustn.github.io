@@ -8,10 +8,9 @@
     <link href="https://gmpg.org/xfn/11" rel="profile">
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta http-equiv="Cache-Control" content="public" />
 <!-- Enable responsiveness on mobile devices -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="generator" content="Hugo 0.71.0" />
+<meta name="generator" content="Hugo 0.79.0" />
 
     
     
@@ -71,7 +70,11 @@
   <div class="container ">
     <div class="sidebar-about">
       <span class="site__title">
-        <a href="/">XenoBlog</a>
+        <a href="/">
+        
+          XenoBlog
+        
+        </a>
       </span>
       
         
@@ -127,6 +130,7 @@
 	<a href="https://twitter.com/claustn" rel="me"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a>
 	
 	
+	
 	<a href="https://facebook.com/claus.t.nielsen.37" rel="me"><i class="fab fa-facebook-f"></i></a>
 	
 	
@@ -148,7 +152,11 @@
 	
 	
 	
+	
 	<a href="mailto:claustnspam@gmail.com" rel="me"><i class="fas fa-at fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
 	
 </section>
 
@@ -239,12 +247,12 @@ Dism requires admin permissions, so you need to run this elevated.</p>
 dism /online /get-features<br>
 [/ps]<br>
 Uses DISM to retrieve a list of available &ldquo;features&rdquo;<br>
-That list is then piped into a Select-string statement, that selects all that contain the string &ldquo;Remote*&quot;, which luckily all the admin tools does :)</p>
+That list is then piped into a Select-string statement, that selects all that contain the string &ldquo;Remote*&rdquo;, which luckily all the admin tools does :)</p>
 <p>Each of the selected strings are then &ldquo;piped along the pipeline&rdquo; in the next command, which is a bit more complicated:</p>
 <p>[ps]<br>
 %{$Exec = &ldquo;dism.exe /online /enable-feature /featurename:RemoteServerAdministrationTools /featurename:&rdquo; + ($_).ToString().Replace(&lsquo;Feature Name : &lsquo;,''); Invoke-expression $Exec}<br>
 [/ps]<br>
-% = foreach, so foreach string the Select-String returns, I start to build the $exec variable, the first part of the variable is just text <strong>&ldquo;dism.exe /online /enable-feature /featurename:RemoteServerAdministrationTools /featurename:&quot;</strong> this next part is where the feature name is extracted: <strong>($_).ToString().Replace(&lsquo;Feature Name : &lsquo;,'')</strong>. What it does is it converts the output from Select_String ($_) into a string, on that string it replaces &ldquo;&lsquo;Feature Name : &ldquo;, with nothing &ldquo;&quot;, so that the $exec variable will end up containing the the initial string, plus the name of the &ldquo;current&rdquo; &ldquo;feature&rdquo; in the pipeline, giving a full command that can be executed, something like this <strong>dism.exe /online /enable-feature /featurename:RemoteServerAdministrationTools /featurename:RemoteServerAdministrationTools-Roles-AD</strong>. Then it is &ldquo;executed&rdquo; by the Invoke-expression $exec.</p>
+% = foreach, so foreach string the Select-String returns, I start to build the $exec variable, the first part of the variable is just text <strong>&ldquo;dism.exe /online /enable-feature /featurename:RemoteServerAdministrationTools /featurename:&quot;</strong> this next part is where the feature name is extracted: <strong>($_).ToString().Replace(&lsquo;Feature Name : &lsquo;,'')</strong>. What it does is it converts the output from Select_String ($_) into a string, on that string it replaces &ldquo;&lsquo;Feature Name : &ldquo;, with nothing &ldquo;&rdquo;, so that the $exec variable will end up containing the the initial string, plus the name of the &ldquo;current&rdquo; &ldquo;feature&rdquo; in the pipeline, giving a full command that can be executed, something like this <strong>dism.exe /online /enable-feature /featurename:RemoteServerAdministrationTools /featurename:RemoteServerAdministrationTools-Roles-AD</strong>. Then it is &ldquo;executed&rdquo; by the Invoke-expression $exec.</p>
 <p>So since what I do is just creating a regular commandline expression and executing it, there is not reason why I cannot just export the result to a batch file, which I can edit and run.<br>
 [ps]</p>
 <h1 id="heading-1"></h1>
@@ -314,12 +322,11 @@ dism /online /get-features | Select-String -Pattern remote* | %{$Exec = &ldquo;d
         
     
 
-<script defer src="https://use.fontawesome.com/releases/v5.11.2/js/all.js" integrity="sha384-b3ua1l97aVGAPEIe48b4TC60WUQbQaGi2jqAWM90y0OZXZeyaTCWtBTKtjW2GXG1" crossorigin="anonymous"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" integrity="sha384-ZbbbT1gw3joYkKRqh0kWyRp32UAvdqkpbLedQJSlnI8iLQcFVxaGyrOgOJiDQTTR" crossorigin="anonymous"></script>
 
 
     
-    
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
         
             
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/powershell.min.js"></script>
@@ -327,7 +334,6 @@ dism /online /get-features | Select-String -Pattern remote* | %{$Exec = &ldquo;d
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/sql.min.js"></script>
             
         
-    
     <script type="text/javascript">
         
         hljs.configure({languages: ["powershell, sql"]});
@@ -335,7 +341,6 @@ dism /online /get-features | Select-String -Pattern remote* | %{$Exec = &ldquo;d
         hljs.initHighlightingOnLoad();
     </script>
     
-
 
 
 

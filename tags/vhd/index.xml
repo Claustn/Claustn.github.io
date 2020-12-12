@@ -6,11 +6,7 @@
     <description>Recent content in vhd on XenoBlog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 14 Sep 2009 13:41:54 +0000</lastBuildDate>
-    
-	<atom:link href="/tags/vhd/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 14 Sep 2009 13:41:54 +0000</lastBuildDate><atom:link href="/tags/vhd/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Right click to mount vhd files</title>
       <link>/posts/2009-09-14-right-click-to-mount-vhd-files/</link>

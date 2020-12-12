@@ -6,11 +6,7 @@
     <description>Recent content in Pofiles on XenoBlog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 11 May 2010 21:47:52 +0000</lastBuildDate>
-    
-	<atom:link href="/tags/pofiles/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 11 May 2010 21:47:52 +0000</lastBuildDate><atom:link href="/tags/pofiles/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Profile Examples from Presentation</title>
       <link>/posts/2010-05-11-profile-examples-from-presentation/</link>

@@ -6,11 +6,7 @@
     <description>Recent content in Quest on XenoBlog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 24 Jan 2010 23:38:05 +0000</lastBuildDate>
-    
-	<atom:link href="/tags/quest/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 24 Jan 2010 23:38:05 +0000</lastBuildDate><atom:link href="/tags/quest/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Powershell as a webservice</title>
       <link>/posts/2010-01-24-powershell-as-a-webservice/</link>

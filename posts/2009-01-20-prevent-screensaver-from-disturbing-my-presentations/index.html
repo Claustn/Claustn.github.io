@@ -8,10 +8,9 @@
     <link href="https://gmpg.org/xfn/11" rel="profile">
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta http-equiv="Cache-Control" content="public" />
 <!-- Enable responsiveness on mobile devices -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="generator" content="Hugo 0.71.0" />
+<meta name="generator" content="Hugo 0.79.0" />
 
     
     
@@ -73,7 +72,11 @@
   <div class="container ">
     <div class="sidebar-about">
       <span class="site__title">
-        <a href="/">XenoBlog</a>
+        <a href="/">
+        
+          XenoBlog
+        
+        </a>
       </span>
       
         
@@ -129,6 +132,7 @@
 	<a href="https://twitter.com/claustn" rel="me"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a>
 	
 	
+	
 	<a href="https://facebook.com/claus.t.nielsen.37" rel="me"><i class="fab fa-facebook-f"></i></a>
 	
 	
@@ -150,7 +154,11 @@
 	
 	
 	
+	
 	<a href="mailto:claustnspam@gmail.com" rel="me"><i class="fas fa-at fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
 	
 </section>
 
@@ -225,11 +233,11 @@ Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.c
     <p>Most companies have GPO settings that enforces a company wide screensaver policy, in my case the screensaver kicks in after 5 min.</p>
 <p>5 Min is a very short time, when you are doing presentations or showing video content, so I decided to create a little AutoIT script to move the mouse 1 pixel after 4 min and 59 sec.</p>
 <p>I decided to create a small tray icon, where I can choose how many minutes I want it to run for, and the icon changes in color, when the &ldquo;screensaver free&rdquo; time is running out.</p>
-<p>[sourcecode lang=&quot;bash&rdquo;]</p>
+<p>[sourcecode lang=&ldquo;bash&rdquo;]</p>
 <p>Opt(&ldquo;TrayOnEventMode&rdquo;,1)<br>
 Opt(&ldquo;TrayAutoPause&rdquo;,0)<br>
 Opt(&ldquo;TrayMenuMode&rdquo;,1)   ; Default tray menu items (Script Paused/Exit) will not be shown.<br>
-HotKeySet(&ldquo;^!q&rdquo;, &ldquo;_ExitLoop&rdquo;)</p>
+HotKeySet(&quot;^!q&quot;, &ldquo;_ExitLoop&rdquo;)</p>
 <p>$DisableScreenSaver    = TrayCreateMenu(&ldquo;Disable Screensaver&rdquo;)</p>
 <p>TrayCreateItem(&quot;&quot;)<br>
 TrayCreateItem(&ldquo;About&rdquo;)<br>
@@ -258,7 +266,7 @@ EndFunc</p>
 <p>Func getpos()<br>
 $x = MouseGetPos(0)<br>
 $y = MouseGetPos(1)<br>
-; MsgBox ( 0, &ldquo;MSG&rdquo;, &ldquo;MousePos: &ldquo;&amp;amp;amp; $x &amp;amp;amp;&quot;, &quot; &amp;amp;amp; $y , 1 )<br>
+; MsgBox ( 0, &ldquo;MSG&rdquo;, &ldquo;MousePos: &ldquo;&amp;amp;amp; $x &amp;amp;amp;&rdquo;, &quot; &amp;amp;amp; $y , 1 )<br>
 MouseMove($x,$y+1,1)<br>
 endfunc</p>
 <p>Func DisableScreenSaver15()<br>
@@ -269,7 +277,7 @@ If $i = 3 then TraySetIcon(&ldquo;wpdshext.dll&rdquo;,710)<br>
 Sleep(299000)<br>
 GetPos()<br>
 Next<br>
-Msgbox(64,&ldquo;Time is Up!&quot;,&ldquo;Time without screensaver is up!&quot;)<br>
+Msgbox(64,&ldquo;Time is Up!&rdquo;,&ldquo;Time without screensaver is up!&quot;)<br>
 TraySetIcon(&ldquo;shell32.dll&rdquo;,251)<br>
 EndFunc</p>
 <p>Func DisableScreenSaver30()<br>
@@ -283,7 +291,7 @@ If $i = 6 then TraySetIcon(&ldquo;wpdshext.dll&rdquo;,710)</p>
 <p>Sleep(299000)</p>
 <p>GetPos()<br>
 Next</p>
-<p>Msgbox(64,&ldquo;Time is Up!&quot;,&ldquo;Time without screensaver is up!&quot;)<br>
+<p>Msgbox(64,&ldquo;Time is Up!&rdquo;,&ldquo;Time without screensaver is up!&quot;)<br>
 TraySetIcon(&ldquo;shell32.dll&rdquo;,251)<br>
 EndFunc</p>
 <p>Func DisableScreenSaver45()<br>
@@ -296,7 +304,7 @@ If $i = 9 then TraySetIcon(&ldquo;wpdshext.dll&rdquo;,710)<br>
 Sleep(299000)<br>
 GetPos()<br>
 Next<br>
-Msgbox(64,&ldquo;Time is Up!&quot;,&ldquo;Time without screensaver is up!&quot;)<br>
+Msgbox(64,&ldquo;Time is Up!&rdquo;,&ldquo;Time without screensaver is up!&quot;)<br>
 TraySetIcon(&ldquo;shell32.dll&rdquo;,251)<br>
 EndFunc</p>
 <p>Func DisableScreenSaver60()<br>
@@ -309,7 +317,7 @@ If $i = 12 then TraySetIcon(&ldquo;wpdshext.dll&rdquo;,710)<br>
 Sleep(299000)<br>
 GetPos()<br>
 Next<br>
-Msgbox(64,&ldquo;Time is Up!&quot;,&ldquo;Time without screensaver is up!&quot;)<br>
+Msgbox(64,&ldquo;Time is Up!&rdquo;,&ldquo;Time without screensaver is up!&quot;)<br>
 TraySetIcon(&ldquo;shell32.dll&rdquo;,251)<br>
 EndFunc</p>
 <p>Func DisableScreenSaver90()<br>
@@ -322,11 +330,11 @@ If $i = 18 then TraySetIcon(&ldquo;wpdshext.dll&rdquo;,710)<br>
 Sleep(299000)<br>
 GetPos()<br>
 Next<br>
-Msgbox(64,&ldquo;Time is Up!&quot;,&ldquo;Time without screensaver is up!&quot;)<br>
+Msgbox(64,&ldquo;Time is Up!&rdquo;,&ldquo;Time without screensaver is up!&quot;)<br>
 TraySetIcon(&ldquo;shell32.dll&rdquo;,251)<br>
 EndFunc</p>
 <p>Func DoAbout()<br>
-Msgbox(64,&ldquo;About:&quot;,&ldquo;Tool by Claus T. Nielsen&rdquo;)<br>
+Msgbox(64,&ldquo;About:&rdquo;,&ldquo;Tool by Claus T. Nielsen&rdquo;)<br>
 EndFunc</p>
 <p>Func DoExit()<br>
 Exit<br>
@@ -396,12 +404,11 @@ EndFunc</p>
         
     
 
-<script defer src="https://use.fontawesome.com/releases/v5.11.2/js/all.js" integrity="sha384-b3ua1l97aVGAPEIe48b4TC60WUQbQaGi2jqAWM90y0OZXZeyaTCWtBTKtjW2GXG1" crossorigin="anonymous"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" integrity="sha384-ZbbbT1gw3joYkKRqh0kWyRp32UAvdqkpbLedQJSlnI8iLQcFVxaGyrOgOJiDQTTR" crossorigin="anonymous"></script>
 
 
     
-    
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
         
             
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/powershell.min.js"></script>
@@ -409,7 +416,6 @@ EndFunc</p>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/sql.min.js"></script>
             
         
-    
     <script type="text/javascript">
         
         hljs.configure({languages: ["powershell, sql"]});
@@ -417,7 +423,6 @@ EndFunc</p>
         hljs.initHighlightingOnLoad();
     </script>
     
-
 
 
 

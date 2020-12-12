@@ -6,11 +6,7 @@
     <description>Recent content in Hotel on XenoBlog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 01 May 2007 21:35:27 +0000</lastBuildDate>
-    
-	<atom:link href="/tags/hotel/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 01 May 2007 21:35:27 +0000</lastBuildDate><atom:link href="/tags/hotel/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hotel numero dos</title>
       <link>/posts/2007-05-01-hotel-numero-dos/</link>

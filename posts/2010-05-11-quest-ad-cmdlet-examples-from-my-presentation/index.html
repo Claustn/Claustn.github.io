@@ -8,10 +8,9 @@
     <link href="https://gmpg.org/xfn/11" rel="profile">
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta http-equiv="Cache-Control" content="public" />
 <!-- Enable responsiveness on mobile devices -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="generator" content="Hugo 0.71.0" />
+<meta name="generator" content="Hugo 0.79.0" />
 
     
     
@@ -27,7 +26,7 @@ List users that expires within X days
 [ps]
 $DaysToExpire = 14
 $MaxPassAge = (Get-QADObject (Get-QADRootDSE).defaultNamingContextDN).MaximumPasswordAge.days
-[array]$a = Get-QADUser -Enabled -PasswordNeverExpires:$false -SizeLimit 0 -Email * |Select-Object Name,Email,@{Name=&quot;Expires&rdquo;;Expression={ $MaxPassAge - $_."/>
+[array]$a = Get-QADUser -Enabled -PasswordNeverExpires:$false -SizeLimit 0 -Email * |Select-Object Name,Email,@{Name=&ldquo;Expires&rdquo;;Expression={ $MaxPassAge - $_."/>
 
 <meta property="og:title" content="Quest AD Cmdlet examples from my Presentation" />
 <meta property="og:description" content="Example #1
@@ -35,7 +34,7 @@ List users that expires within X days
 [ps]
 $DaysToExpire = 14
 $MaxPassAge = (Get-QADObject (Get-QADRootDSE).defaultNamingContextDN).MaximumPasswordAge.days
-[array]$a = Get-QADUser -Enabled -PasswordNeverExpires:$false -SizeLimit 0 -Email * |Select-Object Name,Email,@{Name=&quot;Expires&rdquo;;Expression={ $MaxPassAge - $_." />
+[array]$a = Get-QADUser -Enabled -PasswordNeverExpires:$false -SizeLimit 0 -Email * |Select-Object Name,Email,@{Name=&ldquo;Expires&rdquo;;Expression={ $MaxPassAge - $_." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/2010-05-11-quest-ad-cmdlet-examples-from-my-presentation/" />
 <meta property="article:published_time" content="2010-05-11T22:06:28+00:00" />
@@ -81,7 +80,11 @@ $MaxPassAge = (Get-QADObject (Get-QADRootDSE).defaultNamingContextDN).MaximumPas
   <div class="container ">
     <div class="sidebar-about">
       <span class="site__title">
-        <a href="/">XenoBlog</a>
+        <a href="/">
+        
+          XenoBlog
+        
+        </a>
       </span>
       
         
@@ -137,6 +140,7 @@ $MaxPassAge = (Get-QADObject (Get-QADRootDSE).defaultNamingContextDN).MaximumPas
 	<a href="https://twitter.com/claustn" rel="me"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a>
 	
 	
+	
 	<a href="https://facebook.com/claus.t.nielsen.37" rel="me"><i class="fab fa-facebook-f"></i></a>
 	
 	
@@ -158,7 +162,11 @@ $MaxPassAge = (Get-QADObject (Get-QADRootDSE).defaultNamingContextDN).MaximumPas
 	
 	
 	
+	
 	<a href="mailto:claustnspam@gmail.com" rel="me"><i class="fas fa-at fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
 	
 </section>
 
@@ -232,7 +240,7 @@ List users that expires within X days<br>
 [ps]<br>
 $DaysToExpire = 14<br>
 $MaxPassAge = (Get-QADObject (Get-QADRootDSE).defaultNamingContextDN).MaximumPasswordAge.days<br>
-[array]$a = Get-QADUser -Enabled -PasswordNeverExpires:$false -SizeLimit 0 -Email * |Select-Object Name,Email,@{Name=&quot;Expires&rdquo;;Expression={ $MaxPassAge - $_.PasswordAge.days }} | where {$_.Expires -lt 0} | Sort-Object expires<br>
+[array]$a = Get-QADUser -Enabled -PasswordNeverExpires:$false -SizeLimit 0 -Email * |Select-Object Name,Email,@{Name=&ldquo;Expires&rdquo;;Expression={ $MaxPassAge - $_.PasswordAge.days }} | where {$_.Expires -lt 0} | Sort-Object expires<br>
 [/ps]</p>
 <p>Example #2<br>
 Locate that Hyper-V Host<br>
@@ -421,12 +429,11 @@ $d.EntireColumn.AutoFit()</p>
         
     
 
-<script defer src="https://use.fontawesome.com/releases/v5.11.2/js/all.js" integrity="sha384-b3ua1l97aVGAPEIe48b4TC60WUQbQaGi2jqAWM90y0OZXZeyaTCWtBTKtjW2GXG1" crossorigin="anonymous"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" integrity="sha384-ZbbbT1gw3joYkKRqh0kWyRp32UAvdqkpbLedQJSlnI8iLQcFVxaGyrOgOJiDQTTR" crossorigin="anonymous"></script>
 
 
     
-    
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
         
             
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/powershell.min.js"></script>
@@ -434,7 +441,6 @@ $d.EntireColumn.AutoFit()</p>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/sql.min.js"></script>
             
         
-    
     <script type="text/javascript">
         
         hljs.configure({languages: ["powershell, sql"]});
@@ -442,7 +448,6 @@ $d.EntireColumn.AutoFit()</p>
         hljs.initHighlightingOnLoad();
     </script>
     
-
 
 
 

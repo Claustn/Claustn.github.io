@@ -6,11 +6,7 @@
     <description>Recent content in Everyday on XenoBlog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 16 May 2020 12:58:34 +0000</lastBuildDate>
-    
-	<atom:link href="/categories/everyday/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 16 May 2020 12:58:34 +0000</lastBuildDate><atom:link href="/categories/everyday/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Using ESP8266 to monitor Kamstrup Omnipower</title>
       <link>/posts/2020-05-17-using-esp8266-to-monitor-kamstrup-omnipower/</link>
@@ -74,7 +70,7 @@ Part 1: Getting screenshots from VMware machines (This Post)</description>
       <pubDate>Sun, 31 Jan 2016 21:27:09 +0000</pubDate>
       
       <guid>/posts/2016-01-31-simple-module-dependency-mapper/</guid>
-      <description>Script to list module dependencies function Get-Depends { [CmdLetBinding()] Param( $ModulePath, $ModuleName, $Depth = 0, [switch]$ReturnDependency ) if ($Depth -eq 0) { $RootModulePath = $ModulePath } If ($Depth -ge 8 ) { Throw &amp;lsquo;Module dependency is deeper than 8 levels, possible cyclical dependency&amp;rsquo; } try { Write-Verbose -Message $($(&#39;&amp;ndash;&amp;rsquo; * $Depth)+$ModuleName) $ModPath = $(($(Get-ChildItem -Path &amp;ldquo;$($ModulePath)&amp;rdquo; -Filter &amp;ldquo;$ModuleName.</description>
+      <description>Script to list module dependencies function Get-Depends { [CmdLetBinding()] Param( $ModulePath, $ModuleName, $Depth = 0, [switch]$ReturnDependency ) if ($Depth -eq 0) { $RootModulePath = $ModulePath } If ($Depth -ge 8 ) { Throw &amp;lsquo;Module dependency is deeper than 8 levels, possible cyclical dependency&amp;rsquo; } try { Write-Verbose -Message $($(&#39;&amp;ndash;&#39; * $Depth)+$ModuleName) $ModPath = $(($(Get-ChildItem -Path &amp;ldquo;$($ModulePath)&amp;rdquo; -Filter &amp;ldquo;$ModuleName.</description>
     </item>
     
     <item>
@@ -311,7 +307,7 @@ Test-Connection : Testing connection to computer &amp;lsquo;www.</description>
       <description>[ps]
 Function Change-ScheduledTask {
 Param($XMLIn)
-$ShortDate = [regex]&amp;quot;(?&amp;lt;shortdate&amp;gt;[0-9]{4}/.-/.-T(?:2[0-3]|[01][0-9])[:.][0-5][0-9][:.][0-5][0-9])(?&amp;lt;digits&amp;gt;.\d*)&amp;rdquo;
+$ShortDate = [regex]&amp;quot;(?&amp;lt;shortdate&amp;gt;[0-9]{4}/.-/.-T(?:2[0-3]|[01][0-9])[:.][0-5][0-9][:.][0-5][0-9])(?&amp;lt;digits&amp;gt;.\d*)&amp;quot;
 foreach ($line in $XMLIn){
 If ($line -match &amp;ldquo;$ShortDate&amp;rdquo;) {
 $line = [regex]::Replace($line, $ShortDate, $($Matches[&amp;ldquo;Shortdate&amp;rdquo;]))
@@ -442,7 +438,7 @@ List users that expires within X days
 [ps]
 $DaysToExpire = 14
 $MaxPassAge = (Get-QADObject (Get-QADRootDSE).defaultNamingContextDN).MaximumPasswordAge.days
-[array]$a = Get-QADUser -Enabled -PasswordNeverExpires:$false -SizeLimit 0 -Email * |Select-Object Name,Email,@{Name=&amp;quot;Expires&amp;rdquo;;Expression={ $MaxPassAge - $_.</description>
+[array]$a = Get-QADUser -Enabled -PasswordNeverExpires:$false -SizeLimit 0 -Email * |Select-Object Name,Email,@{Name=&amp;ldquo;Expires&amp;rdquo;;Expression={ $MaxPassAge - $_.</description>
     </item>
     
     <item>
@@ -451,10 +447,10 @@ $MaxPassAge = (Get-QADObject (Get-QADRootDSE).defaultNamingContextDN).MaximumPas
       <pubDate>Tue, 11 May 2010 21:58:16 +0000</pubDate>
       
       <guid>/posts/2010-05-11-net-examples-from-presentation/</guid>
-      <description>Example #1 (From Lee Holmes&amp;rsquo; Powershell cookbook)
+      <description>Example #1 (From Lee Holmes&#39; Powershell cookbook)
 &amp;ldquo;Compile C# code on the fly&amp;rdquo;
 [ps]
-$code =@&amp;rsquo;
+$code =@&#39;
 using System.Management.Automation;
 [Cmdlet(&amp;ldquo;Write&amp;rdquo;, &amp;ldquo;InputObject&amp;rdquo;)]
 public class MyWriteInputObjectCmdlet : Cmdlet
@@ -631,7 +627,7 @@ I know I have been away for a while, but between becoming a dad, starting a new 
       <pubDate>Sun, 18 May 2008 21:45:26 +0000</pubDate>
       
       <guid>/posts/2008-05-18-test-post/</guid>
-      <description>[sourcecode lang=&amp;quot;powershell&amp;rdquo;]
+      <description>[sourcecode lang=&amp;ldquo;powershell&amp;rdquo;]
 PowerShell cmdlet to list the System files in the root of C:\ $i=0
 $GciFiles = get-ChildItem &amp;ldquo;c:&amp;rdquo; -force |where {$_.attributes -match &amp;ldquo;System&amp;rdquo;}
 foreach ($file in $GciFiles) {$i++}

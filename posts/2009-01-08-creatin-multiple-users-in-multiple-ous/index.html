@@ -8,10 +8,9 @@
     <link href="https://gmpg.org/xfn/11" rel="profile">
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta http-equiv="Cache-Control" content="public" />
 <!-- Enable responsiveness on mobile devices -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="generator" content="Hugo 0.71.0" />
+<meta name="generator" content="Hugo 0.79.0" />
 
     
     
@@ -73,7 +72,11 @@ So I had to create some users in Active Directory, I thought I would create a Po
   <div class="container ">
     <div class="sidebar-about">
       <span class="site__title">
-        <a href="/">XenoBlog</a>
+        <a href="/">
+        
+          XenoBlog
+        
+        </a>
       </span>
       
         
@@ -129,6 +132,7 @@ So I had to create some users in Active Directory, I thought I would create a Po
 	<a href="https://twitter.com/claustn" rel="me"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a>
 	
 	
+	
 	<a href="https://facebook.com/claus.t.nielsen.37" rel="me"><i class="fab fa-facebook-f"></i></a>
 	
 	
@@ -150,7 +154,11 @@ So I had to create some users in Active Directory, I thought I would create a Po
 	
 	
 	
+	
 	<a href="mailto:claustnspam@gmail.com" rel="me"><i class="fas fa-at fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
 	
 </section>
 
@@ -212,7 +220,7 @@ Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.c
     <p>The other day I was setting up a few VmWare test environments for work, where I had to test amongst other apps Quest Recovery Manager for AD..</p>
 <p>So I had to create some users in Active Directory, I thought I would create a PowerShell script to do that (Must keep your PS skill fresh  :)</p>
 <p>So I wrote a little code snippet to create a few OU&rsquo;s.</p>
-<p>[sourcecode lang=&quot;ps&rdquo;]<br>
+<p>[sourcecode lang=&ldquo;ps&rdquo;]<br>
 #Gets the default naming context<br>
 $RootDN = (Get-QADRootDSE).DefaultNamingContextDN<br>
 #Name of OU going to be created in the root of &ldquo;AD&rdquo;<br>
@@ -226,7 +234,7 @@ new-qadObject -ParentContainer &ldquo;OU=$RootOUName,$RootDN&rdquo; -type &lsquo
 [/sourcecode]</p>
 <p>I wanted it to look more like a production environment, by having multiple OU&rsquo;s.<br>
 A fews ago I stumbled upon a script by Brandon Shell to create users, and I thought I could use that&hellip; So I modified his code. With my new modified code it is possible to select a &ldquo;base&rdquo; OU, then it will go through all sub OU&rsquo;s, and create x amount of users in each. The users will be named after the OU they are created in.. So an example would be TestSales1, TestSales2, TestMarketing1 etc etc.</p>
-<p>[sourcecode lang=&quot;ps&rdquo;]</p>
+<p>[sourcecode lang=&ldquo;ps&rdquo;]</p>
 <h1 id="heading"></h1>
 <h1 id="heading-1"></h1>
 <p>#Enter the DN path of the OU you want to add users to<br>
@@ -316,12 +324,11 @@ Addusers $OU.DN $OU.Name<br>
         
     
 
-<script defer src="https://use.fontawesome.com/releases/v5.11.2/js/all.js" integrity="sha384-b3ua1l97aVGAPEIe48b4TC60WUQbQaGi2jqAWM90y0OZXZeyaTCWtBTKtjW2GXG1" crossorigin="anonymous"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" integrity="sha384-ZbbbT1gw3joYkKRqh0kWyRp32UAvdqkpbLedQJSlnI8iLQcFVxaGyrOgOJiDQTTR" crossorigin="anonymous"></script>
 
 
     
-    
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
         
             
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/powershell.min.js"></script>
@@ -329,7 +336,6 @@ Addusers $OU.DN $OU.Name<br>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/sql.min.js"></script>
             
         
-    
     <script type="text/javascript">
         
         hljs.configure({languages: ["powershell, sql"]});
@@ -337,7 +343,6 @@ Addusers $OU.DN $OU.Name<br>
         hljs.initHighlightingOnLoad();
     </script>
     
-
 
 
 

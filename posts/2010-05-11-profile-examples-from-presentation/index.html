@@ -8,10 +8,9 @@
     <link href="https://gmpg.org/xfn/11" rel="profile">
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta http-equiv="Cache-Control" content="public" />
 <!-- Enable responsiveness on mobile devices -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="generator" content="Hugo 0.71.0" />
+<meta name="generator" content="Hugo 0.79.0" />
 
     
     
@@ -87,7 +86,11 @@ function prompt
   <div class="container ">
     <div class="sidebar-about">
       <span class="site__title">
-        <a href="/">XenoBlog</a>
+        <a href="/">
+        
+          XenoBlog
+        
+        </a>
       </span>
       
         
@@ -143,6 +146,7 @@ function prompt
 	<a href="https://twitter.com/claustn" rel="me"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a>
 	
 	
+	
 	<a href="https://facebook.com/claus.t.nielsen.37" rel="me"><i class="fab fa-facebook-f"></i></a>
 	
 	
@@ -164,7 +168,11 @@ function prompt
 	
 	
 	
+	
 	<a href="mailto:claustnspam@gmail.com" rel="me"><i class="fas fa-at fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
 	
 </section>
 
@@ -272,13 +280,13 @@ $host.UI.RawUI.WindowTitle = $(Get-Location)</p>
 <p>[ps]<br>
 function prompt<br>
 {<br>
-[wmi]$Global:Cdrive=Get-WmiObject -query &ldquo;Select * from win32_logicaldisk where deviceid='c:'&rdquo;<br>
+[wmi]$Global:Cdrive=Get-WmiObject -query &ldquo;Select * from win32_logicaldisk where deviceid=&lsquo;c:'&rdquo;<br>
 #Define Cdrive as global variable, which is type cast as a wmi<br>
 $processcount=(Get-Process).Count<br>
 #Define variable processcount as number of processes running<br>
 $cpuload=(Get-WmiObject win32_processor).loadpercentage<br>
 #cpuload is defined as a variable<br>
-$diskinfoC=&rdquo; Free C: &ldquo;+&rdquo;{0:N2}&rdquo; -f (($global:Cdrive.freespace/1gb)/($global:cdrive.size/1gb)*100)+&rdquo;%&rdquo;<br>
+$diskinfoC=&rdquo; Free C: &ldquo;+&quot;{0:N2}&rdquo; -f (($global:Cdrive.freespace/1gb)/($global:cdrive.size/1gb)*100)+&quot;%&rdquo;<br>
 #diskinfoC is defined, {0:N2} is .NET for 2 decimal places, -f is a the &ldquo;format&rdquo; property of the string object.</p>
 <h1 id="then-the-amount-of-free-space-on-drive-c-is-divided-by-the-size-of-drive-c-multiplies-by-100-to-get">Then the amount of free space on drive C is divided by the size of drive C multiplies by 100 to get</h1>
 <p>#the percentage of free space.<br>
@@ -291,7 +299,7 @@ $t=$time.ConvertToDateTime($time.Lastbootuptime)<br>
 #This way we can compare our variable $t (Which was Lastbootuptime) and the current time Get-date cmdlet<br>
 $up=&quot;$($uptime.days)d $($uptime.hours)h $($uptime.minutes)m $($uptime.seconds)s&rdquo;<br>
 #define variable $up to display the uptime in days/hours/minuted/seconds<br>
-$TextToDisplay=&quot;CPU:&ldquo;+$cpuload+&rdquo;% Processes:&rdquo; + $processcount + $diskinfoC+ &quot; &quot; + $diskinfoG+ &quot; &ldquo;+ ([char]0x25b2)+$up +&rdquo; &ldquo;+(Get-Date -format g)<br>
+$TextToDisplay=&ldquo;CPU:&quot;+$cpuload+&quot;% Processes:&rdquo; + $processcount + $diskinfoC+ &quot; &quot; + $diskinfoG+ &quot; &ldquo;+ ([char]0x25b2)+$up +&rdquo; &ldquo;+(Get-Date -format g)<br>
 #define one variable that contains all the data we collected so far.<br>
 Write-Host -fore red $TextToDisplay<br>
 #Write the information to the screen in red<br>
@@ -361,12 +369,11 @@ Write-Host &ldquo;My PoSh:&rdquo; $(get-location) -nonewline<br>
         
     
 
-<script defer src="https://use.fontawesome.com/releases/v5.11.2/js/all.js" integrity="sha384-b3ua1l97aVGAPEIe48b4TC60WUQbQaGi2jqAWM90y0OZXZeyaTCWtBTKtjW2GXG1" crossorigin="anonymous"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" integrity="sha384-ZbbbT1gw3joYkKRqh0kWyRp32UAvdqkpbLedQJSlnI8iLQcFVxaGyrOgOJiDQTTR" crossorigin="anonymous"></script>
 
 
     
-    
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
         
             
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/powershell.min.js"></script>
@@ -374,7 +381,6 @@ Write-Host &ldquo;My PoSh:&rdquo; $(get-location) -nonewline<br>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/sql.min.js"></script>
             
         
-    
     <script type="text/javascript">
         
         hljs.configure({languages: ["powershell, sql"]});
@@ -382,7 +388,6 @@ Write-Host &ldquo;My PoSh:&rdquo; $(get-location) -nonewline<br>
         hljs.initHighlightingOnLoad();
     </script>
     
-
 
 
 

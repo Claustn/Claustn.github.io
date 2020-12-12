@@ -8,10 +8,9 @@
     <link href="https://gmpg.org/xfn/11" rel="profile">
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta http-equiv="Cache-Control" content="public" />
 <!-- Enable responsiveness on mobile devices -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="generator" content="Hugo 0.71.0" />
+<meta name="generator" content="Hugo 0.79.0" />
 
     
     
@@ -22,10 +21,10 @@
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=".Net Examples from Presentation"/>
-<meta name="twitter:description" content="Example #1 (From Lee Holmes&rsquo; Powershell cookbook)
+<meta name="twitter:description" content="Example #1 (From Lee Holmes&#39; Powershell cookbook)
 &ldquo;Compile C# code on the fly&rdquo;
 [ps]
-$code =@&rsquo;
+$code =@&#39;
 using System.Management.Automation;
 [Cmdlet(&ldquo;Write&rdquo;, &ldquo;InputObject&rdquo;)]
 public class MyWriteInputObjectCmdlet : Cmdlet
@@ -34,10 +33,10 @@ public class MyWriteInputObjectCmdlet : Cmdlet
 public string Parameter1;"/>
 
 <meta property="og:title" content=".Net Examples from Presentation" />
-<meta property="og:description" content="Example #1 (From Lee Holmes&rsquo; Powershell cookbook)
+<meta property="og:description" content="Example #1 (From Lee Holmes&#39; Powershell cookbook)
 &ldquo;Compile C# code on the fly&rdquo;
 [ps]
-$code =@&rsquo;
+$code =@&#39;
 using System.Management.Automation;
 [Cmdlet(&ldquo;Write&rdquo;, &ldquo;InputObject&rdquo;)]
 public class MyWriteInputObjectCmdlet : Cmdlet
@@ -89,7 +88,11 @@ public string Parameter1;" />
   <div class="container ">
     <div class="sidebar-about">
       <span class="site__title">
-        <a href="/">XenoBlog</a>
+        <a href="/">
+        
+          XenoBlog
+        
+        </a>
       </span>
       
         
@@ -145,6 +148,7 @@ public string Parameter1;" />
 	<a href="https://twitter.com/claustn" rel="me"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a>
 	
 	
+	
 	<a href="https://facebook.com/claus.t.nielsen.37" rel="me"><i class="fab fa-facebook-f"></i></a>
 	
 	
@@ -166,7 +170,11 @@ public string Parameter1;" />
 	
 	
 	
+	
 	<a href="mailto:claustnspam@gmail.com" rel="me"><i class="fas fa-at fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
 	
 </section>
 
@@ -235,10 +243,10 @@ Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.c
   
   
   <div class="post">
-    <p>Example #1 (From Lee Holmes&rsquo; Powershell cookbook)</p>
+    <p>Example #1 (From Lee Holmes' Powershell cookbook)</p>
 <p>&ldquo;Compile C# code on the fly&rdquo;<br>
 [ps]</p>
-<p>$code =@&rsquo;<br>
+<p>$code =@'<br>
 using System.Management.Automation;</p>
 <p>[Cmdlet(&ldquo;Write&rdquo;, &ldquo;InputObject&rdquo;)]<br>
 public class MyWriteInputObjectCmdlet : Cmdlet<br>
@@ -262,7 +270,7 @@ WriteObject(InputObject);<br>
 <p>Example #2 (From Lee Holmes&rsquo; Powershell cookbook)<br>
 Showing how static functions are available directly</p>
 <p>[ps]<br>
-$source = @&rdquo;<br>
+$source = @&quot;<br>
 public class BasicTest<br>
 {<br>
 public static int Add(int a, int b)<br>
@@ -354,12 +362,11 @@ $Pos = [System.Windows.Forms.Cursor]::Position<br>
         
     
 
-<script defer src="https://use.fontawesome.com/releases/v5.11.2/js/all.js" integrity="sha384-b3ua1l97aVGAPEIe48b4TC60WUQbQaGi2jqAWM90y0OZXZeyaTCWtBTKtjW2GXG1" crossorigin="anonymous"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" integrity="sha384-ZbbbT1gw3joYkKRqh0kWyRp32UAvdqkpbLedQJSlnI8iLQcFVxaGyrOgOJiDQTTR" crossorigin="anonymous"></script>
 
 
     
-    
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
         
             
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/powershell.min.js"></script>
@@ -367,7 +374,6 @@ $Pos = [System.Windows.Forms.Cursor]::Position<br>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/sql.min.js"></script>
             
         
-    
     <script type="text/javascript">
         
         hljs.configure({languages: ["powershell, sql"]});
@@ -375,7 +381,6 @@ $Pos = [System.Windows.Forms.Cursor]::Position<br>
         hljs.initHighlightingOnLoad();
     </script>
     
-
 
 
 

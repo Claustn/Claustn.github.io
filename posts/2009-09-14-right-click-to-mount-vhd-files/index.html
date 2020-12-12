@@ -8,10 +8,9 @@
     <link href="https://gmpg.org/xfn/11" rel="profile">
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta http-equiv="Cache-Control" content="public" />
 <!-- Enable responsiveness on mobile devices -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="generator" content="Hugo 0.71.0" />
+<meta name="generator" content="Hugo 0.79.0" />
 
     
     
@@ -71,7 +70,11 @@
   <div class="container ">
     <div class="sidebar-about">
       <span class="site__title">
-        <a href="/">XenoBlog</a>
+        <a href="/">
+        
+          XenoBlog
+        
+        </a>
       </span>
       
         
@@ -127,6 +130,7 @@
 	<a href="https://twitter.com/claustn" rel="me"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a>
 	
 	
+	
 	<a href="https://facebook.com/claus.t.nielsen.37" rel="me"><i class="fab fa-facebook-f"></i></a>
 	
 	
@@ -148,7 +152,11 @@
 	
 	
 	
+	
 	<a href="mailto:claustnspam@gmail.com" rel="me"><i class="fas fa-at fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
 	
 </section>
 
@@ -228,7 +236,7 @@ Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.c
 <h1 id="powershell-function-to-create-a-script-file-for-diskpart">PowerShell function to create a script file for diskpart</h1>
 <h1 id="and-the-execute-diskpart-with-the-scriptfile">and the execute diskpart with the scriptfile</h1>
 <p>function Mount-Vhd {param([String]$InputFile)<br>
-&ldquo;SELECT VDISK FILE=&quot;&ldquo;$InputFile&rdquo;&rdquo;&rdquo; + &ldquo;<code>r</code>n&rdquo; + &ldquo;ATTACH VDISK&rdquo; | Out-File $env:TEMP\Mountvhd.txt -Encoding &ldquo;ASCII&rdquo;<br>
+&ldquo;SELECT VDISK FILE=&quot;&quot;$InputFile&rdquo;&quot;&quot; + &ldquo;<code>r</code>n&rdquo; + &ldquo;ATTACH VDISK&rdquo; | Out-File $env:TEMP\Mountvhd.txt -Encoding &ldquo;ASCII&rdquo;<br>
 Invoke-Expression -Command &ldquo;Diskpart.exe /s $env:TEMP\Mountvhd.txt&rdquo;<br>
 }<br>
 Mount-Vhd $args[0]<br>
@@ -238,9 +246,9 @@ The above script has to be saved as &ldquo;Mount-vhd.ps1&rdquo;</p>
 <p>Windows Registry Editor Version 5.00</p>
 <p>[HKEY_CLASSES_ROOT.vhd]</p>
 <p>[HKEY_CLASSES_ROOT.vhd\shell]<br>
-@=&quot;Open VHD&rdquo;</p>
+@=&ldquo;Open VHD&rdquo;</p>
 <p>[HKEY_CLASSES_ROOT.vhd\shell\Open VHD]<br>
-@=&quot;Open &amp;VHD&rdquo;</p>
+@=&ldquo;Open &amp;VHD&rdquo;</p>
 <p>[HKEY_CLASSES_ROOT.vhd\shell\Open VHD\command]<br>
 @=hex(2):22,00,43,00,3a,00,5c,00,57,00,69,00,6e,00,64,00,6f,00,77,00,73,00,5c,\<br>
 00,53,00,79,00,73,00,74,00,65,00,6d,00,33,00,32,00,5c,00,57,00,69,00,6e,00,\<br>
@@ -320,12 +328,11 @@ The above script has to be saved as &ldquo;Mount-vhd.ps1&rdquo;</p>
         
     
 
-<script defer src="https://use.fontawesome.com/releases/v5.11.2/js/all.js" integrity="sha384-b3ua1l97aVGAPEIe48b4TC60WUQbQaGi2jqAWM90y0OZXZeyaTCWtBTKtjW2GXG1" crossorigin="anonymous"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" integrity="sha384-ZbbbT1gw3joYkKRqh0kWyRp32UAvdqkpbLedQJSlnI8iLQcFVxaGyrOgOJiDQTTR" crossorigin="anonymous"></script>
 
 
     
-    
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
         
             
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/powershell.min.js"></script>
@@ -333,7 +340,6 @@ The above script has to be saved as &ldquo;Mount-vhd.ps1&rdquo;</p>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/sql.min.js"></script>
             
         
-    
     <script type="text/javascript">
         
         hljs.configure({languages: ["powershell, sql"]});
@@ -341,7 +347,6 @@ The above script has to be saved as &ldquo;Mount-vhd.ps1&rdquo;</p>
         hljs.initHighlightingOnLoad();
     </script>
     
-
 
 
 

@@ -8,10 +8,9 @@
     <link href="https://gmpg.org/xfn/11" rel="profile">
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta http-equiv="Cache-Control" content="public" />
 <!-- Enable responsiveness on mobile devices -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="generator" content="Hugo 0.71.0" />
+<meta name="generator" content="Hugo 0.79.0" />
 
     
     
@@ -25,7 +24,7 @@
 <meta name="twitter:description" content="[ps]
 Function Change-ScheduledTask {
 Param($XMLIn)
-$ShortDate = [regex]&quot;(?&lt;shortdate&gt;[0-9]{4}/.-/.-T(?:2[0-3]|[01][0-9])[:.][0-5][0-9][:.][0-5][0-9])(?&lt;digits&gt;.\d*)&rdquo;
+$ShortDate = [regex]&quot;(?&lt;shortdate&gt;[0-9]{4}/.-/.-T(?:2[0-3]|[01][0-9])[:.][0-5][0-9][:.][0-5][0-9])(?&lt;digits&gt;.\d*)&quot;
 foreach ($line in $XMLIn){
 If ($line -match &ldquo;$ShortDate&rdquo;) {
 $line = [regex]::Replace($line, $ShortDate, $($Matches[&ldquo;Shortdate&rdquo;]))
@@ -38,7 +37,7 @@ $line
 <meta property="og:description" content="[ps]
 Function Change-ScheduledTask {
 Param($XMLIn)
-$ShortDate = [regex]&quot;(?&lt;shortdate&gt;[0-9]{4}/.-/.-T(?:2[0-3]|[01][0-9])[:.][0-5][0-9][:.][0-5][0-9])(?&lt;digits&gt;.\d*)&rdquo;
+$ShortDate = [regex]&quot;(?&lt;shortdate&gt;[0-9]{4}/.-/.-T(?:2[0-3]|[01][0-9])[:.][0-5][0-9][:.][0-5][0-9])(?&lt;digits&gt;.\d*)&quot;
 foreach ($line in $XMLIn){
 If ($line -match &ldquo;$ShortDate&rdquo;) {
 $line = [regex]::Replace($line, $ShortDate, $($Matches[&ldquo;Shortdate&rdquo;]))
@@ -91,7 +90,11 @@ $line
   <div class="container ">
     <div class="sidebar-about">
       <span class="site__title">
-        <a href="/">XenoBlog</a>
+        <a href="/">
+        
+          XenoBlog
+        
+        </a>
       </span>
       
         
@@ -147,6 +150,7 @@ $line
 	<a href="https://twitter.com/claustn" rel="me"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a>
 	
 	
+	
 	<a href="https://facebook.com/claus.t.nielsen.37" rel="me"><i class="fab fa-facebook-f"></i></a>
 	
 	
@@ -168,7 +172,11 @@ $line
 	
 	
 	
+	
 	<a href="mailto:claustnspam@gmail.com" rel="me"><i class="fas fa-at fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
 	
 </section>
 
@@ -230,7 +238,7 @@ Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.c
     <p>[ps]<br>
 Function Change-ScheduledTask {<br>
 Param($XMLIn)<br>
-$ShortDate = [regex]&quot;(?&lt;shortdate&gt;[0-9]{4}<a href="?:1%5B0-2%5D%7C0%5B1-9%5D">/.-</a><a href="?:3%5B01%5D%7C%5B12%5D%5B0-9%5D%7C0%5B1-9%5D">/.-</a>T(?:2[0-3]|[01][0-9])[:.][0-5][0-9][:.][0-5][0-9])(?&lt;digits&gt;.\d*)&rdquo;</p>
+$ShortDate = [regex]&quot;(?&lt;shortdate&gt;[0-9]{4}<a href="?:1%5B0-2%5D%7C0%5B1-9%5D">/.-</a><a href="?:3%5B01%5D%7C%5B12%5D%5B0-9%5D%7C0%5B1-9%5D">/.-</a>T(?:2[0-3]|[01][0-9])[:.][0-5][0-9][:.][0-5][0-9])(?&lt;digits&gt;.\d*)&quot;</p>
 <p>foreach ($line in $XMLIn){<br>
 If ($line -match &ldquo;$ShortDate&rdquo;) {<br>
 $line = [regex]::Replace($line, $ShortDate, $($Matches[&ldquo;Shortdate&rdquo;]))<br>
@@ -315,12 +323,11 @@ Change-scheduledtask $(Get-Content c:\temp\TestTask.xml)<br>
         
     
 
-<script defer src="https://use.fontawesome.com/releases/v5.11.2/js/all.js" integrity="sha384-b3ua1l97aVGAPEIe48b4TC60WUQbQaGi2jqAWM90y0OZXZeyaTCWtBTKtjW2GXG1" crossorigin="anonymous"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" integrity="sha384-ZbbbT1gw3joYkKRqh0kWyRp32UAvdqkpbLedQJSlnI8iLQcFVxaGyrOgOJiDQTTR" crossorigin="anonymous"></script>
 
 
     
-    
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
         
             
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/powershell.min.js"></script>
@@ -328,7 +335,6 @@ Change-scheduledtask $(Get-Content c:\temp\TestTask.xml)<br>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/sql.min.js"></script>
             
         
-    
     <script type="text/javascript">
         
         hljs.configure({languages: ["powershell, sql"]});
@@ -336,7 +342,6 @@ Change-scheduledtask $(Get-Content c:\temp\TestTask.xml)<br>
         hljs.initHighlightingOnLoad();
     </script>
     
-
 
 
 

@@ -6,11 +6,7 @@
     <description>Recent content in Eventlog on XenoBlog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 18 Jun 2007 15:14:13 +0000</lastBuildDate>
-    
-	<atom:link href="/tags/eventlog/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 18 Jun 2007 15:14:13 +0000</lastBuildDate><atom:link href="/tags/eventlog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Getting info from the eventlog with PowerShell</title>
       <link>/posts/2007-06-18-getting-info-from-the-eventlog-with-powershell/</link>

@@ -6,11 +6,7 @@
     <description>Recent content in AD on XenoBlog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 20 Sep 2009 09:40:42 +0000</lastBuildDate>
-    
-	<atom:link href="/tags/ad/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 20 Sep 2009 09:40:42 +0000</lastBuildDate><atom:link href="/tags/ad/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ADMGS (Active Directory Management Gateway Service)</title>
       <link>/posts/2009-09-20-admgs-active-directory-management-gateway-service/</link>

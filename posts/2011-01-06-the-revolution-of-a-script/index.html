@@ -8,10 +8,9 @@
     <link href="https://gmpg.org/xfn/11" rel="profile">
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta http-equiv="Cache-Control" content="public" />
 <!-- Enable responsiveness on mobile devices -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="generator" content="Hugo 0.71.0" />
+<meta name="generator" content="Hugo 0.79.0" />
 
     
     
@@ -71,7 +70,11 @@
   <div class="container ">
     <div class="sidebar-about">
       <span class="site__title">
-        <a href="/">XenoBlog</a>
+        <a href="/">
+        
+          XenoBlog
+        
+        </a>
       </span>
       
         
@@ -127,6 +130,7 @@
 	<a href="https://twitter.com/claustn" rel="me"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a>
 	
 	
+	
 	<a href="https://facebook.com/claus.t.nielsen.37" rel="me"><i class="fab fa-facebook-f"></i></a>
 	
 	
@@ -148,7 +152,11 @@
 	
 	
 	
+	
 	<a href="mailto:claustnspam@gmail.com" rel="me"><i class="fas fa-at fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
 	
 </section>
 
@@ -222,7 +230,7 @@ Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.c
 <p>Tome Tanasovski wrote a quick and dirty script that connects to the MVP site, and cycles through all the categories, and returns how many MVP&rsquo;s there are in each. He ended off by saying, that the results where not entirely correct, since some MVP has hidden the profile from the public list, meaning you would have to be logged in to see them.</p>
 <p>[ps]<br>
 $web = New-Object System.Net.WebClient<br>
-$regex = [regex]'(?m)&lt;a href=&quot;(/communities/mvp.aspx?product=1&amp;competency=(\S+))&quot;&rsquo;<br>
+$regex = [regex]'(?m)&lt;a href=&quot;(/communities/mvp.aspx?product=1&amp;competency=(\S+))&quot;'<br>
 $objects = @()<br>
 $return = $web.DownloadString(&lsquo;<a href="http://mvp.support.microsoft.com/communities/mvp.aspx'">http://mvp.support.microsoft.com/communities/mvp.aspx'</a>)<br>
 $regex.Matches($return) |% {<br>
@@ -259,13 +267,13 @@ $objects = @()</p>
 <p>$regex.Matches($return)|% {<br>
 $obj = New-Object psobject<br>
 $obj |Add-Member NoteProperty -Name &lsquo;Group&rsquo; -Value ($_.Groups[2].Value -replace &lsquo;+&rsquo;,&rsquo; &lsquo;)<br>
-$URI = &ldquo;<a href="https://mvp.support.microsoft.com">https://mvp.support.microsoft.com</a>$($_.Groups[1].Value -replace &lsquo;amp;','')&rdquo;<br>
+$URI = &ldquo;<a href="https://mvp.support.microsoft.com">https://mvp.support.microsoft.com</a>$($_.Groups[1].Value -replace &lsquo;amp;&rsquo;,'')&rdquo;<br>
 while ($ie.Busy -eq $true) { Start-Sleep -Milliseconds 1000; }<br>
 $ie.navigate($URI)<br>
 $URI<br>
 while ($ie.Busy -eq $true) { Start-Sleep -Milliseconds 1000; }<br>
 if (($ie.Document.Body.InnerText.ToString()) -match &lsquo;Results 1 - \d+ of (\d+)') {<br>
-$MVPs=&rdquo;&quot;; $MVPs = [int]$matches[1];$MVPs; $obj |Add-Member NoteProperty -Name &lsquo;Count&rsquo; -Value ($MVPs)</p>
+$MVPs=&quot;&quot;; $MVPs = [int]$matches[1];$MVPs; $obj |Add-Member NoteProperty -Name &lsquo;Count&rsquo; -Value ($MVPs)</p>
 <p>}<br>
 $objects += $obj<br>
 }<br>
@@ -351,13 +359,13 @@ $objects = @()</p>
 $regex.Matches($return)|% {<br>
 $obj = New-Object psobject<br>
 $obj |Add-Member NoteProperty -Name &lsquo;Group&rsquo; -Value ([System.Web.HttpUtility]::UrlDecode( $_.Groups[2].Value ))</p>
-<p>$URI = &ldquo;<a href="https://mvp.support.microsoft.com">https://mvp.support.microsoft.com</a>$($_.Groups[1].Value -replace &lsquo;amp;','')&rdquo;<br>
+<p>$URI = &ldquo;<a href="https://mvp.support.microsoft.com">https://mvp.support.microsoft.com</a>$($_.Groups[1].Value -replace &lsquo;amp;&rsquo;,'')&rdquo;<br>
 while ($ie.Busy -eq $true) { Start-Sleep -Milliseconds 1000; }<br>
 $ie.navigate($URI)<br>
 $URI<br>
 while ($ie.Busy -eq $true) { Start-Sleep -Milliseconds 1000; }<br>
 if (($ie.Document.Body.InnerText.ToString()) -match &lsquo;Results 1 - \d+ of (\d+)') {<br>
-$MVPs=&rdquo;&quot;; $MVPs = [int]$matches[1];$MVPs; $obj |Add-Member NoteProperty -Name &lsquo;Count&rsquo; -Value ($MVPs)<br>
+$MVPs=&quot;&quot;; $MVPs = [int]$matches[1];$MVPs; $obj |Add-Member NoteProperty -Name &lsquo;Count&rsquo; -Value ($MVPs)<br>
 }<br>
 $objects += $obj<br>
 }</p>
@@ -749,12 +757,11 @@ $helperModule | Remove-Module<br>
         
     
 
-<script defer src="https://use.fontawesome.com/releases/v5.11.2/js/all.js" integrity="sha384-b3ua1l97aVGAPEIe48b4TC60WUQbQaGi2jqAWM90y0OZXZeyaTCWtBTKtjW2GXG1" crossorigin="anonymous"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" integrity="sha384-ZbbbT1gw3joYkKRqh0kWyRp32UAvdqkpbLedQJSlnI8iLQcFVxaGyrOgOJiDQTTR" crossorigin="anonymous"></script>
 
 
     
-    
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
         
             
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/powershell.min.js"></script>
@@ -762,7 +769,6 @@ $helperModule | Remove-Module<br>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/sql.min.js"></script>
             
         
-    
     <script type="text/javascript">
         
         hljs.configure({languages: ["powershell, sql"]});
@@ -770,7 +776,6 @@ $helperModule | Remove-Module<br>
         hljs.initHighlightingOnLoad();
     </script>
     
-
 
 
 

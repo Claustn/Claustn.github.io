@@ -8,10 +8,9 @@
     <link href="https://gmpg.org/xfn/11" rel="profile">
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta http-equiv="Cache-Control" content="public" />
 <!-- Enable responsiveness on mobile devices -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="generator" content="Hugo 0.71.0" />
+<meta name="generator" content="Hugo 0.79.0" />
 
     
     
@@ -71,7 +70,11 @@
   <div class="container ">
     <div class="sidebar-about">
       <span class="site__title">
-        <a href="/">XenoBlog</a>
+        <a href="/">
+        
+          XenoBlog
+        
+        </a>
       </span>
       
         
@@ -127,6 +130,7 @@
 	<a href="https://twitter.com/claustn" rel="me"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a>
 	
 	
+	
 	<a href="https://facebook.com/claus.t.nielsen.37" rel="me"><i class="fab fa-facebook-f"></i></a>
 	
 	
@@ -148,7 +152,11 @@
 	
 	
 	
+	
 	<a href="mailto:claustnspam@gmail.com" rel="me"><i class="fas fa-at fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
 	
 </section>
 
@@ -222,7 +230,7 @@ Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.c
   <div class="post">
     <p>The other day I was tasked with creating a spreadsheet containing a list of all servers in our network, manager wanted a &ldquo;sheet&rdquo; for each computer, and an &ldquo;index&rdquo; sheet with links to all the other sheets.</p>
 <p>Since we have more than 150 servers, there was no way I was going to create this list by hand&hellip; So I wrote a quick and dirty little Powershell function.</p>
-<p>[sourcecode lang=&quot;PosH&rdquo;]</p>
+<p>[sourcecode lang=&ldquo;PosH&rdquo;]</p>
 <p>Function Fill-Excel {<br>
 BEGIN {<br>
 $xl = new-object -comobject excel.application<br>
@@ -240,8 +248,8 @@ $z = $q.ToUpper()<br>
 $xl.Sheets.Add()<br>
 $xl.ActiveSheet.Name = $z<br>
 $wh = $xl.ActiveSheet<br>
-$wh.Cells.Item(1,1) = &ldquo;=HYPERLINK(<code>&quot;[test.xlsx]List!A1</code>&rdquo;;<code>&quot;Back To List</code>&rdquo;)&rdquo;<br>
-$ws.Cells.Item($row,1) = &ldquo;=HYPERLINK(<code>&quot;[test.xlsx]$z!A1</code>&rdquo;;<code>&quot;$z</code>&rdquo;)&rdquo;<br>
+$wh.Cells.Item(1,1) = &ldquo;=HYPERLINK(<code>&quot;[test.xlsx]List!A1</code>&quot;;<code>&quot;Back To List</code>&quot;)&rdquo;<br>
+$ws.Cells.Item($row,1) = &ldquo;=HYPERLINK(<code>&quot;[test.xlsx]$z!A1</code>&quot;;<code>&quot;$z</code>&quot;)&rdquo;<br>
 $row++<br>
 }<br>
 }</p>
@@ -250,7 +258,7 @@ $s | Fill-Excel<br>
 [/sourcecode]</p>
 <p>This will open the xslx filed called test.xlsx under c:\temp and create an index sheet called &ldquo;list&rdquo;, and a sheet for each object that is passed to the function, it also creates a Link in A1 that refers back to the index sheet. On the Index sheet a link to each new sheet is created.</p>
 <p>In the above example I &ldquo;manually&rdquo; pipe in some text string, but it could also be something like this:</p>
-<p>[sourcecode lang=&quot;PosH&rdquo;]</p>
+<p>[sourcecode lang=&ldquo;PosH&rdquo;]</p>
 <h1 id="heading"></h1>
 <h1 id="heading-1"></h1>
 <p>$s = Get-QADComputer | Where {$_.OSname -match &ldquo;Server&rdquo;} | select name<br>
@@ -318,12 +326,11 @@ $s | Fill-Excel<br>
         
     
 
-<script defer src="https://use.fontawesome.com/releases/v5.11.2/js/all.js" integrity="sha384-b3ua1l97aVGAPEIe48b4TC60WUQbQaGi2jqAWM90y0OZXZeyaTCWtBTKtjW2GXG1" crossorigin="anonymous"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" integrity="sha384-ZbbbT1gw3joYkKRqh0kWyRp32UAvdqkpbLedQJSlnI8iLQcFVxaGyrOgOJiDQTTR" crossorigin="anonymous"></script>
 
 
     
-    
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
         
             
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/powershell.min.js"></script>
@@ -331,7 +338,6 @@ $s | Fill-Excel<br>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/sql.min.js"></script>
             
         
-    
     <script type="text/javascript">
         
         hljs.configure({languages: ["powershell, sql"]});
@@ -339,7 +345,6 @@ $s | Fill-Excel<br>
         hljs.initHighlightingOnLoad();
     </script>
     
-
 
 
 

@@ -8,10 +8,9 @@
     <link href="https://gmpg.org/xfn/11" rel="profile">
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta http-equiv="Cache-Control" content="public" />
 <!-- Enable responsiveness on mobile devices -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="generator" content="Hugo 0.71.0" />
+<meta name="generator" content="Hugo 0.79.0" />
 
     
     
@@ -71,7 +70,11 @@
   <div class="container ">
     <div class="sidebar-about">
       <span class="site__title">
-        <a href="/">XenoBlog</a>
+        <a href="/">
+        
+          XenoBlog
+        
+        </a>
       </span>
       
         
@@ -127,6 +130,7 @@
 	<a href="https://twitter.com/claustn" rel="me"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a>
 	
 	
+	
 	<a href="https://facebook.com/claus.t.nielsen.37" rel="me"><i class="fab fa-facebook-f"></i></a>
 	
 	
@@ -148,7 +152,11 @@
 	
 	
 	
+	
 	<a href="mailto:claustnspam@gmail.com" rel="me"><i class="fas fa-at fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
 	
 </section>
 
@@ -209,7 +217,7 @@ Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.c
   <div class="post">
     <p>Since I once in a while post powershell scripts on my site, I like that fact that I can have them color highlighted for better readability, so I played around with several different syntax highlighters, but none of them was able to do powershell, so I created a brush for Syntax highligther plus.</p>
 <p>This is my initial attempt, updated to work with Syntax Highlighter plus 2<br>
-[Sourcecode lang='posh&rsquo;]</p>
+[Sourcecode lang=&lsquo;posh&rsquo;]</p>
 <h1 id="heading"></h1>
 <h1 id="httpwwwxipherdk"><a href="http://www.xipher.dk">http://www.xipher.dk</a></h1>
 <h1 id="heading-1"></h1>
@@ -254,7 +262,7 @@ var builtins = &lsquo;ForEach-Object Format-Custom Format-List Format-Table Form
 {regex: SyntaxHighlighter.RegexLib.DoubleQuotedString, css: &lsquo;string&rsquo;},<br>
 {regex: SyntaxHighlighter.RegexLib.SingleQuotedString, css: &lsquo;string&rsquo;},<br>
 /* deliminators */<br>
-{regex: new RegExp('[()[\]{}]', &lsquo;g&rsquo;), css: &lsquo;delim&rsquo;},<br>
+{regex: new RegExp('[()[\]{}]&rsquo;, &lsquo;g&rsquo;), css: &lsquo;delim&rsquo;},<br>
 /* variables */<br>
 {regex: new RegExp('\$\w+&rsquo;, &lsquo;g&rsquo;), css: &lsquo;vars&rsquo;},<br>
 {regex: new RegExp('\w+=&rsquo;, &lsquo;g&rsquo;), css: &lsquo;vars&rsquo;},<br>
@@ -270,7 +278,7 @@ var builtins = &lsquo;ForEach-Object Format-Custom Format-List Format-Table Form
 SyntaxHighlighter.Brushes.PoSh.Aliases = [&lsquo;PoSh&rsquo;, &lsquo;ps&rsquo;];</p>
 <p>[/sourcecode]</p>
 <p>I modified a version made by Joel Bennet to work with version 2 as well.</p>
-<p>[sourcecode lang='posh&rsquo;]</p>
+<p>[sourcecode lang=&lsquo;posh&rsquo;]</p>
 <p>/*Updated to v2 by Claus T Nielsen (Xipher.dk */<br>
 /* Powershell 1.0 syntax contributed by Joel Bennett */<br>
 SyntaxHighlighter.brushes.PowerShell = function()<br>
@@ -280,16 +288,16 @@ var keywords = &lsquo;while until trap switch return ref process param in if glo
 <p>var verbs = &lsquo;Write Wrap Width Where Whatif Warning Wait Version Verify Verbose Value UserName URL Update Unlock Unique Uninstall TypeName TrustLevel Trusted Truncate Trace TimeStamp TimeOut TID Test Temp Tee Suspend Strict Stop Statistic State Start Split Speed SortBy Sort Size SID Shortname Set Send Select Scope SaveCred Role Retry Resume Restore Restart Resolve Resize Repair Rename Remove Regex Recurse Receive Reason ReadOnly Read Push Property Prompt Privilege Priority PrinterName PrincipalName PortName Pop Ping Password PassThru ParentID Parameter Owner Overwrite Output Out Operation Notify NewLine New Name Move Most Modified Minimum Migrate Merge Measure Maximum MacName LogName Log Lock Location LineCount Limit KeyLength KeyContainerName KeyAlgorithm Join JobName IpAddress Invoke Interval InterfaceName Interactive Install Insert Input Initialize Incremental Include Import Ignore Id Group Get From Format ForEach Force Follow Filter FileName Fast Export Exclude Exact EventName ErrorLimit ErrorLevel Erase Encrypt Encoding Enable Elapsed DriveName Drain DomainName Disconnect Disable DirectoryName Description Descending Delete Default Debug Data Verbs CSPType CSPName Created Create Count Copy ConvertTo ConvertFrom Convert Continuous Connect Confirm ComputerName Compress Compatible Compare Command ClusterName Clear ClassName Checkpoint Char CertUsage CertSubjectName CertStoreLocation CertSerialNumber CertRequestFileName CertIssuerName CertFile CaseSensitive Cache BlockCount Binary Before AttributeName AssemblyName Ascending As ApplicationName Allocation All After Add ACL Accessed&rsquo;;</p>
 <p>this.regexList = [<br>
 { regex: SyntaxHighlighter.regexLib.singleLinePerlComments, css: &lsquo;color4&rsquo; }, // one line comments<br>
-{ regex: new RegExp('@&quot;\n[\s\S]*?\n&rdquo;@', &lsquo;gm&rsquo;), css: &lsquo;string&rsquo; }, // double quoted here-strings<br>
+{ regex: new RegExp('@&quot;\n[\s\S]*?\n&quot;@&rsquo;, &lsquo;gm&rsquo;), css: &lsquo;string&rsquo; }, // double quoted here-strings<br>
 { regex: new RegExp(&quot;@'\n[\s\S]*?\n&rsquo;@&quot;, &lsquo;gm&rsquo;), css: &lsquo;string&rsquo; }, // single quoted here-strings<br>
-{ regex: new RegExp('&quot;(?:\$\([^\)]*\)|[^&rdquo;]|<code>&quot;)*[^</code>]&quot;',&lsquo;g&rsquo;), css: &lsquo;string&rsquo; }, // double quoted strings<br>
-{ regex: new RegExp(&quot;'[^&rsquo;]*'&quot;, &lsquo;g&rsquo;), css: &lsquo;string&rsquo; }, // single quoted strings<br>
-{ regex: new RegExp('(?:&lsquo;+verbs.replace(/ /g, &lsquo;\b|\b&rsquo;)+&rsquo;)-[a-zA-Z_][a-zA-Z0-9_]*', &lsquo;gmi&rsquo;), css: &lsquo;cmdlet&rsquo; }, // cmdlets<br>
-{ regex: new RegExp('\[[A-Z_\[][A-Z0-9_. ,\[\]]*\]*', &lsquo;gi&rsquo;), css: &lsquo;color2&rsquo; }, // .Net [Type]s<br>
+{ regex: new RegExp('&quot;(?:\$\([^\)]*\)|[^&quot;]|<code>&quot;)*[^</code>]&quot;&rsquo;,&lsquo;g&rsquo;), css: &lsquo;string&rsquo; }, // double quoted strings<br>
+{ regex: new RegExp(&quot;'[^']*'&quot;, &lsquo;g&rsquo;), css: &lsquo;string&rsquo; }, // single quoted strings<br>
+{ regex: new RegExp('(?:'+verbs.replace(/ /g, &lsquo;\b|\b&rsquo;)+')-[a-zA-Z_][a-zA-Z0-9_]*&rsquo;, &lsquo;gmi&rsquo;), css: &lsquo;cmdlet&rsquo; }, // cmdlets<br>
+{ regex: new RegExp('\[[A-Z_\[][A-Z0-9_. ,\[\]]*\]*&rsquo;, &lsquo;gi&rsquo;), css: &lsquo;color2&rsquo; }, // .Net [Type]s<br>
 { regex: new RegExp('\$(?:(?:global|script|private|env):)?[A-Z0-9_]+&rsquo;, &lsquo;gi&rsquo;), css: &lsquo;variable&rsquo; },// $variables<br>
 { regex: new RegExp(this.getKeywords(keywords), &lsquo;gmi&rsquo;), css: &lsquo;keyword&rsquo; }, // keywords<br>
-{ regex: new RegExp('-&lsquo;+this.getKeywords(operators), &lsquo;gmi&rsquo;), css: &lsquo;constants&rsquo; }, // operators<br>
-{ regex: new RegExp('\s+-[a-zA-Z_][a-zA-Z0-9_]*', &lsquo;gmi&rsquo;), css: &lsquo;color1&rsquo; } // operators<br>
+{ regex: new RegExp('-'+this.getKeywords(operators), &lsquo;gmi&rsquo;), css: &lsquo;constants&rsquo; }, // operators<br>
+{ regex: new RegExp('\s+-[a-zA-Z_][a-zA-Z0-9_]*&rsquo;, &lsquo;gmi&rsquo;), css: &lsquo;color1&rsquo; } // operators<br>
 ]</p>
 <p>};</p>
 <p>SyntaxHighlighter.brushes.PowerShell.prototype = new SyntaxHighlighter.Highlighter();<br>
@@ -358,12 +366,11 @@ SyntaxHighlighter.brushes.PowerShell.aliases = [&lsquo;powershell&rsquo;, &lsquo
         
     
 
-<script defer src="https://use.fontawesome.com/releases/v5.11.2/js/all.js" integrity="sha384-b3ua1l97aVGAPEIe48b4TC60WUQbQaGi2jqAWM90y0OZXZeyaTCWtBTKtjW2GXG1" crossorigin="anonymous"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" integrity="sha384-ZbbbT1gw3joYkKRqh0kWyRp32UAvdqkpbLedQJSlnI8iLQcFVxaGyrOgOJiDQTTR" crossorigin="anonymous"></script>
 
 
     
-    
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
         
             
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/powershell.min.js"></script>
@@ -371,7 +378,6 @@ SyntaxHighlighter.brushes.PowerShell.aliases = [&lsquo;powershell&rsquo;, &lsquo
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/sql.min.js"></script>
             
         
-    
     <script type="text/javascript">
         
         hljs.configure({languages: ["powershell, sql"]});
@@ -379,7 +385,6 @@ SyntaxHighlighter.brushes.PowerShell.aliases = [&lsquo;powershell&rsquo;, &lsquo
         hljs.initHighlightingOnLoad();
     </script>
     
-
 
 
 

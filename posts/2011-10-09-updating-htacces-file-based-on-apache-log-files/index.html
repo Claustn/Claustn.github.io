@@ -8,10 +8,9 @@
     <link href="https://gmpg.org/xfn/11" rel="profile">
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta http-equiv="Cache-Control" content="public" />
 <!-- Enable responsiveness on mobile devices -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="generator" content="Hugo 0.71.0" />
+<meta name="generator" content="Hugo 0.79.0" />
 
     
     
@@ -71,7 +70,11 @@
   <div class="container ">
     <div class="sidebar-about">
       <span class="site__title">
-        <a href="/">XenoBlog</a>
+        <a href="/">
+        
+          XenoBlog
+        
+        </a>
       </span>
       
         
@@ -127,6 +130,7 @@
 	<a href="https://twitter.com/claustn" rel="me"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a>
 	
 	
+	
 	<a href="https://facebook.com/claus.t.nielsen.37" rel="me"><i class="fab fa-facebook-f"></i></a>
 	
 	
@@ -148,7 +152,11 @@
 	
 	
 	
+	
 	<a href="mailto:claustnspam@gmail.com" rel="me"><i class="fas fa-at fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
 	
 </section>
 
@@ -215,7 +223,7 @@ function Select-FileDialog<br>
 param(<br>
 [string]$Title,<br>
 [string]$Directory,<br>
-[string]$Filter=&quot;All Files (*.*)|*.*&quot;)<br>
+[string]$Filter=&ldquo;All Files (*.*)|*.*&quot;)<br>
 [System.Reflection.Assembly]::LoadWithPartialName(&ldquo;System.Windows.Forms&rdquo;) | Out-Null<br>
 $objForm = New-Object System.Windows.Forms.OpenFileDialog<br>
 $objForm.InitialDirectory = $Directory<br>
@@ -236,7 +244,7 @@ Write-Error &ldquo;Operation cancelled by user.&rdquo;<br>
 Param (<br>
 $Hostname<br>
 )</p>
-<p>$HtaRule = &ldquo;RewriteCond %{HTTP_REFERER} ^http://&rdquo; + &ldquo;$($hostname.replace(&quot;.&quot;,&quot;.&quot;))&rdquo; +&rdquo; [OR]&rdquo;<br>
+<p>$HtaRule = &ldquo;RewriteCond %{HTTP_REFERER} ^http://&rdquo; + &ldquo;$($hostname.replace(&rdquo;.&rdquo;,&quot;.&quot;))&quot; +&quot; [OR]&quot;<br>
 $script:BlockList += $HtaRule<br>
 }</p>
 <p>Function add-htaccess {<br>
@@ -275,11 +283,11 @@ $tempFile = [IO.Path]::GetTempFileName()<br>
 $URLCount = 15<br>
 $FTPUsername = &ldquo;Username&rdquo;<br>
 $FTPPassword = &ldquo;PassW0rd&rdquo;</p>
-<p>$BlockList = &quot;&rdquo;<br>
+<p>$BlockList = &quot;&quot;<br>
 #Create list of sites to block<br>
 $script:BlockList = @()</p>
 <p>#Get the list of URLS in the the logfile, capturing each element into different named capturing groups</p>
-<p>$urls = Select-String &lsquo;^(?&lt;client&gt;\S+)\s+(?&lt;auth&gt;\S+\s+\S+)\s+[(?&lt;datetime&gt;[^]]+)]\s+&rdquo;(?:GET|POST|HEAD) (?&lt;file&gt;[^ ?&quot;]+)??(?&lt;parameters&gt;[^ ?&quot;]+)? HTTP/[0-9.]+&rdquo;\s+(?&lt;status&gt;[0-9]+)\s+(?&lt;size&gt;[-0-9]+)\s+&rdquo;(?&lt;referrer&gt;[^&rdquo;]*)&quot;\s+&rdquo;(?&lt;useragent&gt;[^&rdquo;]*)&ldquo;$&rsquo; $log |<br>
+<p>$urls = Select-String &lsquo;^(?&lt;client&gt;\S+)\s+(?&lt;auth&gt;\S+\s+\S+)\s+[(?&lt;datetime&gt;[^]]+)]\s+&quot;(?:GET|POST|HEAD) (?&lt;file&gt;[^ ?&quot;]+)??(?&lt;parameters&gt;[^ ?&quot;]+)? HTTP/[0-9.]+&quot;\s+(?&lt;status&gt;[0-9]+)\s+(?&lt;size&gt;[-0-9]+)\s+&quot;(?&lt;referrer&gt;[^&quot;]*)&quot;\s+&quot;(?&lt;useragent&gt;[^&quot;]*)&quot;$&rsquo; $log |<br>
 Select -Expand Matches | Foreach { $_.Groups[&ldquo;referrer&rdquo;].value }</p>
 <p>#Output statistics for the referer hostnames (Only show top 15)<br>
 $urls | group | ForEach -begin { $total = 0 } `<br>
@@ -312,7 +320,7 @@ function Select-FileDialog<br>
 param(<br>
 [string]$Title,<br>
 [string]$Directory,<br>
-[string]$Filter=&quot;All Files (*.*)|*.*&quot;)<br>
+[string]$Filter=&ldquo;All Files (*.*)|*.*&quot;)<br>
 [System.Reflection.Assembly]::LoadWithPartialName(&ldquo;System.Windows.Forms&rdquo;) | Out-Null<br>
 $objForm = New-Object System.Windows.Forms.OpenFileDialog<br>
 $objForm.InitialDirectory = $Directory<br>
@@ -335,7 +343,7 @@ $log = Select-FileDialog -Title &ldquo;Select an Apache logfile&rdquo;<br>
 [/ps]</p>
 <p>A little Regex magic runs through the logfiles, and captures the different elements into different named capturing groups, in this step, I expand all referrer hostnames, and put them into the $urls variable</p>
 <p>[ps]<br>
-$urls = Select-String &lsquo;^(?&lt;client&gt;\S+)\s+(?&lt;auth&gt;\S+\s+\S+)\s+[(?&lt;datetime&gt;[^]]+)]\s+&rdquo;(?:GET|POST|HEAD) (?&lt;file&gt;[^ ?&quot;]+)??(?&lt;parameters&gt;[^ ?&quot;]+)? HTTP/[0-9.]+&rdquo;\s+(?&lt;status&gt;[0-9]+)\s+(?&lt;size&gt;[-0-9]+)\s+&rdquo;(?&lt;referrer&gt;[^&rdquo;]*)&quot;\s+&rdquo;(?&lt;useragent&gt;[^&rdquo;]*)&ldquo;$&rsquo; $log |<br>
+$urls = Select-String &lsquo;^(?&lt;client&gt;\S+)\s+(?&lt;auth&gt;\S+\s+\S+)\s+[(?&lt;datetime&gt;[^]]+)]\s+&quot;(?:GET|POST|HEAD) (?&lt;file&gt;[^ ?&quot;]+)??(?&lt;parameters&gt;[^ ?&quot;]+)? HTTP/[0-9.]+&quot;\s+(?&lt;status&gt;[0-9]+)\s+(?&lt;size&gt;[-0-9]+)\s+&quot;(?&lt;referrer&gt;[^&quot;]*)&quot;\s+&quot;(?&lt;useragent&gt;[^&quot;]*)&quot;$&rsquo; $log |<br>
 Select -Expand Matches | Foreach { $_.Groups[&ldquo;referrer&rdquo;].value }<br>
 [/ps]<br>
 I modified a script by Joel Bennet, to get a little statistics as well, since there can be 1000&rsquo;s of hostnames, I have selected only to output top 15 by default (using the $URLCount variable.</p>
@@ -417,12 +425,11 @@ RewriteRule (.*) http://%{REMOTE_ADDR}/$ [R=301,L]</p>
         
     
 
-<script defer src="https://use.fontawesome.com/releases/v5.11.2/js/all.js" integrity="sha384-b3ua1l97aVGAPEIe48b4TC60WUQbQaGi2jqAWM90y0OZXZeyaTCWtBTKtjW2GXG1" crossorigin="anonymous"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" integrity="sha384-ZbbbT1gw3joYkKRqh0kWyRp32UAvdqkpbLedQJSlnI8iLQcFVxaGyrOgOJiDQTTR" crossorigin="anonymous"></script>
 
 
     
-    
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
         
             
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/powershell.min.js"></script>
@@ -430,7 +437,6 @@ RewriteRule (.*) http://%{REMOTE_ADDR}/$ [R=301,L]</p>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/sql.min.js"></script>
             
         
-    
     <script type="text/javascript">
         
         hljs.configure({languages: ["powershell, sql"]});
@@ -438,7 +444,6 @@ RewriteRule (.*) http://%{REMOTE_ADDR}/$ [R=301,L]</p>
         hljs.initHighlightingOnLoad();
     </script>
     
-
 
 
 

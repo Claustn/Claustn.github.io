@@ -6,11 +6,7 @@
     <description>Recent content in Back on XenoBlog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 17 Dec 2008 23:00:39 +0000</lastBuildDate>
-    
-	<atom:link href="/tags/back/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 17 Dec 2008 23:00:39 +0000</lastBuildDate><atom:link href="/tags/back/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>I am back</title>
       <link>/posts/2008-12-17-i-am-back/</link>

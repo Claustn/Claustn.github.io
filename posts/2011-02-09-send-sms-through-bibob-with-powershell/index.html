@@ -8,10 +8,9 @@
     <link href="https://gmpg.org/xfn/11" rel="profile">
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta http-equiv="Cache-Control" content="public" />
 <!-- Enable responsiveness on mobile devices -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="generator" content="Hugo 0.71.0" />
+<meta name="generator" content="Hugo 0.79.0" />
 
     
     
@@ -71,7 +70,11 @@
   <div class="container ">
     <div class="sidebar-about">
       <span class="site__title">
-        <a href="/">XenoBlog</a>
+        <a href="/">
+        
+          XenoBlog
+        
+        </a>
       </span>
       
         
@@ -127,6 +130,7 @@
 	<a href="https://twitter.com/claustn" rel="me"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a>
 	
 	
+	
 	<a href="https://facebook.com/claus.t.nielsen.37" rel="me"><i class="fab fa-facebook-f"></i></a>
 	
 	
@@ -148,7 +152,11 @@
 	
 	
 	
+	
 	<a href="mailto:claustnspam@gmail.com" rel="me"><i class="fas fa-at fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
 	
 </section>
 
@@ -286,10 +294,10 @@ $MD5Password = &ldquo;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&rdquo;</p>
 $objHTTP = New-Object -ComObject MSXML2.XMLHTTP<br>
 $SoapServer = &ldquo;<a href="https://www.bibob.dk/SmsSender.asmx%22">https://www.bibob.dk/SmsSender.asmx&quot;</a></p>
 <p>$XMLString = @&rdquo;<br>
-&lt;?xml version=&quot;1.0&rdquo; encoding=&quot;utf-8&rdquo;?&gt;<br>
-&lt;soap:Envelope xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&rdquo; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&rdquo; xmlns:soap=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;<br>
+&lt;?xml version=&ldquo;1.0&rdquo; encoding=&ldquo;utf-8&rdquo;?&gt;<br>
+&lt;soap:Envelope xmlns:xsi=&ldquo;<a href="http://www.w3.org/2001/XMLSchema-instance%22">http://www.w3.org/2001/XMLSchema-instance&quot;</a> xmlns:xsd=&ldquo;<a href="http://www.w3.org/2001/XMLSchema%22">http://www.w3.org/2001/XMLSchema&quot;</a> xmlns:soap=&ldquo;<a href="http://schemas.xmlsoap.org/soap/envelope/%22">http://schemas.xmlsoap.org/soap/envelope/&quot;</a>&gt;<br>
 &lt;soap:Body&gt;<br>
-&lt;SendMessage xmlns=&quot;http://www.bibob.dk/&quot;&gt;<br>
+&lt;SendMessage xmlns=&ldquo;<a href="http://www.bibob.dk/%22">http://www.bibob.dk/&quot;</a>&gt;<br>
 &lt;cellphone&gt;$Username&lt;/cellphone&gt;<br>
 &lt;password&gt;$MD5Password&lt;/password&gt;<br>
 &lt;smsTo&gt;<br>
@@ -302,7 +310,7 @@ $SoapServer = &ldquo;<a href="https://www.bibob.dk/SmsSender.asmx%22">https://ww
 &lt;/soap:Envelope&gt;<br>
 &ldquo;@</p>
 <p>$objHTTP.open(&lsquo;POST&rsquo;, $SoapServer, $False)</p>
-<p>$objHTTP.setRequestHeader(&lsquo;Man&rsquo;, &lsquo;POST&rsquo; + ' ' + $SoapServer + ' HTTP/1.1&rsquo;)<br>
+<p>$objHTTP.setRequestHeader(&lsquo;Man&rsquo;, &lsquo;POST&rsquo; + ' ' + $SoapServer + ' HTTP/1.1')<br>
 $objHTTP.setRequestHeader(&lsquo;Host&rsquo;, &lsquo;<a href="http://www.bibob.dk">www.bibob.dk</a>&rsquo;)<br>
 $objHTTP.setRequestHeader(&lsquo;Content-Type&rsquo;, &lsquo;text/xml; charset=utf-8&rsquo;)<br>
 $objHTTP.setRequestHeader(&lsquo;Content-Length&rsquo;, $($XMLString.Length))<br>
@@ -373,12 +381,11 @@ $objHTTP.setRequestHeader(&lsquo;SOAPAction&rsquo;, &lsquo;<a href="http://www.b
         
     
 
-<script defer src="https://use.fontawesome.com/releases/v5.11.2/js/all.js" integrity="sha384-b3ua1l97aVGAPEIe48b4TC60WUQbQaGi2jqAWM90y0OZXZeyaTCWtBTKtjW2GXG1" crossorigin="anonymous"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" integrity="sha384-ZbbbT1gw3joYkKRqh0kWyRp32UAvdqkpbLedQJSlnI8iLQcFVxaGyrOgOJiDQTTR" crossorigin="anonymous"></script>
 
 
     
-    
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
         
             
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/powershell.min.js"></script>
@@ -386,7 +393,6 @@ $objHTTP.setRequestHeader(&lsquo;SOAPAction&rsquo;, &lsquo;<a href="http://www.b
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/sql.min.js"></script>
             
         
-    
     <script type="text/javascript">
         
         hljs.configure({languages: ["powershell, sql"]});
@@ -394,7 +400,6 @@ $objHTTP.setRequestHeader(&lsquo;SOAPAction&rsquo;, &lsquo;<a href="http://www.b
         hljs.initHighlightingOnLoad();
     </script>
     
-
 
 
 
