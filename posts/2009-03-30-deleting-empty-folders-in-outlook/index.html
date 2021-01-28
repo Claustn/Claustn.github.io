@@ -164,7 +164,7 @@
     </div>
     
 <div class="copyright">
-  &copy; 2007 - 2020 Xenophane
+  &copy; 2007 - 2021 Xenophane
   
     <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>
   
@@ -240,97 +240,118 @@ Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.c
     <p>A friend of mine called me, and asked me for help&hellip; He had had a migration go wrong and had ended up with a bunch of .pst files containing 1000&rsquo;s of emtpy folders. He had started cleaning up the .pst&rsquo;s manually, after having spent several hours on one .pst file he decided on another approach, and this is where I came in.</p>
 <p>He asked if it was possible to write a script that would delete all the empty folders for him, I said to him that I bet it is possible, just not sure if I can do it, I have never really &ldquo;scripted&rdquo; Outlook before..</p>
 <p>So I started looking for ways to manipulate data in Outlook and found out that the Outlook.Application COM object allowed me to manipulate folders and messages within Outlook.. Did some quick testing, told my friend that it should be possible, and that I would get back to him&hellip;</p>
-<p>After some mucking around here is what I ended up with.<br>
-[ps]<br>
-$olApp = new-object -com Outlook.Application<br>
-$namespace = $olApp.GetNamespace(&ldquo;MAPI&rdquo;)<br>
-#Root folder to match, look in your outlook and look at what folders you have.<br>
-#RooFolders could be Mailbox - &lt;username&gt;, Public folders, or other mapped in PST&rsquo;s or mailboxes.<br>
-$RootfolderToMatch = &ldquo;Inbox&rdquo;</p>
-<p>$Global:StopValue = 1</p>
-<p>Function ListEmpty {<br>
-Param ($infolder)<br>
-Foreach ($fldr in $infolder.Folders) {</p>
-<p>If ($fldr.Items.Count -eq 0 -and $fldr.Folders.Count -eq 0) {</p>
-<h1 id="i-have-had-to-check-for-system-folders-these-cannot-be-deleted-via-the-script-so-to-prevent-the-script-for-erroring-out-i-check-for-it">I have had to check for system folders, these cannot be deleted via the script, so to prevent the script for erroring out, I check for it.</h1>
-<p>if ($fldr.name -match &ldquo;Slettet&rdquo; -or $fldr.name -match &ldquo;Deleted&rdquo; -or $fldr.name -match &ldquo;journal&rdquo; -or $fldr.name -match &ldquo;rss&rdquo;<code>-or $fldr.name -match &quot;note&quot; -or $fldr.name -match &quot;kalender&quot; -or $fldr.name -match &quot;kontakt&quot; -or $fldr.name -match &quot;udbakke&quot; </code><br>
--or $fldr.name -match &ldquo;Sync&rdquo; -or $fldr.name -match &ldquo;Server&rdquo; -or $fldr.name -match &ldquo;contacts&rdquo; -or $fldr.name -match &ldquo;Outbox&rdquo; )<br>
-{&ldquo;Cannot delete systemfolder : &quot;&rdquo;&quot; + $fldr.FolderPath + &quot;&quot;</p>
-<p>}</p>
-<p>Else {<br>
-if ($fldr.Parent.name -notmatch &ldquo;slettet&rdquo; -and $fldr.Parent.name -notmatch &ldquo;Deleted&rdquo; ) {<br>
-#Remove # from the below line, to actually delete Outlook folders.<br>
-#$fldr.delete()<br>
-$fldr.FolderPath + &quot; has been deleted!!&quot;</p>
-<p>$Global:StopValue = 0<br>
-}<br>
-}<br>
-}</p>
-<p>Else {<br>
-if ($fldr.name.length -gt 0) {</p>
-<p>ListEmpty($fldr)}<br>
-}</p>
-<p>}</p>
-<p>}</p>
-<p>$RootFolders = $namespace.Folders | ?{$_.name -match $RootfolderToMatch}</p>
-<p>Listempty($RootFolders)</p>
-<p>While ($Global:StopValue -eq 0) {<br>
-$Global:StopValue = 1<br>
-Listempty($RootFolders)<br>
-}</p>
-<p>[/ps]</p>
-<p>I start by initializing the Outlook COM object, and declaring some variables<br>
-[ps]<br>
-$olApp = new-object -com Outlook.Application<br>
-$namespace = $olApp.GetNamespace(&ldquo;MAPI&rdquo;)<br>
-#Root folder to match, look in your outlook and look at what folders you have.<br>
-#RooFolders could be Mailbox - &lt;/username&gt;&lt;username&gt;, Public folders, or other mapped in PST&rsquo;s or mailboxes.<br>
-$RootfolderToMatch = &ldquo;Inbox&rdquo;</p>
-<p>$Global:StopValue = 1<br>
-[/ps]</p>
-<p>I then create a function that takes an Outlook folder as a parameter.<br>
+<p>After some mucking around here is what I ended up with.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$olApp = new-object -com Outlook.Application  
+$namespace = $olApp.GetNamespace(<span style="color:#e6db74">&#34;MAPI&#34;</span>)  
+<span style="color:#75715e">#Root folder to match, look in your outlook and look at what folders you have.  </span>
+<span style="color:#75715e">#RooFolders could be Mailbox - \&lt;username\&gt;, Public folders, or other mapped in PST&#39;s or mailboxes.  </span>
+$RootfolderToMatch = <span style="color:#e6db74">&#34;Inbox&#34;</span>
+
+$Global:StopValue = 1
+
+<span style="color:#66d9ef">Function</span> ListEmpty {  
+<span style="color:#66d9ef">Param</span> ($infolder)  
+ <span style="color:#66d9ef">Foreach</span> ($fldr <span style="color:#66d9ef">in</span> $infolder.Folders) {
+
+<span style="color:#66d9ef">If</span> ($fldr.Items.Count <span style="color:#f92672">-eq</span> 0 <span style="color:#f92672">-and</span> $fldr.Folders.Count <span style="color:#f92672">-eq</span> 0) {
+
+<span style="color:#75715e"># I have had to check for system folders, these cannot be deleted via the script, so to prevent the script for erroring out, I check for it.  </span>
+ <span style="color:#66d9ef">if</span> ($fldr.name <span style="color:#f92672">-match</span> <span style="color:#e6db74">&#34;Slettet&#34;</span> <span style="color:#f92672">-or</span> $fldr.name <span style="color:#f92672">-match</span> <span style="color:#e6db74">&#34;Deleted&#34;</span> <span style="color:#f92672">-or</span> $fldr.name <span style="color:#f92672">-match</span> <span style="color:#e6db74">&#34;journal&#34;</span> <span style="color:#f92672">-or</span> $fldr.name <span style="color:#f92672">-match</span> <span style="color:#e6db74">&#34;rss&#34;</span>`  
+ <span style="color:#f92672">-or</span> $fldr.name <span style="color:#f92672">-match</span> <span style="color:#e6db74">&#34;note&#34;</span> <span style="color:#f92672">-or</span> $fldr.name <span style="color:#f92672">-match</span> <span style="color:#e6db74">&#34;kalender&#34;</span> <span style="color:#f92672">-or</span> $fldr.name <span style="color:#f92672">-match</span> <span style="color:#e6db74">&#34;kontakt&#34;</span> <span style="color:#f92672">-or</span> $fldr.name <span style="color:#f92672">-match</span> <span style="color:#e6db74">&#34;udbakke&#34;</span> `  
+ <span style="color:#f92672">-or</span> $fldr.name <span style="color:#f92672">-match</span> <span style="color:#e6db74">&#34;Sync&#34;</span> <span style="color:#f92672">-or</span> $fldr.name <span style="color:#f92672">-match</span> <span style="color:#e6db74">&#34;Server&#34;</span> <span style="color:#f92672">-or</span> $fldr.name <span style="color:#f92672">-match</span> <span style="color:#e6db74">&#34;contacts&#34;</span> <span style="color:#f92672">-or</span> $fldr.name <span style="color:#f92672">-match</span> <span style="color:#e6db74">&#34;Outbox&#34;</span> )  
+ {<span style="color:#e6db74">&#34;Cannot delete systemfolder : &#34;&#34;&#34;</span> + $fldr.FolderPath + <span style="color:#e6db74">&#34;&#34;</span>
+
+}
+
+<span style="color:#66d9ef">Else</span> {  
+ <span style="color:#66d9ef">if</span> ($fldr.Parent.name <span style="color:#f92672">-notmatch</span> <span style="color:#e6db74">&#34;slettet&#34;</span> <span style="color:#f92672">-and</span> $fldr.Parent.name <span style="color:#f92672">-notmatch</span> <span style="color:#e6db74">&#34;Deleted&#34;</span> ) {  
+ <span style="color:#75715e">#Remove # from the below line, to actually delete Outlook folders.  </span>
+ <span style="color:#75715e">#$fldr.delete()  </span>
+ $fldr.FolderPath + <span style="color:#e6db74">&#34; has been deleted!!&#34;</span>
+
+$Global:StopValue = 0  
+ }  
+ }  
+ }
+
+<span style="color:#66d9ef">Else</span> {  
+ <span style="color:#66d9ef">if</span> ($fldr.name.length <span style="color:#f92672">-gt</span> 0) {
+
+ListEmpty($fldr)}  
+ }
+
+}
+
+}
+
+$RootFolders = $namespace.Folders | ?{$\_.name <span style="color:#f92672">-match</span> $RootfolderToMatch}
+
+Listempty($RootFolders)
+
+<span style="color:#66d9ef">While</span> ($Global:StopValue <span style="color:#f92672">-eq</span> 0) {  
+$Global:StopValue = 1  
+Listempty($RootFolders)  
+}
+</code></pre></div><p>I start by initializing the Outlook COM object, and declaring some variables</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$olApp = new-object -com Outlook.Application  
+$namespace = $olApp.GetNamespace(<span style="color:#e6db74">&#34;MAPI&#34;</span>)  
+<span style="color:#75715e">#Root folder to match, look in your outlook and look at what folders you have.  </span>
+<span style="color:#75715e">#RooFolders could be Mailbox - \&lt;/username\&gt;\&lt;username\&gt;, Public folders, or other mapped in PST&#39;s or mailboxes.  </span>
+$RootfolderToMatch = <span style="color:#e6db74">&#34;Inbox&#34;</span>
+
+$Global:StopValue = 1  
+</code></pre></div><p>I then create a function that takes an Outlook folder as a parameter.<br>
 I then loop through each subfolder, and checks to see if each folder contains any files or other folders, if it finds a folder that does not contain any files/folders it then checks to see if the folder name is something like &ldquo;outbox, sent items, Journal etc etc.&rdquo; The reason I do this is because these are system folders, and cannot be deleted, so if the script tried to delete one of them, it would come back with an error.</p>
 <p>So if the folder that is currently being checked is empty and is not a system folder it will be deleted.(Actually the line where the folder is deleted is commented out, just to make sure there is not accidental deletions) The script then recurses through all subfolders to check for empty folders.</p>
-<p>[ps]</p>
-<p>Function ListEmpty {<br>
-Param ($infolder)<br>
-Foreach ($fldr in $infolder.Folders) {</p>
-<p>If ($fldr.Items.Count -eq 0 -and $fldr.Folders.Count -eq 0) {</p>
-<h1 id="i-have-had-to-check-for-system-folders-these-cannot-be-deleted-via-the-script-so-to-prevent-the-script-for-erroring-out-i-check-for-it-1">I have had to check for system folders, these cannot be deleted via the script, so to prevent the script for erroring out, I check for it.</h1>
-<p>if ($fldr.name -match &ldquo;Slettet&rdquo; -or $fldr.name -match &ldquo;Deleted&rdquo; -or $fldr.name -match &ldquo;journal&rdquo; -or $fldr.name -match &ldquo;rss&rdquo;<code>-or $fldr.name -match &quot;note&quot; -or $fldr.name -match &quot;kalender&quot; -or $fldr.name -match &quot;kontakt&quot; -or $fldr.name -match &quot;udbakke&quot; </code><br>
--or $fldr.name -match &ldquo;Sync&rdquo; -or $fldr.name -match &ldquo;Server&rdquo; -or $fldr.name -match &ldquo;contacts&rdquo; -or $fldr.name -match &ldquo;Outbox&rdquo; )<br>
-{&ldquo;Cannot delete systemfolder : &quot;&rdquo;&quot; + $fldr.FolderPath + &quot;&quot;</p>
-<p>}</p>
-<p>Else {<br>
-if ($fldr.Parent.name -notmatch &ldquo;slettet&rdquo; -and $fldr.Parent.name -notmatch &ldquo;Deleted&rdquo; ) {<br>
-#Remove # from the below line, to actually delete Outlook folders.<br>
-#$fldr.delete()<br>
-$fldr.FolderPath + &quot; has been deleted!!&quot;</p>
-<p>$Global:StopValue = 0<br>
-}<br>
-}<br>
-}</p>
-<p>Else {<br>
-if ($fldr.name.length -gt 0) {</p>
-<p>ListEmpty($fldr)}<br>
-}</p>
-<p>}</p>
-<p>}</p>
-<p>[/PS]</p>
-<p>Rootfolders is the initial &ldquo;path&rdquo;/folder that the scripts starts to look for empty folders from.<br>
-$namespace.folders is the highest folder level in Outlook, it contains the user mailbox, public folders and any mapped in .pst files, so what I do here is match a single top level folder.</p>
-<p>Here is an example, lets say I have opened a .pst file called BusinessCases09, I would set $RootfolderToMatch equal to &lt;em&gt;BusinessCases09&lt;/em&gt; (This is set at the beginning of the script), that means when the ListEmpty function is called for the first time, it will scan through all subfolders of the .pst file.<br>
-[ps]</p>
-<p>$RootFolders = $namespace.Folders | ?{$_.name -match $RootfolderToMatch}</p>
-<p>Listempty($RootFolders)</p>
-<p>[/ps]</p>
-<p>In order to make sure the script runs to all empty folders is deleted, I have set up a while loop to call function until no more empty folders are found.<br>
-[ps]<br>
-While ($Global:StopValue -eq 0) {<br>
-$Global:StopValue = 1<br>
-Listempty($RootFolders)<br>
-[/ps]</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">
+<span style="color:#66d9ef">Function</span> ListEmpty {  
+<span style="color:#66d9ef">Param</span> ($infolder)  
+ <span style="color:#66d9ef">Foreach</span> ($fldr <span style="color:#66d9ef">in</span> $infolder.Folders) {
 
+<span style="color:#66d9ef">If</span> ($fldr.Items.Count <span style="color:#f92672">-eq</span> 0 <span style="color:#f92672">-and</span> $fldr.Folders.Count <span style="color:#f92672">-eq</span> 0) {
+
+<span style="color:#75715e"># I have had to check for system folders, these cannot be deleted via the script, so to prevent the script for erroring out, I check for it.  </span>
+ <span style="color:#66d9ef">if</span> ($fldr.name <span style="color:#f92672">-match</span> <span style="color:#e6db74">&#34;Slettet&#34;</span> <span style="color:#f92672">-or</span> $fldr.name <span style="color:#f92672">-match</span> <span style="color:#e6db74">&#34;Deleted&#34;</span> <span style="color:#f92672">-or</span> $fldr.name <span style="color:#f92672">-match</span> <span style="color:#e6db74">&#34;journal&#34;</span> <span style="color:#f92672">-or</span> $fldr.name <span style="color:#f92672">-match</span> <span style="color:#e6db74">&#34;rss&#34;</span>`  
+ <span style="color:#f92672">-or</span> $fldr.name <span style="color:#f92672">-match</span> <span style="color:#e6db74">&#34;note&#34;</span> <span style="color:#f92672">-or</span> $fldr.name <span style="color:#f92672">-match</span> <span style="color:#e6db74">&#34;kalender&#34;</span> <span style="color:#f92672">-or</span> $fldr.name <span style="color:#f92672">-match</span> <span style="color:#e6db74">&#34;kontakt&#34;</span> <span style="color:#f92672">-or</span> $fldr.name <span style="color:#f92672">-match</span> <span style="color:#e6db74">&#34;udbakke&#34;</span> `  
+ <span style="color:#f92672">-or</span> $fldr.name <span style="color:#f92672">-match</span> <span style="color:#e6db74">&#34;Sync&#34;</span> <span style="color:#f92672">-or</span> $fldr.name <span style="color:#f92672">-match</span> <span style="color:#e6db74">&#34;Server&#34;</span> <span style="color:#f92672">-or</span> $fldr.name <span style="color:#f92672">-match</span> <span style="color:#e6db74">&#34;contacts&#34;</span> <span style="color:#f92672">-or</span> $fldr.name <span style="color:#f92672">-match</span> <span style="color:#e6db74">&#34;Outbox&#34;</span> )  
+ {<span style="color:#e6db74">&#34;Cannot delete systemfolder : &#34;&#34;&#34;</span> + $fldr.FolderPath + <span style="color:#e6db74">&#34;&#34;</span>
+
+}
+
+<span style="color:#66d9ef">Else</span> {  
+ <span style="color:#66d9ef">if</span> ($fldr.Parent.name <span style="color:#f92672">-notmatch</span> <span style="color:#e6db74">&#34;slettet&#34;</span> <span style="color:#f92672">-and</span> $fldr.Parent.name <span style="color:#f92672">-notmatch</span> <span style="color:#e6db74">&#34;Deleted&#34;</span> ) {  
+ <span style="color:#75715e">#Remove # from the below line, to actually delete Outlook folders.  </span>
+ <span style="color:#75715e">#$fldr.delete()  </span>
+ $fldr.FolderPath + <span style="color:#e6db74">&#34; has been deleted!!&#34;</span>
+
+$Global:StopValue = 0  
+ }  
+ }  
+ }
+
+<span style="color:#66d9ef">Else</span> {  
+ <span style="color:#66d9ef">if</span> ($fldr.name.length <span style="color:#f92672">-gt</span> 0) {
+
+ListEmpty($fldr)}  
+ }
+
+}
+
+}
+
+</code></pre></div><p>Rootfolders is the initial &ldquo;path&rdquo;/folder that the scripts starts to look for empty folders from.<br>
+$namespace.folders is the highest folder level in Outlook, it contains the user mailbox, public folders and any mapped in .pst files, so what I do here is match a single top level folder.</p>
+<p>Here is an example, lets say I have opened a .pst file called BusinessCases09, I would set $RootfolderToMatch equal to &lt;em&gt;BusinessCases09&lt;/em&gt; (This is set at the beginning of the script), that means when the ListEmpty function is called for the first time, it will scan through all subfolders of the .pst file.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">
+$RootFolders = $namespace.Folders | ?{$\_.name <span style="color:#f92672">-match</span> $RootfolderToMatch}
+
+Listempty($RootFolders)
+
+</code></pre></div><p>In order to make sure the script runs to all empty folders is deleted, I have set up a while loop to call function until no more empty folders are found.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">While</span> ($Global:StopValue <span style="color:#f92672">-eq</span> 0) {  
+$Global:StopValue = 1  
+Listempty($RootFolders)  
+</code></pre></div>
   </div>
   
 
