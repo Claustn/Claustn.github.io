@@ -220,13 +220,13 @@ Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.c
   <div class="post">
     <p>Finally got a chance to write this long overdue blog post about getting the Kamstrup meter data into InfluxDB and graphing it using Grafana.</p>
 <p>I lost the instance of HA, where I had the previous Grafana installation and all the data, so my current setup has very limited data at the moment (Something something about real men and backups :smirk:).</p>
-<p><img src="/assets/images/2021-04-11-23-08-53.png" alt=""></p>
+<p><a href="https://xipher.dk/static/assets/images/2021-04-11-23-08-53.png"><img src="/assets/images/2021-04-11-23-08-53.png" alt=""></a></p>
 <p>Be warned this is a work in progess :smiley:</p>
 <p>A little bit of background, I am currently running all my home automations in Home Assistant(HA), and I wanted this to be part of HA as well, this will not be a full guide on how to install Add-Ons in Home Assistant, but more on setting up the integrations inside of HA.</p>
 <p>If you do not already have an MQTT broker you need to install one, I am using the <em>Mosquitto broker</em> that is available as an add-on, when you have installed it, you need to setup a user in HA that will have access to post messages to the MQTT queue, the Add-On documentation for this is very good. (I am running Hass.io on a Raspberry PI 4, so very easy to install via Supervisor)</p>
 <p>Next things to install are the InfluxDB and Grafana Add-ons, these 2 require minimal configuration in HA.</p>
 <p>My primary system is Windows so in order to test that MQTT works I am using <em>MQTT Explorer</em> from <a href="http://mqtt-explorer.com/">http://mqtt-explorer.com/</a> which I find very usefull when troubleshooting and testing, since you can both see incoming values and inject data.</p>
-<p><img src="/assets/images/2021-04-11-23-27-10.png" alt=""></p>
+<p><a href="https://xipher.dk/static/assets/images/2021-04-11-23-27-10.png"><img src="/assets/images/2021-04-11-23-27-10.png" alt=""></a></p>
 <p>At this point I had to make a decision, since Grafana cannot graph data directly from MQTT, you have to decide on how to get the data from MQTT into InfluxDB, and there are multiple ways to do this. In my initial HA setup from last year, I setup an instance of Telegraf (<a href="https://www.influxdata.com/time-series-platform/telegraf/">https://www.influxdata.com/time-series-platform/telegraf/</a>) to get data from MQTT into InfluxDB, this worked really well, the &ldquo;downside&rdquo; of this, is that the data is not directly available inside of Home Assistant, only in InfluxDB/Grafana</p>
 <p>A similar solution is to use Node Red to read the MQTT message queue and push the data into InfluxDB, this also works fine, but again you do not have the data available directly inside HA.</p>
 <p>So I decided to try, and configure HA to use InfluxDB to store its metric data, and then create <em>sensors</em>  for all the data points coming from the Kamstrup Meter</p>
@@ -241,7 +241,7 @@ Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.c
   default_measurement: state
 </code></pre><p>Then you have to restart HA, and you should start seeing data flowing into InfluxDB</p>
 <p>Then it was time to create the sensors inside of HA, this can be done on MQTT topics, for the purpose of testing I added <strong>all the things</strong>, you might want to remove the ones you do not care about, to preserve resources. (Particularly if you do not produce energy yourself, there are several topics you can ignore)</p>
-<p><img src="/assets/images/2021-04-11-23-53-24.png" alt=""></p>
+<p><a href="https://xipher.dk/static/assets/images/2021-04-11-23-53-24.png"><img src="/assets/images/2021-04-11-23-53-24.png" alt=""></a></p>
 <p>Here you can see the <em>activePower<strong>Minus</strong></em> values are <strong>0</strong>, because I do not produce any power</p>
 <p>Here is a sensor config that incluces everything, this can also be found <a href="https://github.com/Claustn/esp8266-kamstrup-mqtt/blob/master/Home_Assistant/sensors.yml">here</a></p>
 <pre><code>sensor:  
@@ -366,7 +366,7 @@ Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.c
     unit_of_measurement: &quot;KWh&quot;
     state_topic: &quot;kamstrup/energy/reactiveExportKWh&quot;
 </code></pre><p>Doing it this way means that all the Kamstrup meter data will show up as sensors in HA, and you can use them in your automations</p>
-<p><img src="/assets/images/2021-04-11-23-41-28.png" alt=""></p>
+<p><a href="https://xipher.dk/static/assets/images/2021-04-11-23-41-28.png"><img src="/assets/images/2021-04-11-23-41-28.png" alt=""></a></p>
 <p>I published the grafana Dashboard json <a href="https://github.com/Claustn/esp8266-kamstrup-mqtt/blob/master/Grafana/power_usage_info.json">here</a></p>
 <p>I am looking forward to testing this some more, to see how stable it is&hellip; (I have heard of people having issues with too many MQTT based sensors, but will let it run for a while and report back :smile:)</p>
 
