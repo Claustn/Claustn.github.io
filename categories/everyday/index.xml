@@ -9,10 +9,10 @@
     <lastBuildDate>Sat, 16 May 2020 12:58:34 +0000</lastBuildDate><atom:link href="/categories/everyday/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Using ESP8266 to monitor Kamstrup Omnipower</title>
-      <link>/posts/2020-05-17-using-esp8266-to-monitor-kamstrup-omnipower/</link>
+      <link>/posts/2020-05-17-using-esp8266-to-monitor-kamstrup-omnipower-copy/</link>
       <pubDate>Sat, 16 May 2020 12:58:34 +0000</pubDate>
       
-      <guid>/posts/2020-05-17-using-esp8266-to-monitor-kamstrup-omnipower/</guid>
+      <guid>/posts/2020-05-17-using-esp8266-to-monitor-kamstrup-omnipower-copy/</guid>
       <description>(This is what I did to get it working with the Kamstrup Omnipower as a Radius customer, Danish Power Company)
 Over the years as the kids have gotten older, our electrical bill has just gone up and up, and I have been wondering what and when we were using all that power.</description>
     </item>
@@ -741,6 +741,16 @@ Jeg har ligget med feber og hovedpine siden onsdag&amp;hellip; Igår fredag var 
       <guid>/posts/2007-05-18-hjemme-igen/</guid>
       <description>Så er det hverdag igen, men man kan jo ikke klage, når man kun skal på arbejde 3 dage på en uge :=)
 Lige nu sidder jeg i toget, på vej mod Århus, skal til fødselsdag imorgen lørdag, hos en kammerat i Silkeborg, så tænkte jeg jeg lige kunne bruge lidt tid i Århus, og mødes med de venner jeg nu har, der bor der.</description>
+    </item>
+    
+    <item>
+      <title>Using Grafana to monitor powerusage on Kamstrup Power meter</title>
+      <link>/posts/2021-04-11-using-grafana-to-monitor-kamstrup-omnipower/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2021-04-11-using-grafana-to-monitor-kamstrup-omnipower/</guid>
+      <description>Finally got a chance to write this long overdue blog post about getting the Kamstrup meter data into InfluxDB and graphing it using Grafana.
+I lost the instance of HA, where I had the previous Grafana installation and all the data, so my current setup has very limited data at the moment (Something something about real men and backups :smirk:)</description>
     </item>
     
   </channel>

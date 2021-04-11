@@ -9,10 +9,10 @@
     <lastBuildDate>Sat, 16 May 2020 12:58:34 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Using ESP8266 to monitor Kamstrup Omnipower</title>
-      <link>/posts/2020-05-17-using-esp8266-to-monitor-kamstrup-omnipower/</link>
+      <link>/posts/2020-05-17-using-esp8266-to-monitor-kamstrup-omnipower-copy/</link>
       <pubDate>Sat, 16 May 2020 12:58:34 +0000</pubDate>
       
-      <guid>/posts/2020-05-17-using-esp8266-to-monitor-kamstrup-omnipower/</guid>
+      <guid>/posts/2020-05-17-using-esp8266-to-monitor-kamstrup-omnipower-copy/</guid>
       <description>(This is what I did to get it working with the Kamstrup Omnipower as a Radius customer, Danish Power Company)
 Over the years as the kids have gotten older, our electrical bill has just gone up and up, and I have been wondering what and when we were using all that power.</description>
     </item>
@@ -1364,6 +1364,16 @@ Det lader til at nu er internettet blevet ratet PG-18.</description>
       <guid>/posts/2007-04-30-f%C3%B8rste-post-fra-usa/</guid>
       <description>Så er jeg endeligt kommet til Virgina, og har fået hentet min Amerikanske flyder :)
 En Chevrolet Impala 2007, den er lidt større end Toyotaen derhjemme&amp;hellip; Og meget underligt, jeg trykkede på en knap på bakspejlet, så lige pludseligt var der en i den anden ende&amp;hellip; Ved ikke rigtigt om det er fordi folk herovre keder sig, når de kører bil.</description>
+    </item>
+    
+    <item>
+      <title>Using Grafana to monitor powerusage on Kamstrup Power meter</title>
+      <link>/posts/2021-04-11-using-grafana-to-monitor-kamstrup-omnipower/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2021-04-11-using-grafana-to-monitor-kamstrup-omnipower/</guid>
+      <description>Finally got a chance to write this long overdue blog post about getting the Kamstrup meter data into InfluxDB and graphing it using Grafana.
+I lost the instance of HA, where I had the previous Grafana installation and all the data, so my current setup has very limited data at the moment (Something something about real men and backups :smirk:)</description>
     </item>
     
   </channel>
