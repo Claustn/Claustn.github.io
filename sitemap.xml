@@ -4,26 +4,31 @@
   
   <url>
     <loc>/categories/</loc>
-    <lastmod>2020-05-16T12:58:34+00:00</lastmod>
+    <lastmod>2021-04-11T12:58:34+00:00</lastmod>
   </url>
   
   <url>
     <loc>/categories/everyday/</loc>
-    <lastmod>2020-05-16T12:58:34+00:00</lastmod>
+    <lastmod>2021-04-11T12:58:34+00:00</lastmod>
   </url>
   
   <url>
     <loc>/posts/</loc>
-    <lastmod>2020-05-16T12:58:34+00:00</lastmod>
+    <lastmod>2021-04-11T12:58:34+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/posts/2020-05-17-using-esp8266-to-monitor-kamstrup-omnipower-copy/</loc>
-    <lastmod>2020-05-16T12:58:34+00:00</lastmod>
+    <loc>/posts/2021-04-11-using-grafana-to-monitor-kamstrup-omnipower/</loc>
+    <lastmod>2021-04-11T12:58:34+00:00</lastmod>
   </url>
   
   <url>
     <loc>/</loc>
+    <lastmod>2021-04-11T12:58:34+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/2020-05-17-using-esp8266-to-monitor-kamstrup-omnipower-copy/</loc>
     <lastmod>2020-05-16T12:58:34+00:00</lastmod>
   </url>
   
@@ -1210,10 +1215,6 @@
   <url>
     <loc>/posts/2007-04-30-f%C3%B8rste-post-fra-usa/</loc>
     <lastmod>2007-04-30T06:00:09+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/posts/2021-04-11-using-grafana-to-monitor-kamstrup-omnipower/</loc>
   </url>
   
 </urlset>

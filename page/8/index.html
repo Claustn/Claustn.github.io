@@ -22,7 +22,7 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="/" />
-<meta property="og:updated_time" content="2020-05-16T12:58:34+00:00" /><meta property="og:site_name" content="XenoBlog" />
+<meta property="og:updated_time" content="2021-04-11T12:58:34+00:00" /><meta property="og:site_name" content="XenoBlog" />
 
 
     
@@ -179,6 +179,36 @@ Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.c
   <div class="post-list">
     
     
+      
+        
+      
+      <div class="post-list__item">
+        <span class="item__title--big">
+          <a href="/posts/2009-03-11-get-mailboxinfo-powershell-script/" >Get-Mailboxinfo Powershell script</a>
+        </span>
+        <span class="item__date">
+          Mar 11, 2009
+        </span>
+        <span >
+        
+        $script:totalSize += ([System.Int64]$mailbox.Size)
+$script:totalItems += ([System.Int32]$mailbox.TotalItems)
+$script:totalDeleted += ([System.Int64]$mailbox.DeletedMessageSizeExtended)
+$script:totalMailboxes += 1
+}
+}
+}
+}
+&ldquo;Mailbox name Mailbox size Item count Deleted size&rdquo; | Out-File $OutPutFile -append
+&ldquo;==================================================================================&rdquo; | Out-File $OutPutFile -append
+        
+        </span>
+        
+          ... <a class="read-more-symbol" href="/posts/2009-03-11-get-mailboxinfo-powershell-script/">➦</a>
+        
+        </div>
+        
+     
       
         
       
@@ -365,27 +395,6 @@ I know I have been away for a while, but between becoming a dad, starting a new 
         </span>
         
           ... <a class="read-more-symbol" href="/posts/2008-12-17-i-am-back/">➦</a>
-        
-        </div>
-        
-     
-      
-        
-      
-      <div class="post-list__item">
-        <span class="item__title--big">
-          <a href="/posts/2008-06-04-powershell-tombstone-revival/" >PowerShell TombStone revival</a>
-        </span>
-        <span class="item__date">
-          Jun 4, 2008
-        </span>
-        <span >
-        
-        Our friend Darren Mar-Elia over at SDM software has just released some nice PowerShell cmdlets, to view Tombstoned objects in AD&hellip; You can even revive(or reanimate them as I think the correct AD term is) them as well.
-        
-        </span>
-        
-          ... <a class="read-more-symbol" href="/posts/2008-06-04-powershell-tombstone-revival/">➦</a>
         
         </div>
         

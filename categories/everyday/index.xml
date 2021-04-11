@@ -6,7 +6,17 @@
     <description>Recent content in Everyday on XenoBlog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 16 May 2020 12:58:34 +0000</lastBuildDate><atom:link href="/categories/everyday/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 11 Apr 2021 12:58:34 +0000</lastBuildDate><atom:link href="/categories/everyday/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Using Grafana to monitor powerusage on Kamstrup Power meter</title>
+      <link>/posts/2021-04-11-using-grafana-to-monitor-kamstrup-omnipower/</link>
+      <pubDate>Sun, 11 Apr 2021 12:58:34 +0000</pubDate>
+      
+      <guid>/posts/2021-04-11-using-grafana-to-monitor-kamstrup-omnipower/</guid>
+      <description>Finally got a chance to write this long overdue blog post about getting the Kamstrup meter data into InfluxDB and graphing it using Grafana.
+I lost the instance of HA, where I had the previous Grafana installation and all the data, so my current setup has very limited data at the moment (Something something about real men and backups :smirk:).</description>
+    </item>
+    
     <item>
       <title>Using ESP8266 to monitor Kamstrup Omnipower</title>
       <link>/posts/2020-05-17-using-esp8266-to-monitor-kamstrup-omnipower-copy/</link>
@@ -741,16 +751,6 @@ Jeg har ligget med feber og hovedpine siden onsdag&amp;hellip; Igår fredag var 
       <guid>/posts/2007-05-18-hjemme-igen/</guid>
       <description>Så er det hverdag igen, men man kan jo ikke klage, når man kun skal på arbejde 3 dage på en uge :=)
 Lige nu sidder jeg i toget, på vej mod Århus, skal til fødselsdag imorgen lørdag, hos en kammerat i Silkeborg, så tænkte jeg jeg lige kunne bruge lidt tid i Århus, og mødes med de venner jeg nu har, der bor der.</description>
-    </item>
-    
-    <item>
-      <title>Using Grafana to monitor powerusage on Kamstrup Power meter</title>
-      <link>/posts/2021-04-11-using-grafana-to-monitor-kamstrup-omnipower/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/2021-04-11-using-grafana-to-monitor-kamstrup-omnipower/</guid>
-      <description>Finally got a chance to write this long overdue blog post about getting the Kamstrup meter data into InfluxDB and graphing it using Grafana.
-I lost the instance of HA, where I had the previous Grafana installation and all the data, so my current setup has very limited data at the moment (Something something about real men and backups :smirk:).</description>
     </item>
     
   </channel>
