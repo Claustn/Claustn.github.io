@@ -6,7 +6,17 @@
     <description>Recent content on XenoBlog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 11 Apr 2021 12:58:34 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 30 Dec 2021 12:58:34 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Running HomeAssistant on  TrueNAS Scale</title>
+      <link>/posts/2021-12-30-running-homeassistant-truenas-scale/</link>
+      <pubDate>Thu, 30 Dec 2021 12:58:34 +0000</pubDate>
+      
+      <guid>/posts/2021-12-30-running-homeassistant-truenas-scale/</guid>
+      <description>What is a christmas without breaking stuff (In the last week my battery died in the car, pipe burst inside our washing machine and had central heating issues)
+So I though why not mess with HomeAssistant as well 😏 I have a small SuperMicro server that I have not used for a while, so I decided I wanted to try an run UnRaid on it to move my HomeAssistant from my Raspberry PI 4.</description>
+    </item>
+    
     <item>
       <title>Using Grafana to monitor power usage on Kamstrup Power meter</title>
       <link>/posts/2021-04-11-using-grafana-to-monitor-kamstrup-omnipower/</link>
