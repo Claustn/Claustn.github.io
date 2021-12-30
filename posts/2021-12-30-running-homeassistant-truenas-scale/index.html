@@ -220,15 +220,15 @@ Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.c
   <div class="post">
     <p>What is a christmas without breaking stuff (In the last week my battery died in the car, pipe burst inside our washing machine and had central heating issues)</p>
 <p>So I though why not mess with HomeAssistant as well 😏 I have a small SuperMicro server that I have not used for a while, so I decided I wanted to try an run UnRaid on it to move my HomeAssistant from my Raspberry PI 4.</p>
-<p><img src="content/static/assets/images/2021-12-30-15-43-47.png" alt=""></p>
+<p><img src="https://xipher.dk/static/assets/images/2021-12-30-15-43-47.png" alt=""></p>
 <p>But after some research I discovered that some people claimed that issues could occur running UnRaid on a machine that purely has SSD&rsquo;s because of some TRIM issues with BTRFS.</p>
 <p>So I decided to try out the new <strong>TrueNAS Scale</strong> which runs on Debian so I could use KVM and Docker instead of Bhyve and Jails (Be aware it is still only a Release Candidate)</p>
 <p>This is not a guide on how to use <strong>TrueNAS Scale</strong> this is just getting HomeAssistant running as a VM inside of TrueNAS</p>
 <p><em>(Word of warning I am not a Linux guy, so I might have overlooked something that could have made this simpler)</em></p>
 <p>Under storage you have to create a new <strong>zvol</strong></p>
-<p><img src="../static/assets/images/2021-12-30-15-52-02.png" alt=""></p>
+<p><img src="https://xipher.dk/static/assets/images/2021-12-30-15-52-02.png" alt=""></p>
 <p>Then you give it a name and a size and decide what other ZFS features you want to enable&hellip; (I have just left them with their default values)</p>
-<p><img src="../static/assets/images/2021-12-30-15-54-00.png" alt=""></p>
+<p><img src="https://xipher.dk/static/assets/images/2021-12-30-15-54-00.png" alt=""></p>
 <p>Then I had to go to the <strong>shell</strong> under <strong>System Settings</strong></p>
 <p>First I had to download the HassOS image (I have recently done some converting from vmdk to Qemu/KVM at work, so I chose to download the .ova file, because I knew the commands to convert it)</p>
 <pre><code>wget https://github.com/home-assistant/operating-system/releases/download/7.1/haos_ova-7.1.ova
@@ -245,7 +245,7 @@ Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.c
 <li><strong>CPU and Memory</strong> -  Decide the amount of resources your machine needs</li>
 <li><strong>Disks</strong> - Here you select <strong>Use Existing Disk</strong> and the size of your disk, and then point it to the <strong>zvol</strong> you created earlier</li>
 </ol>
-<p><img src="../static/assets/images/2021-12-30-16-06-49.png" alt=""></p>
+<p><img src="https://xipher.dk/static/assets/images/2021-12-30-16-06-49.png" alt=""></p>
 <ol start="4">
 <li><strong>Network Interface</strong> - Just left the default values</li>
 <li><strong>Installation Media</strong> - Just left the default values</li>
@@ -255,7 +255,7 @@ Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.c
 I tried running <strong>lsusb</strong> from the shell, but that was not installed, so I had to try and figure out the USB information from <strong>dmesg</strong></p>
 <pre><code>dmesg | greb usb
 </code></pre><p>In order to map it into the machine I need the idVendor and idProduct</p>
-<p><img src="../static/assets/images/2021-12-30-16-17-53.png" alt=""></p>
+<p><img src="https://xipher.dk/static/assets/images/2021-12-30-16-17-53.png" alt=""></p>
 <p>Then I created the an <strong>addusb.xml</strong> file containing</p>
 <pre><code>&lt;hostdev mode='subsystem' type='usb'&gt;
   &lt;source&gt;
