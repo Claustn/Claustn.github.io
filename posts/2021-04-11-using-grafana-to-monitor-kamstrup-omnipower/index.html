@@ -243,7 +243,7 @@ Be warned this is a work in progess :smiley:</p>
 <p>Then it was time to create the sensors inside of HA, this can be done on MQTT topics, for the purpose of testing I added <strong>all the things</strong>, you might want to remove the ones you do not care about, to preserve resources. (Particularly if you do not produce energy yourself, there are several topics you can ignore)</p>
 <p><a href="https://xipher.dk/static/assets/images/2021-04-11-23-53-24.png"><img src="https://xipher.dk/static/assets/images/2021-04-11-23-53-24.png" alt="Power Info"></a></p>
 <p>Here you can see the <em>activePower<strong>Minus</strong></em> values are <strong>0</strong>, because I do not produce any power</p>
-<p>Here is a sensor config that incluces everything, this can also be found <a href="https://github.com/Claustn/esp8266-kamstrup-mqtt/blob/master/Home_Assistant/sensors.yml">here</a></p>
+<p>Here is a sensor config that includes everything, this can also be found <a href="https://github.com/Claustn/esp8266-kamstrup-mqtt/blob/master/Home_Assistant/sensors.yml">here</a></p>
 <pre><code>sensor:  
   - platform: mqtt
     name: &quot;Kamstrup activePowerPlus &quot;
@@ -380,6 +380,11 @@ Be warned this is a work in progess :smiley:</p>
       <span class="navigation-tittle">Using ESP8266 to monitor Kamstrup Omnipower</span>
     </a>
     
+    
+    <a href="/posts/2021-12-30-running-homeassistant-truenas-scale/" class="navigation-next">
+      <span class="navigation-tittle">Running HomeAssistant on  TrueNAS Scale</span>
+      <i aria-hidden="true" class="fa fa-chevron-right"></i>
+    </a>
     
 </div>
 
